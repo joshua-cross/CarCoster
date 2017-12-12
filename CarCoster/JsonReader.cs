@@ -14,11 +14,11 @@ namespace CarCoster
     {
         List<Car> cars = new List<Car>();
 
+        //default constructor.
         public JsonReader()
         {
 
-            string thisDirectory = Directory.GetCurrentDirectory().ToString();
-            string fileLoc = thisDirectory + @"\Json\CarCost.json";
+            string fileLoc = getJsonLocation();
 
             using (StreamReader r = new StreamReader(fileLoc))
             {
@@ -33,9 +33,17 @@ namespace CarCoster
 
         }
 
+
+
         public List<Car> getCars()
         {
             return cars;
+        }
+
+        public string getJsonLocation()
+        {
+            string thisDirectory = Directory.GetCurrentDirectory().ToString();
+            return thisDirectory + @"\Json\CarCost.json";
         }
     }
 }

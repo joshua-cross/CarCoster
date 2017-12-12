@@ -37,10 +37,10 @@ namespace CarCoster
 
         private void drawListBox(JsonReader json)
         {
+            cars = json.getCars();
 
             /*List of string that will hold each of the unique manufactorers.*/
             List<string> manufactorers = new List<string>();
-            List<Car> cars = json.getCars();
             try
             {
                 foreach (Car car in cars)
@@ -78,5 +78,30 @@ namespace CarCoster
 
             }
         }
+
+        /*Function for when an item is selected in the CarBox.*/
+        private void CarBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ModelBox.Items.Clear();
+            
+            /*The manufactorer that has been selected by the CarBox*/
+            string manufactorer = CarBox.SelectedItem.ToString();
+            /*Getting the models*/
+            //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
+            Title.Text = manufactorer;
+
+            List<string> models = new List<string>();
+
+            IEnumerable<Car> newCars = cars.Where(car => car.Manufacturer == manufactorer);
+
+            Title.Text = newCars.Count().ToString();
+
+            foreach (var car in newCars)
+            {
+                ModelBox.Items.Add(car.Model.ToString());
+            }
+
+        }
+
     }
 }
