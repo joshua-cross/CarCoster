@@ -1,0 +1,11 @@
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\CarCoster.exe.config
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\CarCoster.exe
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\CarCoster.pdb
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.csprojResolveAssemblyReference.cache
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Form1.resources
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Properties.Resources.resources
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.csproj.GenerateResource.Cache
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.csproj.CoreCompileInputs.cache
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.exe
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.pdb
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\LeafIcon.png
