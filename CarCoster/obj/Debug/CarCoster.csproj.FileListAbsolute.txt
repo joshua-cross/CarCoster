@@ -9,3 +9,6 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.csproj.CoreCo
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.exe
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.pdb
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\LeafIcon.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Json\CarCost.json
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Newtonsoft.Json.dll
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Newtonsoft.Json.xml

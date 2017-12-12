@@ -23,7 +23,15 @@ namespace CarCoster
             string thisDirectory = Directory.GetCurrentDirectory().ToString();
             string fileLoc = thisDirectory + @"\Images\LeafIcon.png";
 
-            pictureBox1.Image = Image.FromFile(thisDirectory);
+            JsonReader json = new JsonReader();
+            List<Car> cars = json.getCars();
+            foreach (Car car in cars)
+            {
+                CarBox.Items.Add(car.Manufacturer);
+                
+            }
+
+            pictureBox1.Image = Image.FromFile(fileLoc);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             Title.Text = fileLoc;
         }
