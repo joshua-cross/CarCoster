@@ -13,7 +13,10 @@ namespace CarCoster
     public partial class Form1 : Form
     {
         List<Car> cars = new List<Car>();
-
+        CarListReader listReader = new CarListReader();
+        IEnumerable<Car> carModels = new List<Car>();
+        /*List of string that will hold each of the unique manufactorers.*/
+        List<string> manufactorers = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -38,9 +41,6 @@ namespace CarCoster
         private void drawListBox(JsonReader json)
         {
             cars = json.getCars();
-
-            /*List of string that will hold each of the unique manufactorers.*/
-            List<string> manufactorers = new List<string>();
             try
             {
                 foreach (Car car in cars)
@@ -79,10 +79,16 @@ namespace CarCoster
             }
         }
 
+        //function to clear a listBox.
+        private void clearListBox(ListBox list)
+        {
+            list.Items.Clear();
+        }
+
         /*Function for when an item is selected in the CarBox.*/
         private void CarBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ModelBox.Items.Clear();
+            clearListBox(ModelBox);
             
             /*The manufactorer that has been selected by the CarBox*/
             string manufactorer = CarBox.SelectedItem.ToString();
@@ -90,18 +96,46 @@ namespace CarCoster
             //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
             Title.Text = manufactorer;
 
-            List<string> models = new List<string>();
+            carModels = listReader.searchCars(cars, manufactorer);
 
-            IEnumerable<Car> newCars = cars.Where(car => car.Manufacturer == manufactorer);
+            Title.Text = carModels.Count().ToString();
 
-            Title.Text = newCars.Count().ToString();
-
-            foreach (var car in newCars)
+            foreach (var car in carModels)
             {
-                ModelBox.Items.Add(car.Model.ToString());
+                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
             }
 
         }
 
+        /*When the user types anything into the textbox repopulate */
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(manufactorers.Count() != 0)
+            {
+                //clearning the modelbox so we can repopulate it.
+                clearListBox(CarBox);
+
+                IEnumerable<string> searchedMakes = listReader.searchString(manufactorers, MakeBox.Text);
+
+                //Title.Text = MakeBox.Text.ToLower();
+                Title.Text = searchedMakes.Count().ToString();
+                //Title.Text = manufactorers.Count().ToString();
+
+                foreach (string car in searchedMakes)
+                {
+                    CarBox.Items.Add(car);
+                }
+
+                /*if the user has reset the search box ie. MakeBox.Text = "" then we will
+                 repopulate the listbox with all the makes.*/
+                if (MakeBox.Text.Equals(""))
+                {
+                    foreach(string car in manufactorers)
+                    {
+                        CarBox.Items.Add(car);
+                    }
+                }
+            }
+        }
     }
 }

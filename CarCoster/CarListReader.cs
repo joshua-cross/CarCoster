@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CarCoster
+{
+    class CarListReader
+    {
+        /*Function that searches the array with the parameter given
+         and then creates a new list with the results from the search.*/
+        public IEnumerable<Car> searchCars(IEnumerable<Car> cars, string searchCriteria)
+        {
+            IEnumerable<Car> newCars = cars.Where(car => car.Manufacturer == searchCriteria);
+            return newCars;
+        }
+
+        /*Functionm that searches a string array with the paramters given
+         then creates a new list with the results from the search*/
+        public IEnumerable<string> searchString(IEnumerable<string> model, string searchCriteria)
+        {
+            List<string> searchResult = new List<string>();
+
+            /*Going through the list sent through the users.*/
+            foreach(string currModel in model)
+            {
+                /*Comparing what the user has typed to the currentModel in the array
+                 and setting them both to lower case to avoid errors.*/
+                if (currModel.ToLower().Contains(searchCriteria.ToLower()))
+                {
+                    searchResult.Add(currModel);
+                }
+            }
+
+            return searchResult;
+        }
+
+    }
+}
