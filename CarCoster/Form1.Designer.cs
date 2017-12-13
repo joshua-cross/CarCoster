@@ -36,22 +36,22 @@
             this.Title = new System.Windows.Forms.Label();
             this.CarBox = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.ModelBox = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.ManufactorerSearch = new System.Windows.Forms.Label();
-            this.ModelSearch = new System.Windows.Forms.Label();
             this.MakeBox = new System.Windows.Forms.TextBox();
+            this.ManufactorerSearch = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.ModBox = new System.Windows.Forms.TextBox();
+            this.ModelSearch = new System.Windows.Forms.Label();
+            this.ModelBox = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,27 +129,6 @@
             this.panel2.Size = new System.Drawing.Size(511, 605);
             this.panel2.TabIndex = 3;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.ModelBox);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(620, 77);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(510, 605);
-            this.panel3.TabIndex = 4;
-            // 
-            // ModelBox
-            // 
-            this.ModelBox.BackColor = System.Drawing.Color.ForestGreen;
-            this.ModelBox.ForeColor = System.Drawing.Color.White;
-            this.ModelBox.FormattingEnabled = true;
-            this.ModelBox.ItemHeight = 21;
-            this.ModelBox.Location = new System.Drawing.Point(6, 92);
-            this.ModelBox.Name = "ModelBox";
-            this.ModelBox.Size = new System.Drawing.Size(490, 487);
-            this.ModelBox.TabIndex = 3;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.MakeBox);
@@ -159,6 +138,33 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(511, 66);
             this.panel4.TabIndex = 3;
+            // 
+            // MakeBox
+            // 
+            this.MakeBox.Location = new System.Drawing.Point(100, 20);
+            this.MakeBox.Name = "MakeBox";
+            this.MakeBox.Size = new System.Drawing.Size(399, 30);
+            this.MakeBox.TabIndex = 1;
+            this.MakeBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // ManufactorerSearch
+            // 
+            this.ManufactorerSearch.AutoSize = true;
+            this.ManufactorerSearch.Location = new System.Drawing.Point(13, 23);
+            this.ManufactorerSearch.Name = "ManufactorerSearch";
+            this.ManufactorerSearch.Size = new System.Drawing.Size(81, 21);
+            this.ManufactorerSearch.TabIndex = 0;
+            this.ManufactorerSearch.Text = "Search:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.ModelBox);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(620, 77);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(510, 605);
+            this.panel3.TabIndex = 4;
             // 
             // panel5
             // 
@@ -170,14 +176,13 @@
             this.panel5.Size = new System.Drawing.Size(510, 66);
             this.panel5.TabIndex = 4;
             // 
-            // ManufactorerSearch
+            // ModBox
             // 
-            this.ManufactorerSearch.AutoSize = true;
-            this.ManufactorerSearch.Location = new System.Drawing.Point(13, 23);
-            this.ManufactorerSearch.Name = "ManufactorerSearch";
-            this.ManufactorerSearch.Size = new System.Drawing.Size(81, 21);
-            this.ManufactorerSearch.TabIndex = 0;
-            this.ManufactorerSearch.Text = "Search:";
+            this.ModBox.Location = new System.Drawing.Point(97, 20);
+            this.ModBox.Name = "ModBox";
+            this.ModBox.Size = new System.Drawing.Size(399, 30);
+            this.ModBox.TabIndex = 2;
+            this.ModBox.TextChanged += new System.EventHandler(this.ModBox_TextChanged);
             // 
             // ModelSearch
             // 
@@ -188,20 +193,16 @@
             this.ModelSearch.TabIndex = 1;
             this.ModelSearch.Text = "Search:";
             // 
-            // MakeBox
+            // ModelBox
             // 
-            this.MakeBox.Location = new System.Drawing.Point(100, 20);
-            this.MakeBox.Name = "MakeBox";
-            this.MakeBox.Size = new System.Drawing.Size(399, 30);
-            this.MakeBox.TabIndex = 1;
-            this.MakeBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // ModBox
-            // 
-            this.ModBox.Location = new System.Drawing.Point(97, 20);
-            this.ModBox.Name = "ModBox";
-            this.ModBox.Size = new System.Drawing.Size(399, 30);
-            this.ModBox.TabIndex = 2;
+            this.ModelBox.BackColor = System.Drawing.Color.ForestGreen;
+            this.ModelBox.ForeColor = System.Drawing.Color.White;
+            this.ModelBox.FormattingEnabled = true;
+            this.ModelBox.ItemHeight = 21;
+            this.ModelBox.Location = new System.Drawing.Point(6, 92);
+            this.ModelBox.Name = "ModelBox";
+            this.ModelBox.Size = new System.Drawing.Size(490, 487);
+            this.ModelBox.TabIndex = 3;
             // 
             // contextMenuStrip1
             // 
@@ -231,9 +232,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);

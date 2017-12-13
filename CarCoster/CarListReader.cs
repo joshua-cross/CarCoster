@@ -16,6 +16,20 @@ namespace CarCoster
             return newCars;
         }
 
+        /*Takes in an array of cars and searches its models then returns the output*/
+        public IEnumerable<Car> searchModels(IEnumerable<Car> cars, string searchCriteria)
+        {
+            IEnumerable<Car> newCars = cars.Where(car => car.Model.ToLower().Contains(searchCriteria.ToLower()));
+            return newCars;
+        }
+
+        /*Takes in an array of cars and searches its descirption and returns the output*/
+        public IEnumerable<Car> searchDescriptions(IEnumerable<Car> cars, string searchCriteria)
+        {
+            IEnumerable<Car> newCars = cars.Where(car => car.Description.ToLower().Contains(searchCriteria.ToLower()));
+            return newCars;
+        }
+
         /*Functionm that searches a string array with the paramters given
          then creates a new list with the results from the search*/
         public IEnumerable<string> searchString(IEnumerable<string> model, string searchCriteria)

@@ -137,5 +137,41 @@ namespace CarCoster
                 }
             }
         }
+
+        private void ModBox_TextChanged(object sender, EventArgs e)
+        {
+            /*If there are models of cars in the listbox.*/
+            if(carModels.Count() != 0)
+            {
+                //clearing the ModelBox so we can replace it with the searched models.
+                clearListBox(ModelBox);
+
+                //using the CarListReader to search the Json file for the search result.
+                IEnumerable<Car> searchedModels = listReader.searchModels(carModels, ModBox.Text);
+                //searching the description for what has been typed.
+                IEnumerable<Car> searchedDescription = listReader.searchDescriptions(carModels, ModBox.Text);
+                //creating a list that contains both searchModels and searchedDescription
+                IEnumerable<Car> allSearches = searchedModels.Concat(searchedDescription);
+                Title.Text = ModBox.Text.ToLower();
+                //Title.Text = searchedModels.Count().ToString();
+
+                //for each car that contains what we searched we will print the Car and the Description.
+                foreach(Car car in allSearches)
+                {
+                    string toPrint = car.Model.ToString() + " " + car.Description.ToString();
+                    ModelBox.Items.Add(toPrint);
+                }
+
+                //if the user empties the search box then we want to refill the listbox with the array of models.
+                if(ModBox.Text.Equals(""))
+                {
+                    foreach(Car car in carModels)
+                    {
+                        string toPrint = car.Model.ToString() + " " + car.Description.ToString();
+                        ModelBox.Items.Add(toPrint);
+                    }
+                }
+            }
+        }
     }
 }
