@@ -88,7 +88,11 @@ namespace CarCoster
         /*Function for when an item is selected in the CarBox.*/
         private void CarBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+           //clearing the model searchbox as we're selecting a different model.
+            ModBox.Text = "";
+
             clearListBox(ModelBox);
+
             
             /*The manufactorer that has been selected by the CarBox*/
             string manufactorer = CarBox.SelectedItem.ToString();
@@ -112,8 +116,14 @@ namespace CarCoster
         {
             if(manufactorers.Count() != 0)
             {
-                //clearning the modelbox so we can repopulate it.
+                //clearning the CarBox so we can repopulate it.
                 clearListBox(CarBox);
+                
+                //clearing the modbox search box as we are no longer on the same manufactorer.
+                ModBox.Text = "";
+
+                //clearing the ModelBox as we are not longer on the same manufactorer.
+                clearListBox(ModelBox);
 
                 IEnumerable<string> searchedMakes = listReader.searchString(manufactorers, MakeBox.Text);
 
