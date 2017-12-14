@@ -53,6 +53,9 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.OverviewLabel = new System.Windows.Forms.Label();
             this.OverviewText = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.SaveLabel = new System.Windows.Forms.Label();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,11 +68,14 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // SideBarPanel
             // 
             this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.SideBarPanel.Controls.Add(this.SaveLabel);
+            this.SideBarPanel.Controls.Add(this.panel10);
             this.SideBarPanel.Controls.Add(this.LogoPanel);
             this.SideBarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SideBarPanel.Location = new System.Drawing.Point(0, 0);
@@ -297,6 +303,38 @@
             this.OverviewText.TabIndex = 1;
             this.OverviewText.Text = "label1";
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.SaveButton);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 77);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(109, 100);
+            this.panel10.TabIndex = 1;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.FlatAppearance.BorderSize = 0;
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.Location = new System.Drawing.Point(0, 2);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(109, 98);
+            this.SaveButton.TabIndex = 0;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // SaveLabel
+            // 
+            this.SaveLabel.AutoSize = true;
+            this.SaveLabel.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveLabel.Location = new System.Drawing.Point(3, 800);
+            this.SaveLabel.Name = "SaveLabel";
+            this.SaveLabel.Size = new System.Drawing.Size(40, 15);
+            this.SaveLabel.TabIndex = 2;
+            this.SaveLabel.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -316,6 +354,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SideBarPanel.ResumeLayout(false);
+            this.SideBarPanel.PerformLayout();
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -334,6 +373,7 @@
             this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -364,6 +404,9 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label OverviewLabel;
         private System.Windows.Forms.Label OverviewText;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label SaveLabel;
     }
 }
 

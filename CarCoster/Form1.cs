@@ -22,6 +22,9 @@ namespace CarCoster
         List<string> models = new List<string>();
         List<string> descriptions = new List<string>();
 
+        //the final car.
+        Car searchedCar;
+
         public Form1()
         {
             InitializeComponent();
@@ -213,7 +216,7 @@ namespace CarCoster
             //getting the manufactorer of the car.
             string manufactorer = CarBox.SelectedItem.ToString();
 
-            Car searchedCar = listReader.findCar(model, manufactorer, description, cars);
+            searchedCar = listReader.findCar(model, manufactorer, description, cars);
 
             if (searchedCar == null)
             {
@@ -228,5 +231,10 @@ namespace CarCoster
             }
         }
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            SaveCar save = new SaveCar();
+            SaveLabel.Text = save.Save(searchedCar);
+        }
     }
 }
