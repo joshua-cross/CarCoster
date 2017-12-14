@@ -207,9 +207,25 @@ namespace CarCoster
 
         private void ModelBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            OverviewText.Text = ModelBox.SelectedIndex.ToString();
-            //getting the model based on what was selected.
-            OverviewText.Text = models[ModelBox.SelectedIndex];
+            //getting the model & description based on what has been selected.
+            string model = models[ModelBox.SelectedIndex];
+            string description = descriptions[ModelBox.SelectedIndex];
+            //getting the manufactorer of the car.
+            string manufactorer = CarBox.SelectedItem.ToString();
+
+            Car searchedCar = listReader.findCar(model, manufactorer, description, cars);
+
+            if (searchedCar == null)
+            {
+
+                OverviewText.Text = ModelBox.SelectedIndex.ToString();
+                //getting the model based on what was selected.
+                OverviewText.Text = model + "\n" + description + "\n" + manufactorer + "\n";
+            } else
+            {
+                CarPrinter printer = new CarPrinter();
+                OverviewText.Text = printer.printcar(searchedCar);
+            }
         }
 
     }

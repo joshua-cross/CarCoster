@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="CarListReader.cs" />
+    <Compile Include="CarPrinter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

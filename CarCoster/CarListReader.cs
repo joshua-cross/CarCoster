@@ -30,6 +30,17 @@ namespace CarCoster
             return newCars;
         }
 
+        /*Takes in the selected data from the form (manufactorer/model and description) and
+         finds the full car from this.*/
+        public Car findCar(string model, string manufactorer, string description, IEnumerable<Car> cars)
+        {
+            Car car = cars.First(c => c.Manufacturer.ToLower().Equals(manufactorer.ToLower())
+            && c.Model.ToLower().Equals(model.ToLower())
+            && c.Description.ToLower().Equals(description.ToLower()));
+
+            return car;
+        }
+
         /*Functionm that searches a string array with the paramters given
          then creates a new list with the results from the search*/
         public IEnumerable<string> searchString(IEnumerable<string> model, string searchCriteria)
