@@ -72,7 +72,7 @@ namespace CarCoster
             
             if(car.ImperialExtraUrban != null)
             {
-                sCar += "Fuel Consumption Imperial Extra-Urban: " + car.ImperialUrbanCold + "\n";
+                sCar += "Fuel Consumption Imperial Extra-Urban: " + car.ImperialExtraUrban + "\n";
 
             }
 
@@ -95,6 +95,11 @@ namespace CarCoster
             {
                 sCar += "Electricity Cost per 12000 miles: £" + car.ElectricityCost + "\n";
             }
+            if(car.CostPer12000Miles != null)
+            {
+                sCar += "Total Cost per 12000 Miles: £" + car.CostPer12000Miles + "\n";
+            }
+
             if(car.EuroStandard != null)
             {
                 sCar += "Euro Standard: " + car.EuroStandard + "\n";
