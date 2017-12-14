@@ -17,6 +17,11 @@ namespace CarCoster
         IEnumerable<Car> carModels = new List<Car>();
         /*List of string that will hold each of the unique manufactorers.*/
         List<string> manufactorers = new List<string>();
+
+        //creating a list for all the car models, and the car descriptions
+        List<string> models = new List<string>();
+        List<string> descriptions = new List<string>();
+
         public Form1()
         {
             InitializeComponent();
@@ -93,6 +98,9 @@ namespace CarCoster
 
             clearListBox(ModelBox);
 
+            //clearing the models and descriptions, as new items are present.
+            models.Clear();
+            descriptions.Clear();
             
             /*The manufactorer that has been selected by the CarBox*/
             string manufactorer = CarBox.SelectedItem.ToString();
@@ -107,6 +115,9 @@ namespace CarCoster
             foreach (var car in carModels)
             {
                 ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                //adding the car model and description to model and description array.
+                models.Add(car.Model.ToString());
+                descriptions.Add(car.Description.ToString());
             }
 
         }
@@ -156,6 +167,10 @@ namespace CarCoster
                 //clearing the ModelBox so we can replace it with the searched models.
                 clearListBox(ModelBox);
 
+                //clearing the models and descriptions, as new items are present.
+                models.Clear();
+                descriptions.Clear();
+
                 //using the CarListReader to search the Json file for the search result.
                 IEnumerable<Car> searchedModels = listReader.searchModels(carModels, ModBox.Text);
                 //searching the description for what has been typed.
@@ -170,6 +185,9 @@ namespace CarCoster
                 {
                     string toPrint = car.Model.ToString() + " " + car.Description.ToString();
                     ModelBox.Items.Add(toPrint);
+                    //adding the car model and description to model and description array.
+                    models.Add(car.Model.ToString());
+                    descriptions.Add(car.Description.ToString());
                 }
 
                 //if the user empties the search box then we want to refill the listbox with the array of models.
@@ -179,9 +197,20 @@ namespace CarCoster
                     {
                         string toPrint = car.Model.ToString() + " " + car.Description.ToString();
                         ModelBox.Items.Add(toPrint);
+                        //adding the car model and description to model and description array.
+                        models.Add(car.Model.ToString());
+                        descriptions.Add(car.Description.ToString());
                     }
                 }
             }
         }
+
+        private void ModelBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OverviewText.Text = ModelBox.SelectedIndex.ToString();
+            //getting the model based on what was selected.
+            OverviewText.Text = models[ModelBox.SelectedIndex];
+        }
+
     }
 }
