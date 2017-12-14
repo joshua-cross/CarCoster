@@ -16,7 +16,17 @@ namespace CarCoster
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            //loading a car from the database.
+            LoadCar load = new LoadCar();
+            Car car = load.Load();
+
+            //if the car is null then there was no saved car.
+            if (car == null)
+                Application.Run(new Form1());
+            else
+                Application.Run(new Overview());
+            
             
         }
     }
