@@ -11,8 +11,18 @@ namespace CarCoster
         public string printcar(Car car)
         {
             string sCar = "Manufactorer: " + car.Manufacturer + "\n" +
-                          "Model: " + car.Model + "/n" +
-                          "Description: " + car.Description + "\n";
+                          "Model: " + car.Model + "\n" +
+                          "Description: " + car.Description + "\n" + 
+                          "Transmission: " + car.Transmission + "\n" +
+                          "Engine Capacity: " + car.EngineCapacity + "\n" +
+                          "Fuel Type: " + car.FuelType + "\n" +
+                          "Fuel Consumption Metric Urban (Cold): " + car.MetricUrbanCold + "\n" +
+                          "Fuel Consumption Metric Extra-Urban: " + car.MetricExtraUrban + "\n" + 
+                          "Fuel Consumption Metric Combined: " + car.MetricCombined + "\n" +
+                          "Fuel Consumption Imperial Urban (Cold): " + car.ImperialUrbanCold + "\n" +
+                          "Fuel Consumption Imperial Extra-Urban: " + car.ImperialUrbanCold + "\n" +
+                          "Fuel Consumption Imperial Combined: " + car.ImperialCombined + "\n";
+
             return sCar;
         }
     }

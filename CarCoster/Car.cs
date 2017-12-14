@@ -23,9 +23,11 @@ namespace CarCoster
         public float MetricCombined { get; set; }
         public float ImperialUrbanCold { get; set; }
         public float ImperialExtraUrban { get; set; }
+        public float ImperialCombined { get; set; }
         public float CO2gramsPerKilometer { get; set; }
         public float FuelCostPer12000Miles { get; set; }
         public float ElectricityCost { get; set; }
+        public float CostPer12000Miles { get; set; }
         public int EuroStandard { get; set; }
         public float NoiseLevelDB { get; set; }
         public float EmissionCO2 { get; set; }
