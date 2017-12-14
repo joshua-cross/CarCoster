@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace CarCoster
 {
     class Car
@@ -12,7 +11,7 @@ namespace CarCoster
         public string Model { get; set; }
         public string Description { get; set; }
         public string Transmission { get; set; }
-        public int EngineCapacity { get; set; }
+        public int? EngineCapacity { get; set; }
         public string FuelType { get; set; }
         public float ElecricEnergyConsumptionMiles { get; set; }
         public float MilesPerKilowatt { get; set; }

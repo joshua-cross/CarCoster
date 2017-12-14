@@ -21,7 +21,16 @@ namespace CarCoster
                           "Fuel Consumption Metric Combined: " + car.MetricCombined + "\n" +
                           "Fuel Consumption Imperial Urban (Cold): " + car.ImperialUrbanCold + "\n" +
                           "Fuel Consumption Imperial Extra-Urban: " + car.ImperialUrbanCold + "\n" +
-                          "Fuel Consumption Imperial Combined: " + car.ImperialCombined + "\n";
+                          "Fuel Consumption Imperial Combined: " + car.ImperialCombined + "\n" +
+                          "CO2 g/km: " + car.CO2gramsPerKilometer + "\n" + 
+                          "Fuel Cost per 12000 miles: £" + car.FuelCostPer12000Miles + "\n" +
+                          "Euro Standard: " + car.EuroStandard + "\n" +
+                          "Noise Level dB(A): " + car.NoiseLevelDB + "\n" +
+                          "Carbon Monoxide (CO) Emissions: " + car.EmissionCO2 + "\n" +
+                          "THC Emissions (mg/km): " + car.THCLevel + "\n" +
+                          "Nitrogen Oxide (NOx) emissions (mg/km): " + car.NOxEmissions + "\n" +
+                          "THC + NOx Emissions (mg/km): " + car.THCAndNOxEmissions + "\n" +
+                          "Particulates (mg/km)" + car.Particulates + "\n";
 
             return sCar;
         }
