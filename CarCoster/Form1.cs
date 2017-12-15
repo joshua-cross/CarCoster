@@ -236,5 +236,45 @@ namespace CarCoster
             SaveCar save = new SaveCar();
             SaveLabel.Text = save.Save(searchedCar);
         }
+
+        //when we hover over a button the selecter will go to this location.
+        private void SaveButton_MouseHover(object sender, EventArgs e)
+        {
+            SelectedButton.Visible = true;
+
+            Button button = (Button)sender;
+            OverviewText.Text = button.Text;
+
+            while (SelectedButton.Location.Y != button.Location.Y)
+            {
+
+                if (SelectedButton.Location.Y > button.Location.Y)
+                    SelectedButton.Location = new Point(SelectedButton.Location.X, SelectedButton.Location.Y - 1);
+                else
+                    SelectedButton.Location = new Point(SelectedButton.Location.X, SelectedButton.Location.Y + 1);
+            }
+
+        }
+
+        //if the users mouse has left the side bar set the users selected button to this activity.
+        private void SideBarPanel_MouseLeave(object sender, EventArgs e)
+        {
+            while (SelectedButton.Location.Y != AddCarButton.Location.Y)
+            {
+
+                if (SelectedButton.Location.Y > AddCarButton.Location.Y)
+                    SelectedButton.Location = new Point(SelectedButton.Location.X, SelectedButton.Location.Y - 1);
+                else
+                    SelectedButton.Location = new Point(SelectedButton.Location.X, SelectedButton.Location.Y + 1);
+            }
+        }
+
+        private void OverviewButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Overview overview = new Overview();
+            overview.Closed += (s, args) => this.Close();
+            overview.Show();
+        }
     }
 }

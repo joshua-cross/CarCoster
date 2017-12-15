@@ -52,6 +52,41 @@ namespace CarCoster
             {
                 OverviewText.Text = cars.ElementAt(0).Model;
             }
+
+            //for each car in cars we're going to add the car to the list box.
+            foreach(Car car in cars)
+            {
+                carBox.Items.Add(car.Manufacturer + " " + car.Model);
+            }
+        }
+
+        private void AddCarButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 addCar = new Form1();
+            addCar.Closed += (s, args) => this.Close();
+            addCar.Show();
+        }
+
+        private void SelectCarButton_Click(object sender, EventArgs e)
+        {
+            Car car = cars.ElementAt(carBox.SelectedIndex);
+
+            string carInfo = "Manufactorer: " + car.Manufacturer + "\n" +
+                             "Model: " + car.Model + "\n" +
+                             "Details: " + car.Description + "\n";
+
+            CarInfo.Text = carInfo;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (carBox.SelectedIndex != -1)
+            {
+                SaveCar save = new SaveCar();
+                save.removeCar(carBox.SelectedIndex);
+                carBox.Items.RemoveAt(carBox.SelectedIndex);
+            }
         }
     }
 }

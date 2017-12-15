@@ -24,7 +24,7 @@ namespace CarCoster
                        && Properties.Settings.Default.Models.Count > 5
                        && Properties.Settings.Default.Descriptions.Count > 5)
                     {
-
+                        /*
                         //the first element in the array (which we want removing.)
                         int oldIndex = 0;
 
@@ -46,7 +46,8 @@ namespace CarCoster
                             Properties.Settings.Default.Descriptions.Remove(desc);
                             Properties.Settings.Default.Descriptions.Insert(i - 1, desc);
                         }
-
+                        */
+                        return "Cannot have more than 5 cars. Please remove one.";
                     }
                     Properties.Settings.Default.Manufacturers.Add(car.Manufacturer);
                     Properties.Settings.Default.Models.Add(car.Model);
@@ -59,5 +60,27 @@ namespace CarCoster
                 }
             }
         }
+
+        /*Function that removes the car at the element given.*/
+        public string removeCar(int element)
+        {
+            Properties.Settings.Default.Manufacturers.RemoveAt(element);
+            Properties.Settings.Default.Models.RemoveAt(element);
+            Properties.Settings.Default.Descriptions.RemoveAt(element);
+            Properties.Settings.Default.Save();
+            return "Car removed";
+        }
+
+
+        public void selectedCar(int id)
+        {
+            Properties.Settings.Default.Manufacturer = Properties.Settings.Default.Manufacturers[id];
+            Properties.Settings.Default.Model = Properties.Settings.Default.Models[id];
+            Properties.Settings.Default.Description = Properties.Settings.Default.Descriptions[id];
+            Properties.Settings.Default.Save();
+        }
+
     }
+
+
 }
