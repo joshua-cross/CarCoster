@@ -16,5 +16,26 @@ namespace CarCoster
         {
             InitializeComponent();
         }
+
+        private void SaveButton_Enter(object sender, EventArgs e)
+        {
+        }
+        //when the user hovers over the button a selector shows up next to it.
+        private void SaveButton_MouseHover(object sender, EventArgs e)
+        {
+
+            Button button = (Button)sender;
+            OverviewText.Text = button.Text;
+
+            while (SelectedButton.Location.Y != button.Location.Y)
+            {
+
+                if (SelectedButton.Location.Y > button.Location.Y)
+                    SelectedButton.Location = new Point(SelectedButton.Location.X, SelectedButton.Location.Y - 1);
+                else
+                    SelectedButton.Location = new Point(SelectedButton.Location.X, SelectedButton.Location.Y + 1);
+            }
+
+        }
     }
 }
