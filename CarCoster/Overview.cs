@@ -12,14 +12,19 @@ namespace CarCoster
 {
     public partial class Overview : Form
     {
+        IEnumerable<Car> cars;
+
         public Overview()
         {
             InitializeComponent();
+            LoadCar load = new LoadCar();
+            cars = load.Load();
         }
 
         private void SaveButton_Enter(object sender, EventArgs e)
         {
         }
+
         //when the user hovers over the button a selector shows up next to it.
         private void SaveButton_MouseHover(object sender, EventArgs e)
         {
@@ -36,6 +41,17 @@ namespace CarCoster
                     SelectedButton.Location = new Point(SelectedButton.Location.X, SelectedButton.Location.Y + 1);
             }
 
+        }
+
+        private void Overview_Load(object sender, EventArgs e)
+        {
+            if(cars.Count() == 0)
+            {
+                OverviewText.Text = "There are currently no saved cars :(";
+            } else
+            {
+                OverviewText.Text = cars.ElementAt(0).Model;
+            }
         }
     }
 }

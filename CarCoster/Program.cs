@@ -19,10 +19,10 @@ namespace CarCoster
 
             //loading a car from the database.
             LoadCar load = new LoadCar();
-            Car car = load.Load();
+            IEnumerable<Car> cars = load.Load();
 
             //if the car is null then there was no saved car.
-            if (car == null)
+            if (cars.Count() ==  0)
                 Application.Run(new Form1());
             else
                 Application.Run(new Overview());
