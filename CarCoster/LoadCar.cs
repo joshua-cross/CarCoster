@@ -51,5 +51,43 @@ namespace CarCoster
 
             
         }
+
+        /*Function that gets the car that has been selected (Car that user
+         * has pressed select on) and returns the Car object for this.*/
+        public Car LoadSelectedCar()
+        {
+            Car car;
+
+            //if a saved car already exists.
+            if (Properties.Settings.Default.Manufacturer != null &&
+                Properties.Settings.Default.Model != null &&
+                Properties.Settings.Default.Description != null)
+            {
+                //getting the list of cars from the Json file.
+                JsonReader json = new JsonReader();
+                List<Car> cars = new List<Car>();
+                cars = json.getCars();
+
+
+                //creating a list of cars which will be displayed to the users.
+                List<Car> usersCars = new List<Car>();
+                CarListReader reader = new CarListReader();
+
+                //getting the car.
+                car = reader.findCar(Properties.Settings.Default.Model,
+                                    Properties.Settings.Default.Manufacturer,
+                                    Properties.Settings.Default.Description, cars);
+
+
+            }
+            //else there is no car so null car and return.
+            else
+            {
+                car = null;
+            }
+
+
+            return car;
+        }
     }
 }

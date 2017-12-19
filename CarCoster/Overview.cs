@@ -13,12 +13,53 @@ namespace CarCoster
     public partial class Overview : Form
     {
         IEnumerable<Car> cars;
-
+        //the car the user has previously loaded.
+        Car car;
         public Overview()
         {
             InitializeComponent();
             LoadCar load = new LoadCar();
             cars = load.Load();
+            car = load.LoadSelectedCar();
+
+            /*If the car is null that means that the user has not
+             * yet selected a car to be there main car, in which case we will set the
+             first car in the array (if it exists) to be the selected car.*/
+            if (car == null)
+            {
+                /*Checking if the user has added any cars to the list before
+                 if they have we will set the first of these cars to be the selected cars, else
+                 we will display the user with an error message.*/
+                 if(cars != null)
+                 {
+                    SaveCar save = new SaveCar();
+                    save.selectedCar(0);
+
+                    //printer so we can print information about the car.
+                    CarPrinter printer = new CarPrinter();
+                    string info = printer.carHeader(cars.ElementAt(0));
+                    string details = printer.printcar(cars.ElementAt(0));
+                    CarInfo.Text = info;
+                    CarDetails.Text = details;
+
+                    setImage(cars.ElementAt(0).Manufacturer);
+                 }
+                 /*Else we have no saved cars either so we will
+                  display a messaage to the user saying we have no car.*/
+                else
+                {
+                    setImage("error");
+                    CarInfo.Text = "Error! Please go to Add Car and add your car/cars.";
+                    CarDetails.Text = "Error!";
+                }
+            }
+            //else a saved car does exist so use this instead.
+            else
+            {
+
+            }
+
+            
         }
 
         private void SaveButton_Enter(object sender, EventArgs e)
@@ -72,26 +113,31 @@ namespace CarCoster
 
         private void SelectCarButton_Click(object sender, EventArgs e)
         {
-            Car car = cars.ElementAt(carBox.SelectedIndex);
+            Car theCar = cars.ElementAt(carBox.SelectedIndex);
 
             //getting the car printer.
             CarPrinter printer = new CarPrinter();
             
             //printing the header for the car ie. manufacturer, model and description.
-            string carInfo = printer.carHeader(car);
+            string carInfo = printer.carHeader(theCar);
 
             //getting the rest of the cars details.
-            string carDetails = printer.printcar(car);
+            string carDetails = printer.printcar(theCar);
 
             CarInfo.Text = carInfo;
             CarDetails.Text = carDetails;
 
+            setImage(theCar.Manufacturer);
+        }
+
+        /*Fucntion that calls the CarBadge classes getBadge function.*/
+        private void setImage(string man)
+        {
             //setting the image to be the badge of the car.
             CarBadge badge = new CarBadge();
-            string url = badge.getBadge(car.Manufacturer);
+            string url = badge.getBadge(man);
             Badge.Image = Image.FromFile(url);
             Badge.SizeMode = PictureBoxSizeMode.StretchImage;
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -103,5 +149,6 @@ namespace CarCoster
                 carBox.Items.RemoveAt(carBox.SelectedIndex);
             }
         }
+
     }
 }

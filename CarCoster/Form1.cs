@@ -115,6 +115,12 @@ namespace CarCoster
 
             Title.Text = carModels.Count().ToString();
 
+            //setting the image in logobox.
+            CarBadge badge = new CarBadge();
+            string url = badge.getBadge(CarBox.SelectedItem.ToString());
+            LogoBox.Image = Image.FromFile(url);
+            LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
             foreach (var car in carModels)
             {
                 ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());

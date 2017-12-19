@@ -14,9 +14,7 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.exe
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.pdb
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\abarth.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\alfa romeo.png
-C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\aston martin.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\audi.png
-C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\bentley.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\bmw.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\chevrolet.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\citroen.png
@@ -30,7 +28,6 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\honda.
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\hyundai.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\infiniti.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\jaguar.png
-C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\jeep.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\kia.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\lamborghini.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\land rover.png
@@ -43,7 +40,6 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mclare
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mercedes-benz.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mini.jpg
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mitsubishi.png
-C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\morgan.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\nissan.jpg
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\porsche.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\renault.png
@@ -58,3 +54,14 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\toyota
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\vauxhall.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\volkswagen.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\volvo.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mini.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\nissan.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\smart.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\peugeot.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\suzuki.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\chrysler jeep.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\volkswagen c.v..png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\bentley motors.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\morgan motor company.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\aston martin lagonda.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\error.png

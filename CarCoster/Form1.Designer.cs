@@ -61,7 +61,7 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.SaveText = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.LogoBox = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -76,7 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
             this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -395,7 +395,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.pictureBox2);
+            this.panel10.Controls.Add(this.LogoBox);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(0, 648);
             this.panel10.Name = "panel10";
@@ -412,13 +412,13 @@
             this.SaveText.TabIndex = 5;
             this.SaveText.Text = "label1";
             // 
-            // pictureBox2
+            // LogoBox
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(207, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 84);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.LogoBox.Location = new System.Drawing.Point(207, 3);
+            this.LogoBox.Name = "LogoBox";
+            this.LogoBox.Size = new System.Drawing.Size(100, 84);
+            this.LogoBox.TabIndex = 0;
+            this.LogoBox.TabStop = false;
             // 
             // panel11
             // 
@@ -468,7 +468,7 @@
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.ResumeLayout(false);
@@ -507,7 +507,7 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button AddCarButton;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox LogoBox;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label SaveText;
     }
