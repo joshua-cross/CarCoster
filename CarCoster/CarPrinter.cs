@@ -10,9 +10,7 @@ namespace CarCoster
     {
         public string printcar(Car car)
         {
-            string sCar = "Manufactorer: " + car.Manufacturer + "\n" +
-                          "Model: " + car.Model + "\n" +
-                          "Description: " + car.Description + "\n";
+            string sCar = "";
                           
             if(car.Transmission != null)
             {
@@ -139,5 +137,16 @@ namespace CarCoster
 
             return sCar;
         }
+
+        /*Function that returns the header for the car ie. the manufactorer, the model and
+         the description*/
+        public string carHeader(Car car)
+        {
+            return "Manufactorer: " + car.Manufacturer + "\n" +
+                              "Model: " + car.Model + "\n" +
+                              "Description: " + car.Description + "\n";
+        }
+
     }
+
 }

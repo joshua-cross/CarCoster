@@ -60,6 +60,8 @@ namespace CarCoster
             }
         }
 
+        /*When the add car button is pressed we want to close the current form
+         and open the add car form (Form1).*/
         private void AddCarButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -72,11 +74,17 @@ namespace CarCoster
         {
             Car car = cars.ElementAt(carBox.SelectedIndex);
 
-            string carInfo = "Manufactorer: " + car.Manufacturer + "\n" +
-                             "Model: " + car.Model + "\n" +
-                             "Details: " + car.Description + "\n";
+            //getting the car printer.
+            CarPrinter printer = new CarPrinter();
+            
+            //printing the header for the car ie. manufacturer, model and description.
+            string carInfo = printer.carHeader(car);
+
+            //getting the rest of the cars details.
+            string carDetails = printer.printcar(car);
 
             CarInfo.Text = carInfo;
+            CarDetails.Text = carDetails;
         }
 
         private void button1_Click(object sender, EventArgs e)
