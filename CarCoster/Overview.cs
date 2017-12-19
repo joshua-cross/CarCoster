@@ -56,7 +56,13 @@ namespace CarCoster
             //else a saved car does exist so use this instead.
             else
             {
+                CarPrinter printer = new CarPrinter();
+                string info = printer.carHeader(car);
+                string details = printer.printcar(car);
+                CarInfo.Text = info;
+                CarDetails.Text = details;
 
+                setImage(car.Manufacturer);
             }
 
             
