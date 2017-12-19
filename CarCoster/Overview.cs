@@ -133,6 +133,9 @@ namespace CarCoster
             CarInfo.Text = carInfo;
             CarDetails.Text = carDetails;
 
+            SaveCar save = new SaveCar();
+            save.selectedCar(carBox.SelectedIndex);
+
             setImage(theCar.Manufacturer);
         }
 
@@ -156,5 +159,9 @@ namespace CarCoster
             }
         }
 
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

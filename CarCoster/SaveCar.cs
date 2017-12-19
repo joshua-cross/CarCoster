@@ -64,23 +64,24 @@ namespace CarCoster
         /*Function that removes the car at the element given.*/
         public string removeCar(int element)
         {
-            Properties.Settings.Default.Manufacturers.RemoveAt(element);
-            Properties.Settings.Default.Models.RemoveAt(element);
-            Properties.Settings.Default.Descriptions.RemoveAt(element);
-            
+
             /*If we have removed the users selected car then we will remove the selected
-             car and return it to null.*/
+            car and return it to null.*/
             if (Properties.Settings.Default.Manufacturers[element] ==
                 Properties.Settings.Default.Manufacturer &&
                 Properties.Settings.Default.Models[element] ==
                 Properties.Settings.Default.Model &&
-                Properties.Settings.Default.Descriptions[element] == 
+                Properties.Settings.Default.Descriptions[element] ==
                 Properties.Settings.Default.Description)
             {
                 Properties.Settings.Default.Manufacturer = null;
                 Properties.Settings.Default.Model = null;
                 Properties.Settings.Default.Description = null;
             }
+
+            Properties.Settings.Default.Manufacturers.RemoveAt(element);
+            Properties.Settings.Default.Models.RemoveAt(element);
+            Properties.Settings.Default.Descriptions.RemoveAt(element);
 
             Properties.Settings.Default.Save();
             return "Car removed";
