@@ -59,6 +59,10 @@
             this.SelectedButton = new System.Windows.Forms.Panel();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.SaveText = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -71,6 +75,9 @@
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // Title
@@ -92,12 +99,13 @@
             this.CarBox.ItemHeight = 21;
             this.CarBox.Location = new System.Drawing.Point(10, 92);
             this.CarBox.Name = "CarBox";
-            this.CarBox.Size = new System.Drawing.Size(490, 634);
+            this.CarBox.Size = new System.Drawing.Size(490, 550);
             this.CarBox.TabIndex = 2;
             this.CarBox.SelectedIndexChanged += new System.EventHandler(this.CarBox_SelectedIndexChanged);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.CarBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -154,6 +162,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panel11);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.ModelBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -216,7 +225,7 @@
             this.ModelBox.ItemHeight = 21;
             this.ModelBox.Location = new System.Drawing.Point(6, 91);
             this.ModelBox.Name = "ModelBox";
-            this.ModelBox.Size = new System.Drawing.Size(490, 634);
+            this.ModelBox.Size = new System.Drawing.Size(490, 550);
             this.ModelBox.TabIndex = 3;
             this.ModelBox.SelectedIndexChanged += new System.EventHandler(this.ModelBox_SelectedIndexChanged);
             // 
@@ -384,6 +393,42 @@
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             this.SaveButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.pictureBox2);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(0, 648);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(515, 90);
+            this.panel10.TabIndex = 6;
+            // 
+            // SaveText
+            // 
+            this.SaveText.AutoSize = true;
+            this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
+            this.SaveText.Location = new System.Drawing.Point(6, 12);
+            this.SaveText.Name = "SaveText";
+            this.SaveText.Size = new System.Drawing.Size(40, 15);
+            this.SaveText.TabIndex = 5;
+            this.SaveText.Text = "label1";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(207, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 84);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.SaveText);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel11.Location = new System.Drawing.Point(0, 648);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(510, 90);
+            this.panel11.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -422,6 +467,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -457,6 +506,10 @@
         private System.Windows.Forms.Panel SelectedButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button AddCarButton;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label SaveText;
     }
 }
 

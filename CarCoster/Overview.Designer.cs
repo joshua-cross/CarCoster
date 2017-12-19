@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.SideBar = new System.Windows.Forms.Panel();
+            this.SelectedButton = new System.Windows.Forms.Panel();
+            this.AddCarButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -36,30 +38,28 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.OverviewText = new System.Windows.Forms.Label();
             this.SelectCar = new System.Windows.Forms.Label();
-            this.SelectedButton = new System.Windows.Forms.Panel();
-            this.AddCarButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.carBox = new System.Windows.Forms.ListBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.SelectCarButton = new System.Windows.Forms.Button();
-            this.ManufactorerLogo = new System.Windows.Forms.Panel();
-            this.ImagePanel = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.CarInfo = new System.Windows.Forms.Label();
-            this.CarDetails = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.SelectCarButton = new System.Windows.Forms.Button();
+            this.carBox = new System.Windows.Forms.ListBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.ManufactorerLogo = new System.Windows.Forms.Panel();
+            this.CarInfo = new System.Windows.Forms.Label();
+            this.ImagePanel = new System.Windows.Forms.Panel();
+            this.Badge = new System.Windows.Forms.PictureBox();
+            this.CarDetails = new System.Windows.Forms.Label();
             this.SideBar.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.ManufactorerLogo.SuspendLayout();
             this.ImagePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Badge)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBar
@@ -77,6 +77,31 @@
             this.SideBar.Name = "SideBar";
             this.SideBar.Size = new System.Drawing.Size(143, 815);
             this.SideBar.TabIndex = 0;
+            // 
+            // SelectedButton
+            // 
+            this.SelectedButton.BackColor = System.Drawing.Color.Red;
+            this.SelectedButton.Location = new System.Drawing.Point(131, 105);
+            this.SelectedButton.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.SelectedButton.Name = "SelectedButton";
+            this.SelectedButton.Size = new System.Drawing.Size(12, 98);
+            this.SelectedButton.TabIndex = 3;
+            // 
+            // AddCarButton
+            // 
+            this.AddCarButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AddCarButton.FlatAppearance.BorderSize = 0;
+            this.AddCarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddCarButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddCarButton.Location = new System.Drawing.Point(0, 203);
+            this.AddCarButton.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.AddCarButton.Name = "AddCarButton";
+            this.AddCarButton.Size = new System.Drawing.Size(143, 98);
+            this.AddCarButton.TabIndex = 5;
+            this.AddCarButton.Text = "Add Car";
+            this.AddCarButton.UseVisualStyleBackColor = true;
+            this.AddCarButton.Click += new System.EventHandler(this.AddCarButton_Click);
+            this.AddCarButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // CloseButton
             // 
@@ -156,31 +181,6 @@
             this.SelectCar.TabIndex = 4;
             this.SelectCar.Text = "Your Cars:";
             // 
-            // SelectedButton
-            // 
-            this.SelectedButton.BackColor = System.Drawing.Color.Red;
-            this.SelectedButton.Location = new System.Drawing.Point(131, 105);
-            this.SelectedButton.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.SelectedButton.Name = "SelectedButton";
-            this.SelectedButton.Size = new System.Drawing.Size(12, 98);
-            this.SelectedButton.TabIndex = 3;
-            // 
-            // AddCarButton
-            // 
-            this.AddCarButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AddCarButton.FlatAppearance.BorderSize = 0;
-            this.AddCarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddCarButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddCarButton.Location = new System.Drawing.Point(0, 203);
-            this.AddCarButton.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.AddCarButton.Name = "AddCarButton";
-            this.AddCarButton.Size = new System.Drawing.Size(143, 98);
-            this.AddCarButton.TabIndex = 5;
-            this.AddCarButton.Text = "Add Car";
-            this.AddCarButton.UseVisualStyleBackColor = true;
-            this.AddCarButton.Click += new System.EventHandler(this.AddCarButton_Click);
-            this.AddCarButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
-            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -200,26 +200,6 @@
             this.panel4.Size = new System.Drawing.Size(439, 734);
             this.panel4.TabIndex = 6;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.SelectCar);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(439, 51);
-            this.panel5.TabIndex = 5;
-            // 
-            // carBox
-            // 
-            this.carBox.BackColor = System.Drawing.Color.ForestGreen;
-            this.carBox.ForeColor = System.Drawing.Color.White;
-            this.carBox.FormattingEnabled = true;
-            this.carBox.ItemHeight = 21;
-            this.carBox.Location = new System.Drawing.Point(5, 59);
-            this.carBox.Name = "carBox";
-            this.carBox.Size = new System.Drawing.Size(431, 571);
-            this.carBox.TabIndex = 6;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.button1);
@@ -229,6 +209,19 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(439, 98);
             this.panel6.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(2, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(157, 92);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Remove Car";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SelectCarButton
             // 
@@ -243,6 +236,26 @@
             this.SelectCarButton.UseVisualStyleBackColor = false;
             this.SelectCarButton.Click += new System.EventHandler(this.SelectCarButton_Click);
             // 
+            // carBox
+            // 
+            this.carBox.BackColor = System.Drawing.Color.ForestGreen;
+            this.carBox.ForeColor = System.Drawing.Color.White;
+            this.carBox.FormattingEnabled = true;
+            this.carBox.ItemHeight = 21;
+            this.carBox.Location = new System.Drawing.Point(5, 59);
+            this.carBox.Name = "carBox";
+            this.carBox.Size = new System.Drawing.Size(431, 571);
+            this.carBox.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.SelectCar);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(439, 51);
+            this.panel5.TabIndex = 5;
+            // 
             // ManufactorerLogo
             // 
             this.ManufactorerLogo.Controls.Add(this.CarInfo);
@@ -252,23 +265,6 @@
             this.ManufactorerLogo.Name = "ManufactorerLogo";
             this.ManufactorerLogo.Size = new System.Drawing.Size(1030, 261);
             this.ManufactorerLogo.TabIndex = 7;
-            // 
-            // ImagePanel
-            // 
-            this.ImagePanel.Controls.Add(this.pictureBox2);
-            this.ImagePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ImagePanel.Location = new System.Drawing.Point(0, 0);
-            this.ImagePanel.Name = "ImagePanel";
-            this.ImagePanel.Size = new System.Drawing.Size(334, 261);
-            this.ImagePanel.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(71, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(251, 240);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // CarInfo
             // 
@@ -280,6 +276,23 @@
             this.CarInfo.TabIndex = 1;
             this.CarInfo.Text = "Car Info";
             // 
+            // ImagePanel
+            // 
+            this.ImagePanel.Controls.Add(this.Badge);
+            this.ImagePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ImagePanel.Location = new System.Drawing.Point(0, 0);
+            this.ImagePanel.Name = "ImagePanel";
+            this.ImagePanel.Size = new System.Drawing.Size(334, 261);
+            this.ImagePanel.TabIndex = 0;
+            // 
+            // Badge
+            // 
+            this.Badge.Location = new System.Drawing.Point(43, 8);
+            this.Badge.Name = "Badge";
+            this.Badge.Size = new System.Drawing.Size(251, 240);
+            this.Badge.TabIndex = 0;
+            this.Badge.TabStop = false;
+            // 
             // CarDetails
             // 
             this.CarDetails.AutoSize = true;
@@ -288,19 +301,6 @@
             this.CarDetails.Size = new System.Drawing.Size(114, 21);
             this.CarDetails.TabIndex = 8;
             this.CarDetails.Text = "Car Details";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(2, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 92);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Remove Car";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Overview
             // 
@@ -327,13 +327,13 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.ManufactorerLogo.ResumeLayout(false);
             this.ManufactorerLogo.PerformLayout();
             this.ImagePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Badge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,7 +360,7 @@
         private System.Windows.Forms.Panel ManufactorerLogo;
         private System.Windows.Forms.Label CarInfo;
         private System.Windows.Forms.Panel ImagePanel;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox Badge;
         private System.Windows.Forms.Label CarDetails;
         private System.Windows.Forms.Button button1;
     }

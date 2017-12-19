@@ -85,6 +85,13 @@ namespace CarCoster
 
             CarInfo.Text = carInfo;
             CarDetails.Text = carDetails;
+
+            //setting the image to be the badge of the car.
+            CarBadge badge = new CarBadge();
+            string url = badge.getBadge(car.Manufacturer);
+            Badge.Image = Image.FromFile(url);
+            Badge.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
 
         private void button1_Click(object sender, EventArgs e)

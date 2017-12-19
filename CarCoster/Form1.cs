@@ -234,7 +234,7 @@ namespace CarCoster
         private void SaveButton_Click(object sender, EventArgs e)
         {
             SaveCar save = new SaveCar();
-            SaveLabel.Text = save.Save(searchedCar);
+            SaveText.Text = save.Save(searchedCar);
         }
 
         //when we hover over a button the selecter will go to this location.
