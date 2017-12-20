@@ -64,6 +64,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.Car2Label = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.Car1OverviewText = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Car1OverviewLabel = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@
             this.Car2OverviewText = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Car2OverviewLabel = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,11 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // SideBarPanel
@@ -200,7 +200,7 @@
             this.panel1.Location = new System.Drawing.Point(143, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1608, 77);
+            this.panel1.Size = new System.Drawing.Size(1691, 77);
             this.panel1.TabIndex = 2;
             // 
             // Comparison
@@ -467,8 +467,17 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(1019, 77);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(732, 738);
+            this.panel11.Size = new System.Drawing.Size(815, 738);
             this.panel11.TabIndex = 6;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.Car1OverviewText);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel14.Location = new System.Drawing.Point(0, 240);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(414, 498);
+            this.panel14.TabIndex = 10;
             // 
             // Car1OverviewText
             // 
@@ -502,9 +511,9 @@
             this.panel12.Controls.Add(this.pictureBox4);
             this.panel12.Controls.Add(this.Car2OverviewLabel);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel12.Location = new System.Drawing.Point(366, 0);
+            this.panel12.Location = new System.Drawing.Point(414, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(366, 738);
+            this.panel12.Size = new System.Drawing.Size(401, 738);
             this.panel12.TabIndex = 8;
             // 
             // panel13
@@ -513,7 +522,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel13.Location = new System.Drawing.Point(0, 240);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(366, 498);
+            this.panel13.Size = new System.Drawing.Size(401, 498);
             this.panel13.TabIndex = 11;
             // 
             // Car2OverviewText
@@ -542,21 +551,12 @@
             this.Car2OverviewLabel.TabIndex = 0;
             this.Car2OverviewLabel.Text = "Car 2";
             // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.Car1OverviewText);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 240);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(366, 498);
-            this.panel14.TabIndex = 10;
-            // 
             // Compare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.ForestGreen;
-            this.ClientSize = new System.Drawing.Size(1751, 815);
+            this.ClientSize = new System.Drawing.Size(1834, 815);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
@@ -570,6 +570,7 @@
             this.Name = "Compare";
             this.Text = "Compare";
             this.Load += new System.EventHandler(this.Compare_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Compare_MouseDown);
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
             this.LogoPanel.ResumeLayout(false);
@@ -596,14 +597,14 @@
             this.panel9.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.ResumeLayout(false);
 
         }

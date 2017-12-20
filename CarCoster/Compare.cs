@@ -18,11 +18,14 @@ namespace CarCoster
         //list of the cars manufacturers.
         List<string> manufacturers = new List<string>();
 
+        Car userCar;
 
         JsonReader reader = new JsonReader();
         CarListReader search = new CarListReader();
         CarBadge badge = new CarBadge();
         LoadCar load = new LoadCar();
+        CarPrinter print = new CarPrinter();
+
 
         public Compare()
         {
@@ -54,8 +57,80 @@ namespace CarCoster
             cars = reader.getCars();
             selectedCars = load.Load();
 
+            userCar = load.LoadSelectedCar();
+
+            /*If the user has a car we will send the loadDefaultComparison the userCar,
+             else we will send over the first car in the array, and if this is not possible, then
+             the application is not working as intended so we will send an error message
+             to the user.*/
+            if (userCar == null)
+            {
+                if (cars != null)
+                {
+                    loadDefaultComparison(cars.ElementAt(0));
+                } else
+                {
+                    loadDefaultComparison(null);
+                }
+
+            }
+            else
+            {
+                loadDefaultComparison(userCar);
+            }
+
             populateManufacturers();
             populateSelectedCars();
+        }
+
+        /*Displaying a example comparisson when the form is loaded, by default it will
+         be the users main car, or failing this, the first car in the list of cars.
+         Failing this we will display an error message.*/
+        private void loadDefaultComparison(Car theCar) 
+        {
+            //if the car is null display an error message.
+            if(theCar == null)
+            {
+                Car1OverviewLabel.Text = "ERROR!";
+                Car2OverviewLabel.Text = "ERROR!";
+                Car1OverviewLabel.ForeColor = Color.Red;
+                Car2OverviewLabel.ForeColor = Color.Red;
+
+                Car1OverviewText.Text = "Something's gone wrong.";
+                Car2OverviewText.Text = "Something's gone wrong.";
+            } else
+            {
+                setComparison(theCar, theCar);
+            }
+        }
+
+        /*Function that takes in the 2 cars the user wants to compare
+         and sets the text to be all the details of the car.*/
+        private void setComparison(Car car1, Car car2)
+        {
+            //strings which will be printed in the end.
+            string sCar1, sCar2;
+
+            if(car1 != null)
+            {
+                sCar1 = print.carHeader(car1) + "\n" + print.printcar(car1);
+            } else
+            {
+                sCar1 = "ERROR!";
+            }
+
+            if(car2 != null)
+            {
+                sCar2 = print.carHeader(car2) + "\n" + print.printcar(car2);
+            } else
+            {
+                sCar2 = "ERROR!";
+            }
+
+            Car1OverviewText.Text = sCar1;
+            Car2OverviewText.Text = sCar2;
+
+
         }
 
         /*Function that gets all the cars and displays the manufacturers of them.*/
@@ -111,5 +186,23 @@ namespace CarCoster
                 }
             }
         }
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Compare_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
     }
 }
