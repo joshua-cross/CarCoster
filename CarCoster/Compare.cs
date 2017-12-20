@@ -258,11 +258,18 @@ namespace CarCoster
             
         }
 
+        /*When the comparrison button is clicked the function checks all combinations of car1 and car2
+         comparisson, ie.
+         a. Choose car - choose car
+         b. Choose car - selected car
+         c. selected car - choose car
+         d. selected car - selected car*/
         private void CompareButton_Click(object sender, EventArgs e)
         {
             Car car1;
             Car car2;
 
+            /*choose car - choose car*/
             if (Car1ModelList.SelectedIndex != -1 &&
                 Car2ModelList.SelectedIndex != -1)
             {
@@ -270,7 +277,36 @@ namespace CarCoster
                 car2 = Car2Models[Car2ModelList.SelectedIndex];
                 setComparison(car1, car2);
                 hasComparedText.Text = "Success";
-            } else
+            }
+            /*choose car - selected car*/
+            else if (Car1ModelList.SelectedIndex != -1 &&
+                     Car2SelectedCarList.SelectedIndex != -1)
+            {
+                car1 = Car1Models[Car1ModelList.SelectedIndex];
+                car2 = selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex);
+                setComparison(car1, car2);
+                hasComparedText.Text = "Success";
+            }
+            /*selected car - choose car*/
+            else if (Car2ModelList.SelectedIndex != -1 &&
+                     Car1SelectedCarList.SelectedIndex != -1)
+            {
+                car1 = selectedCars.ElementAt(Car1SelectedCarList.SelectedIndex);
+                car2 = Car2Models[Car2ModelList.SelectedIndex];
+                setComparison(car1, car2);
+                hasComparedText.Text = "Success";
+            }
+            /*selected car - selected car*/
+            else if(Car1SelectedCarList.SelectedIndex != -1 &&
+                    Car2SelectedCarList.SelectedIndex != -1)
+            {
+                car1 = selectedCars.ElementAt(Car1SelectedCarList.SelectedIndex);
+                car2 = selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex);
+                setComparison(car1, car2);
+                hasComparedText.Text = "Success";
+            }
+            //else 1, or no cars have been selected.
+            else
             {
                 hasComparedText.Text = "Please Select 2 Cars.";
             }
