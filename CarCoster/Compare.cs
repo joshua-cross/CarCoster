@@ -12,6 +12,18 @@ namespace CarCoster
 {
     public partial class Compare : Form
     {
+
+        IEnumerable<Car> cars;
+        IEnumerable<Car> SelectedCars;
+        //list of the cars manufacturers.
+        List<string> manufacturers = new List<string>();
+
+
+        JsonReader reader = new JsonReader();
+        CarListReader search = new CarListReader();
+        CarBadge badge = new CarBadge();
+        LoadCar load = new LoadCar();
+
         public Compare()
         {
             InitializeComponent();
@@ -36,5 +48,55 @@ namespace CarCoster
 
         }
 
+        private void Compare_Load(object sender, EventArgs e)
+        {
+
+            cars = reader.getCars();
+            SelectedCars = load.Load();
+
+            populateManufacturers();
+        }
+
+        /*Function that gets all the cars and displays the manufacturers of them.*/
+        private void populateManufacturers()
+        {
+            //do if the cars have loaded successfully.
+            if(cars != null)
+            {
+
+                /*For each of the cars, we are going to check if we already have the manufacturer
+                 present, and if we do not then we're going to add it to both the
+                 Car 1 and Car 2 side.*/
+                foreach(Car theCar in cars)
+                {
+
+                    bool isNew = true;
+
+                    foreach(string manufacturer in manufacturers)
+                    {
+                        //if the value of the cars manufacturer is already in the array, the it's not a unique
+                        //manufactuer so we should not add it to the list.
+                        if(manufacturer.Equals(theCar.Manufacturer))
+                        {
+                            isNew = false;
+                            break;
+                        }
+                    }
+
+                    if(isNew == true)
+                    {
+                        manufacturers.Add(theCar.Manufacturer);
+                        Car1ManufacturorList.Items.Add(theCar.Manufacturer);
+                        Car2ManufacturorList.Items.Add(theCar.Manufacturer);
+                    }
+
+                }
+            }
+        }
+
+        private void populateSelectedCars()
+        {
+
+        }
     }
 }

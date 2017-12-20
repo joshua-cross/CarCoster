@@ -64,7 +64,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.Car2Label = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.Car1OverviewText = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Car1OverviewLabel = new System.Windows.Forms.Label();
@@ -73,6 +72,7 @@
             this.Car2OverviewText = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Car2OverviewLabel = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,11 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // SideBarPanel
@@ -135,6 +135,7 @@
             this.AddCarButton.TabIndex = 5;
             this.AddCarButton.Text = "Add Car";
             this.AddCarButton.UseVisualStyleBackColor = true;
+            this.AddCarButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // CloseButton
             // 
@@ -147,6 +148,7 @@
             this.CloseButton.TabIndex = 4;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // OverviewButton
             // 
@@ -159,6 +161,7 @@
             this.OverviewButton.TabIndex = 3;
             this.OverviewButton.Text = "Overview";
             this.OverviewButton.UseVisualStyleBackColor = true;
+            this.OverviewButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // SaveLabel
             // 
@@ -467,15 +470,6 @@
             this.panel11.Size = new System.Drawing.Size(732, 738);
             this.panel11.TabIndex = 6;
             // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.Car1OverviewText);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 240);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(366, 498);
-            this.panel14.TabIndex = 10;
-            // 
             // Car1OverviewText
             // 
             this.Car1OverviewText.AutoSize = true;
@@ -548,6 +542,15 @@
             this.Car2OverviewLabel.TabIndex = 0;
             this.Car2OverviewLabel.Text = "Car 2";
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.Car1OverviewText);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel14.Location = new System.Drawing.Point(0, 240);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(366, 498);
+            this.panel14.TabIndex = 10;
+            // 
             // Compare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -566,6 +569,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Compare";
             this.Text = "Compare";
+            this.Load += new System.EventHandler(this.Compare_Load);
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
             this.LogoPanel.ResumeLayout(false);
@@ -592,14 +596,14 @@
             this.panel9.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -633,8 +637,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label Car2Label;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label Car1OverviewText;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label Car1OverviewLabel;
         private System.Windows.Forms.Panel panel12;
@@ -651,5 +653,7 @@
         private System.Windows.Forms.ListBox Car1ModelList;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.ListBox Car2ModelList;
+        private System.Windows.Forms.Label Car1OverviewText;
+        private System.Windows.Forms.Panel panel14;
     }
 }
