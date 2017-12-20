@@ -50,6 +50,7 @@
             this.ImagePanel = new System.Windows.Forms.Panel();
             this.Badge = new System.Windows.Forms.PictureBox();
             this.CarDetails = new System.Windows.Forms.Label();
+            this.CompareButton = new System.Windows.Forms.Button();
             this.SideBar.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,6 +67,7 @@
             // 
             this.SideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
             this.SideBar.Controls.Add(this.SelectedButton);
+            this.SideBar.Controls.Add(this.CompareButton);
             this.SideBar.Controls.Add(this.AddCarButton);
             this.SideBar.Controls.Add(this.CloseButton);
             this.SideBar.Controls.Add(this.SaveButton);
@@ -303,6 +305,22 @@
             this.CarDetails.TabIndex = 8;
             this.CarDetails.Text = "Car Details";
             // 
+            // CompareButton
+            // 
+            this.CompareButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CompareButton.FlatAppearance.BorderSize = 0;
+            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompareButton.Location = new System.Drawing.Point(0, 301);
+            this.CompareButton.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.CompareButton.Name = "CompareButton";
+            this.CompareButton.Size = new System.Drawing.Size(143, 98);
+            this.CompareButton.TabIndex = 6;
+            this.CompareButton.Text = "Compare";
+            this.CompareButton.UseVisualStyleBackColor = true;
+            this.CompareButton.Click += new System.EventHandler(this.CompareButton_Click);
+            this.CompareButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
+            // 
             // Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -364,5 +382,6 @@
         private System.Windows.Forms.PictureBox Badge;
         private System.Windows.Forms.Label CarDetails;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CompareButton;
     }
 }

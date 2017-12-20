@@ -65,3 +65,5 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\bentle
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\morgan motor company.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\aston martin lagonda.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\error.png
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.csprojResolveAssemblyReference.cache
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Compare.resources

@@ -282,5 +282,13 @@ namespace CarCoster
             overview.Closed += (s, args) => this.Close();
             overview.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Compare compare = new Compare();
+            compare.Closed += (s, args) => this.Close();
+            compare.Show();
+        }
     }
 }

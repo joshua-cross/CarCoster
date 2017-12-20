@@ -30,7 +30,7 @@ namespace CarCoster
                 /*Checking if the user has added any cars to the list before
                  if they have we will set the first of these cars to be the selected cars, else
                  we will display the user with an error message.*/
-                 if(cars != null)
+                 if(cars != null && cars.Count() > 0)
                  {
                     SaveCar save = new SaveCar();
                     save.selectedCar(0);
@@ -162,6 +162,14 @@ namespace CarCoster
         private void CloseButton_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void CompareButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Compare compareCar = new Compare();
+            compareCar.Closed += (s, args) => this.Close();
+            compareCar.Show();
         }
     }
 }

@@ -32,12 +32,16 @@
             this.Title = new System.Windows.Forms.Label();
             this.CarBox = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.LogoBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.ManufactorerLabel = new System.Windows.Forms.Label();
             this.ManufactorerSearch = new System.Windows.Forms.Label();
             this.MakeBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.SaveText = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ModelLabel = new System.Windows.Forms.Label();
@@ -59,14 +63,14 @@
             this.SelectedButton = new System.Windows.Forms.Panel();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.SaveText = new System.Windows.Forms.Label();
-            this.LogoBox = new System.Windows.Forms.PictureBox();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.CompareButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -75,9 +79,6 @@
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
-            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // Title
@@ -113,6 +114,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(515, 738);
             this.panel2.TabIndex = 3;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.LogoBox);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(0, 648);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(515, 90);
+            this.panel10.TabIndex = 6;
+            // 
+            // LogoBox
+            // 
+            this.LogoBox.Location = new System.Drawing.Point(207, 3);
+            this.LogoBox.Name = "LogoBox";
+            this.LogoBox.Size = new System.Drawing.Size(100, 84);
+            this.LogoBox.TabIndex = 0;
+            this.LogoBox.TabStop = false;
             // 
             // panel4
             // 
@@ -170,6 +188,25 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(510, 738);
             this.panel3.TabIndex = 4;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.SaveText);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel11.Location = new System.Drawing.Point(0, 648);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(510, 90);
+            this.panel11.TabIndex = 6;
+            // 
+            // SaveText
+            // 
+            this.SaveText.AutoSize = true;
+            this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
+            this.SaveText.Location = new System.Drawing.Point(6, 12);
+            this.SaveText.Name = "SaveText";
+            this.SaveText.Size = new System.Drawing.Size(40, 15);
+            this.SaveText.TabIndex = 5;
+            this.SaveText.Text = "label1";
             // 
             // panel5
             // 
@@ -342,6 +379,7 @@
             // 
             this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
             this.SideBarPanel.Controls.Add(this.SelectedButton);
+            this.SideBarPanel.Controls.Add(this.CompareButton);
             this.SideBarPanel.Controls.Add(this.AddCarButton);
             this.SideBarPanel.Controls.Add(this.SaveButton);
             this.SideBarPanel.Controls.Add(this.CloseButton);
@@ -393,41 +431,20 @@
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             this.SaveButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
-            // panel10
+            // CompareButton
             // 
-            this.panel10.Controls.Add(this.LogoBox);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 648);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(515, 90);
-            this.panel10.TabIndex = 6;
-            // 
-            // SaveText
-            // 
-            this.SaveText.AutoSize = true;
-            this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
-            this.SaveText.Location = new System.Drawing.Point(6, 12);
-            this.SaveText.Name = "SaveText";
-            this.SaveText.Size = new System.Drawing.Size(40, 15);
-            this.SaveText.TabIndex = 5;
-            this.SaveText.Text = "label1";
-            // 
-            // LogoBox
-            // 
-            this.LogoBox.Location = new System.Drawing.Point(207, 3);
-            this.LogoBox.Name = "LogoBox";
-            this.LogoBox.Size = new System.Drawing.Size(100, 84);
-            this.LogoBox.TabIndex = 0;
-            this.LogoBox.TabStop = false;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.SaveText);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(0, 648);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(510, 90);
-            this.panel11.TabIndex = 6;
+            this.CompareButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CompareButton.FlatAppearance.BorderSize = 0;
+            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompareButton.Location = new System.Drawing.Point(0, 405);
+            this.CompareButton.Name = "CompareButton";
+            this.CompareButton.Size = new System.Drawing.Size(143, 100);
+            this.CompareButton.TabIndex = 6;
+            this.CompareButton.Text = "Compare";
+            this.CompareButton.UseVisualStyleBackColor = true;
+            this.CompareButton.Click += new System.EventHandler(this.button1_Click);
+            this.CompareButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // Form1
             // 
@@ -448,11 +465,15 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -467,10 +488,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -510,6 +527,7 @@
         private System.Windows.Forms.PictureBox LogoBox;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label SaveText;
+        private System.Windows.Forms.Button CompareButton;
     }
 }
 
