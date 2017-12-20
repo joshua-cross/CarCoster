@@ -318,6 +318,7 @@
             this.Car1SelectedCarList.Name = "Car1SelectedCarList";
             this.Car1SelectedCarList.Size = new System.Drawing.Size(426, 130);
             this.Car1SelectedCarList.TabIndex = 0;
+            this.Car1SelectedCarList.SelectedIndexChanged += new System.EventHandler(this.Car1SelectedCarList_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -428,6 +429,7 @@
             this.Car2SelectedCarList.Name = "Car2SelectedCarList";
             this.Car2SelectedCarList.Size = new System.Drawing.Size(426, 130);
             this.Car2SelectedCarList.TabIndex = 1;
+            this.Car2SelectedCarList.SelectedIndexChanged += new System.EventHandler(this.Car2SelectedCarList_SelectedIndexChanged);
             // 
             // panel10
             // 

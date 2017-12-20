@@ -221,21 +221,39 @@ namespace CarCoster
             box.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
+        /*When the Car1ManufacturerList Index is changed a couple of things will happen
+         a. The logo at the bottom will change to correlate with the selected manufacturer
+         b. We will populate the models with the manufacturers models.*/
         private void Car1ManufacturorList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            changeImage(Car1LogoPicture, Car1ManufacturorList.SelectedItem.ToString());
-            Car1Models.Clear();
-            Car1Models = populateModels(Car1ManufacturorList.SelectedItem.ToString(), Car1ModelList);
+            //only change the image when we have something selected(if selected has not been wiped.)
+            if (Car1ManufacturorList.SelectedIndex != -1)
+            {
+                changeImage(Car1LogoPicture, Car1ManufacturorList.SelectedItem.ToString());
+                Car1Models.Clear();
+                Car1SelectedCarList.ClearSelected();
+                Car1Models = populateModels(Car1ManufacturorList.SelectedItem.ToString(), Car1ModelList);
+            }
         }
 
+        /*When the Car2ManufacturerList Index is changed a couple of things will happen
+         a. The logo at the bottom will change to correlate with the selected manufacturer
+         b. We will populate the models with the manufacturers models.*/
         private void Car2ManufacturorList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            changeImage(Car2LogoPicture, Car2ManufacturorList.SelectedItem.ToString());
-            //clearing the models, as we're repopulating
-            Car2Models.Clear();
-            Car2Models = populateModels(Car2ManufacturorList.SelectedItem.ToString(), Car2ModelList);
+            //only change the image when we have something selected(if selected has not been wiped.)
+            if (Car2ManufacturorList.SelectedIndex != -1)
+            {
+                changeImage(Car2LogoPicture, Car2ManufacturorList.SelectedItem.ToString());
+                //clearing the models, as we're repopulating
+                Car2Models.Clear();
+                Car2SelectedCarList.ClearSelected();
+                Car2Models = populateModels(Car2ManufacturorList.SelectedItem.ToString(), Car2ModelList);
+            }
         }
 
+        /*Using the searchCars function of the CarListReader class to find all the models for the
+         given manufacturer then populating the corresponding Model list with these models.*/
         private List<Car> populateModels(string manufacturer, ListBox box)
         {
 
@@ -309,6 +327,36 @@ namespace CarCoster
             else
             {
                 hasComparedText.Text = "Please Select 2 Cars.";
+            }
+        }
+
+        /*when the selected cars for car 1 is changed the models will be wiped for car 1
+         and the manufacturers selected index will be reset.*/
+        private void Car1SelectedCarList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Car1SelectedCarList.SelectedIndex != -1)
+            {
+                Car1ModelList.ClearSelected();
+                Car1ModelList.Items.Clear();
+                Car1Models.Clear();
+                Car1ManufacturorList.ClearSelected();
+                string manufacturer = selectedCars.ElementAt(Car1SelectedCarList.SelectedIndex).Manufacturer;
+                changeImage(Car1LogoPicture, manufacturer);
+            }
+        }
+
+        /*when the selected cars for car 1 is changed the models will be wiped for car 1
+         and the manufacturers selected index will be reset.*/
+        private void Car2SelectedCarList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Car2SelectedCarList.SelectedIndex != -1)
+            {
+                Car2ModelList.ClearSelected();
+                Car2ModelList.Items.Clear();
+                Car2Models.Clear();
+                Car2ManufacturorList.ClearSelected();
+                string manufacturer = selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex).Manufacturer;
+                changeImage(Car2LogoPicture, manufacturer);
             }
         }
     }
