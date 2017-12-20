@@ -266,7 +266,13 @@ namespace CarCoster
             if (Car1ModelList.SelectedIndex != -1 &&
                 Car2ModelList.SelectedIndex != -1)
             {
-
+                car1 = Car1Models[Car1ModelList.SelectedIndex];
+                car2 = Car2Models[Car2ModelList.SelectedIndex];
+                setComparison(car1, car2);
+                hasComparedText.Text = "Success";
+            } else
+            {
+                hasComparedText.Text = "Please Select 2 Cars.";
             }
         }
     }

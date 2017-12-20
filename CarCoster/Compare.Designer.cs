@@ -73,7 +73,7 @@
             this.Car2OverviewText = new System.Windows.Forms.Label();
             this.Car2Badge = new System.Windows.Forms.PictureBox();
             this.Car2OverviewLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.hasComparedText = new System.Windows.Forms.Label();
             this.CompareButton = new System.Windows.Forms.Button();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
@@ -283,7 +283,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.hasComparedText);
             this.panel5.Controls.Add(this.Car1LogoPicture);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 659);
@@ -560,15 +560,15 @@
             this.Car2OverviewLabel.TabIndex = 0;
             this.Car2OverviewLabel.Text = "Car 2";
             // 
-            // label1
+            // hasComparedText
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 10.25F);
-            this.label1.Location = new System.Drawing.Point(115, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.hasComparedText.AutoSize = true;
+            this.hasComparedText.Font = new System.Drawing.Font("Bookman Old Style", 10.25F);
+            this.hasComparedText.Location = new System.Drawing.Point(115, 30);
+            this.hasComparedText.Name = "hasComparedText";
+            this.hasComparedText.Size = new System.Drawing.Size(52, 19);
+            this.hasComparedText.TabIndex = 1;
+            this.hasComparedText.Text = "label1";
             // 
             // CompareButton
             // 
@@ -689,7 +689,7 @@
         private System.Windows.Forms.ListBox Car2ModelList;
         private System.Windows.Forms.Label Car1OverviewText;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label hasComparedText;
         private System.Windows.Forms.Button CompareButton;
     }
 }
