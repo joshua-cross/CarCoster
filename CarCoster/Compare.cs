@@ -14,7 +14,7 @@ namespace CarCoster
     {
 
         IEnumerable<Car> cars;
-        IEnumerable<Car> SelectedCars;
+        IEnumerable<Car> selectedCars;
         //list of the cars manufacturers.
         List<string> manufacturers = new List<string>();
 
@@ -52,9 +52,10 @@ namespace CarCoster
         {
 
             cars = reader.getCars();
-            SelectedCars = load.Load();
+            selectedCars = load.Load();
 
             populateManufacturers();
+            populateSelectedCars();
         }
 
         /*Function that gets all the cars and displays the manufacturers of them.*/
@@ -94,9 +95,21 @@ namespace CarCoster
             }
         }
 
+        /*Adding each of the users selected cars to the listbox so the user can compare there
+         selected car rather than 2 searched cars if they wanted.*/
         private void populateSelectedCars()
         {
-
+            if(selectedCars != null)
+            {
+                /*For each car in selectedCars, we're going to add the model, and manufacturer of the 
+                 car to the ListBox.*/
+                foreach(Car theCar in selectedCars)
+                {
+                    string toAdd = theCar.Manufacturer + " " + theCar.Model;
+                    Car1SelectedCarList.Items.Add(toAdd);
+                    Car2SelectedCarList.Items.Add(toAdd);
+                }
+            }
         }
     }
 }
