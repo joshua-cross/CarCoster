@@ -18,6 +18,9 @@ namespace CarCoster
         //list of the cars manufacturers.
         List<string> manufacturers = new List<string>();
 
+        List<Car> Car1Models = new List<Car>();
+        List<Car> Car2Models = new List<Car>();
+
         Car userCar;
 
         JsonReader reader = new JsonReader();
@@ -114,6 +117,8 @@ namespace CarCoster
             if(car1 != null)
             {
                 sCar1 = print.carHeader(car1) + "\n" + print.printcar(car1);
+                //loading the car1 badge
+                changeImage(Car1Badge, car1.Manufacturer);
             } else
             {
                 sCar1 = "ERROR!";
@@ -122,7 +127,9 @@ namespace CarCoster
             if(car2 != null)
             {
                 sCar2 = print.carHeader(car2) + "\n" + print.printcar(car2);
-            } else
+                changeImage(Car2Badge, car2.Manufacturer);
+            }
+            else
             {
                 sCar2 = "ERROR!";
             }
@@ -187,6 +194,7 @@ namespace CarCoster
             }
         }
 
+ 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -195,6 +203,7 @@ namespace CarCoster
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        /*Allows users to drag and drop by clicking on something.*/
         private void Compare_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -204,5 +213,61 @@ namespace CarCoster
             }
         }
 
+        /*Changing the selected PictureBox's picture using the given manufactuter.*/
+        private void changeImage(PictureBox box, string man)
+        {
+            string url = badge.getBadge(man);
+            box.Image = Image.FromFile(url);
+            box.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void Car1ManufacturorList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeImage(Car1LogoPicture, Car1ManufacturorList.SelectedItem.ToString());
+            Car1Models.Clear();
+            Car1Models = populateModels(Car1ManufacturorList.SelectedItem.ToString(), Car1ModelList);
+        }
+
+        private void Car2ManufacturorList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeImage(Car2LogoPicture, Car2ManufacturorList.SelectedItem.ToString());
+            //clearing the models, as we're repopulating
+            Car2Models.Clear();
+            Car2Models = populateModels(Car2ManufacturorList.SelectedItem.ToString(), Car2ModelList);
+        }
+
+        private List<Car> populateModels(string manufacturer, ListBox box)
+        {
+
+            //clearing the box.
+            box.Items.Clear();
+
+            //getting every car with the manufacturer given.
+            IEnumerable<Car> carModels = new List<Car>();
+            carModels = search.searchCars(cars, manufacturer);
+
+            List<Car> searchedCars = carModels.ToList();
+
+            foreach(Car theCar in searchedCars)
+            {
+                string toAdd = theCar.Model + " " + theCar.Description;
+                box.Items.Add(toAdd);
+            }
+
+            return searchedCars;
+            
+        }
+
+        private void CompareButton_Click(object sender, EventArgs e)
+        {
+            Car car1;
+            Car car2;
+
+            if (Car1ModelList.SelectedIndex != -1 &&
+                Car2ModelList.SelectedIndex != -1)
+            {
+
+            }
+        }
     }
 }

@@ -45,7 +45,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.Car1OrLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.LogoPicture = new System.Windows.Forms.PictureBox();
+            this.Car1LogoPicture = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Car1SelectedCarList = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -60,19 +60,21 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.Car2SelectedCarList = new System.Windows.Forms.ListBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Car2LogoPicture = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.Car2Label = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.Car1OverviewText = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Car1Badge = new System.Windows.Forms.PictureBox();
             this.Car1OverviewLabel = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.Car2OverviewText = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Car2Badge = new System.Windows.Forms.PictureBox();
             this.Car2OverviewLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CompareButton = new System.Windows.Forms.Button();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -81,7 +83,7 @@
             this.panel17.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car1LogoPicture)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -89,14 +91,14 @@
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car2LogoPicture)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car1Badge)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car2Badge)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBarPanel
@@ -202,6 +204,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1691, 77);
             this.panel1.TabIndex = 2;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Compare_MouseDown);
             // 
             // Comparison
             // 
@@ -258,6 +261,7 @@
             this.Car1ManufacturorList.Name = "Car1ManufacturorList";
             this.Car1ManufacturorList.Size = new System.Drawing.Size(426, 172);
             this.Car1ManufacturorList.TabIndex = 4;
+            this.Car1ManufacturorList.SelectedIndexChanged += new System.EventHandler(this.Car1ManufacturorList_SelectedIndexChanged);
             // 
             // panel6
             // 
@@ -279,20 +283,21 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.LogoPicture);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.Car1LogoPicture);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 659);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(432, 79);
             this.panel5.TabIndex = 2;
             // 
-            // LogoPicture
+            // Car1LogoPicture
             // 
-            this.LogoPicture.Location = new System.Drawing.Point(163, 3);
-            this.LogoPicture.Name = "LogoPicture";
-            this.LogoPicture.Size = new System.Drawing.Size(100, 73);
-            this.LogoPicture.TabIndex = 0;
-            this.LogoPicture.TabStop = false;
+            this.Car1LogoPicture.Location = new System.Drawing.Point(9, 3);
+            this.Car1LogoPicture.Name = "Car1LogoPicture";
+            this.Car1LogoPicture.Size = new System.Drawing.Size(100, 73);
+            this.Car1LogoPicture.TabIndex = 0;
+            this.Car1LogoPicture.TabStop = false;
             // 
             // panel4
             // 
@@ -384,6 +389,7 @@
             this.Car2ManufacturorList.Name = "Car2ManufacturorList";
             this.Car2ManufacturorList.Size = new System.Drawing.Size(426, 172);
             this.Car2ManufacturorList.TabIndex = 5;
+            this.Car2ManufacturorList.SelectedIndexChanged += new System.EventHandler(this.Car2ManufacturorList_SelectedIndexChanged);
             // 
             // panel16
             // 
@@ -425,20 +431,21 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.pictureBox2);
+            this.panel10.Controls.Add(this.CompareButton);
+            this.panel10.Controls.Add(this.Car2LogoPicture);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(0, 659);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(432, 79);
             this.panel10.TabIndex = 1;
             // 
-            // pictureBox2
+            // Car2LogoPicture
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(179, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 73);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.Car2LogoPicture.Location = new System.Drawing.Point(6, 3);
+            this.Car2LogoPicture.Name = "Car2LogoPicture";
+            this.Car2LogoPicture.Size = new System.Drawing.Size(100, 73);
+            this.Car2LogoPicture.TabIndex = 1;
+            this.Car2LogoPicture.TabStop = false;
             // 
             // panel9
             // 
@@ -461,7 +468,7 @@
             // panel11
             // 
             this.panel11.Controls.Add(this.panel14);
-            this.panel11.Controls.Add(this.pictureBox3);
+            this.panel11.Controls.Add(this.Car1Badge);
             this.panel11.Controls.Add(this.Car1OverviewLabel);
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
@@ -482,19 +489,20 @@
             // Car1OverviewText
             // 
             this.Car1OverviewText.AutoSize = true;
+            this.Car1OverviewText.Font = new System.Drawing.Font("Bookman Old Style", 12F);
             this.Car1OverviewText.Location = new System.Drawing.Point(6, 13);
             this.Car1OverviewText.Name = "Car1OverviewText";
-            this.Car1OverviewText.Size = new System.Drawing.Size(67, 21);
+            this.Car1OverviewText.Size = new System.Drawing.Size(57, 20);
             this.Car1OverviewText.TabIndex = 0;
             this.Car1OverviewText.Text = "label1";
             // 
-            // pictureBox3
+            // Car1Badge
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(45, 48);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(276, 167);
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
+            this.Car1Badge.Location = new System.Drawing.Point(45, 48);
+            this.Car1Badge.Name = "Car1Badge";
+            this.Car1Badge.Size = new System.Drawing.Size(276, 167);
+            this.Car1Badge.TabIndex = 9;
+            this.Car1Badge.TabStop = false;
             // 
             // Car1OverviewLabel
             // 
@@ -508,7 +516,7 @@
             // panel12
             // 
             this.panel12.Controls.Add(this.panel13);
-            this.panel12.Controls.Add(this.pictureBox4);
+            this.panel12.Controls.Add(this.Car2Badge);
             this.panel12.Controls.Add(this.Car2OverviewLabel);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel12.Location = new System.Drawing.Point(414, 0);
@@ -528,19 +536,20 @@
             // Car2OverviewText
             // 
             this.Car2OverviewText.AutoSize = true;
+            this.Car2OverviewText.Font = new System.Drawing.Font("Bookman Old Style", 12F);
             this.Car2OverviewText.Location = new System.Drawing.Point(6, 13);
             this.Car2OverviewText.Name = "Car2OverviewText";
-            this.Car2OverviewText.Size = new System.Drawing.Size(67, 21);
+            this.Car2OverviewText.Size = new System.Drawing.Size(57, 20);
             this.Car2OverviewText.TabIndex = 1;
             this.Car2OverviewText.Text = "label2";
             // 
-            // pictureBox4
+            // Car2Badge
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(51, 48);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(276, 167);
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.Car2Badge.Location = new System.Drawing.Point(51, 48);
+            this.Car2Badge.Name = "Car2Badge";
+            this.Car2Badge.Size = new System.Drawing.Size(276, 167);
+            this.Car2Badge.TabIndex = 10;
+            this.Car2Badge.TabStop = false;
             // 
             // Car2OverviewLabel
             // 
@@ -550,6 +559,29 @@
             this.Car2OverviewLabel.Size = new System.Drawing.Size(61, 21);
             this.Car2OverviewLabel.TabIndex = 0;
             this.Car2OverviewLabel.Text = "Car 2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 10.25F);
+            this.label1.Location = new System.Drawing.Point(115, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
+            // CompareButton
+            // 
+            this.CompareButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.CompareButton.FlatAppearance.BorderSize = 0;
+            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompareButton.Location = new System.Drawing.Point(281, 0);
+            this.CompareButton.Name = "CompareButton";
+            this.CompareButton.Size = new System.Drawing.Size(151, 79);
+            this.CompareButton.TabIndex = 2;
+            this.CompareButton.Text = "Compare";
+            this.CompareButton.UseVisualStyleBackColor = false;
+            this.CompareButton.Click += new System.EventHandler(this.CompareButton_Click);
             // 
             // Compare
             // 
@@ -582,7 +614,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).EndInit();
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Car1LogoPicture)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -592,19 +625,19 @@
             this.panel16.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car2LogoPicture)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car1Badge)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car2Badge)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -629,21 +662,21 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label Car1OrLabel;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.PictureBox LogoPicture;
+        private System.Windows.Forms.PictureBox Car1LogoPicture;
         private System.Windows.Forms.ListBox Car1ManufacturorList;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox Car2LogoPicture;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label Car2Label;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox Car1Badge;
         private System.Windows.Forms.Label Car1OverviewLabel;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label Car2OverviewText;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox Car2Badge;
         private System.Windows.Forms.Label Car2OverviewLabel;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.ListBox Car2SelectedCarList;
@@ -656,5 +689,7 @@
         private System.Windows.Forms.ListBox Car2ModelList;
         private System.Windows.Forms.Label Car1OverviewText;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button CompareButton;
     }
 }
