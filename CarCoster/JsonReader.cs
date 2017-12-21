@@ -43,7 +43,13 @@ namespace CarCoster
         public string getJsonLocation()
         {
             string thisDirectory = Directory.GetCurrentDirectory().ToString();
-            return thisDirectory + @"\Json\CarCost.json";
+            return thisDirectory + @"\Json\2017.json";
+        }
+
+        public string getCarsYear(string year)
+        {
+            string thisDirectory = Directory.GetCurrentDirectory().ToString();
+            return thisDirectory + @"\Json\" + year + ".json";
         }
     }
 }
