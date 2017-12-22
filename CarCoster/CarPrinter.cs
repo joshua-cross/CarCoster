@@ -89,6 +89,11 @@ namespace CarCoster
                 sCar += "Fuel Cost per 12000 miles: £" + car.FuelCostPer12000Miles + "\n";
             }
 
+            if(car.FuelCostPer6000Miles != null)
+            {
+                sCar += "Fuel Cost per 6000 miles: £" + car.FuelCostPer6000Miles.ToString() + "\n";
+            }
+
             if(car.ElectricityCost != null)
             {
                 sCar += "Electricity Cost per 12000 miles: £" + car.ElectricityCost + "\n";

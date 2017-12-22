@@ -28,6 +28,7 @@ namespace CarCoster
         public string FuelCostPer12000Miles { get; set; }
         public float? ElectricityCost { get; set; }
         public string CostPer12000Miles { get; set; }
+        public int? FuelCostPer6000Miles { get; set; }
         public int? EuroStandard { get; set; }
         public float? NoiseLevelDB { get; set; }
         public float? EmissionCO2 { get; set; }
