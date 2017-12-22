@@ -34,11 +34,19 @@ namespace CarCoster
          finds the full car from this.*/
         public Car findCar(string model, string manufactorer, string description, IEnumerable<Car> cars)
         {
-            Car car = cars.First(c => c.Manufacturer.ToLower().Equals(manufactorer.ToLower())
-            && c.Model.ToLower().Equals(model.ToLower())
-            && c.Description.ToLower().Equals(description.ToLower()));
+            try
+            {
+                Car car = cars.First(c => c.Manufacturer.ToLower().Equals(manufactorer.ToLower())
+                                   && c.Model.ToLower().Equals(model.ToLower())
+                                   && c.Description.ToLower().Equals(description.ToLower()));
 
-            return car;
+                return car;
+            } catch
+            {
+                return null;
+            }
+
+            
         }
 
         /*Functionm that searches a string array with the paramters given
