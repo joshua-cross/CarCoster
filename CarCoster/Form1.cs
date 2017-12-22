@@ -25,6 +25,11 @@ namespace CarCoster
         //the final car.
         Car searchedCar;
 
+        //the beginning year for the car json files.
+        int beginningYear = 2000;
+
+        int theYear = 2017;
+
         //setting the year to be this year by default.
         string year = DateTime.Now.Year.ToString();
 
@@ -42,15 +47,33 @@ namespace CarCoster
             JsonReader json = new JsonReader();
             drawListBox(json);
 
-
+            drawYearsBox();
 
             pictureBox1.Image = Image.FromFile(fileLoc);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             Title.Text = fileLoc;
         }
 
+        /*Drawing all the years between the beginning year and the current latest
+         database to the yearBox.*/
+        private void drawYearsBox()
+        {
+            for(int i = beginningYear; i <= theYear; i++)
+            {
+                YearBox.Items.Add(i.ToString());
+            }
+
+            YearBox.Items.Add("All");
+        }
+
         private void drawListBox(JsonReader json)
         {
+            //clearing all the items in CarBox/ModelBox. just incase we have some in here already.
+            CarBox.Items.Clear();
+            ModelBox.Items.Clear();
+            manufactorers.Clear();
+            models.Clear();
+
             cars = json.getCars();
             try
             {
@@ -293,6 +316,37 @@ namespace CarCoster
             Compare compare = new Compare();
             compare.Closed += (s, args) => this.Close();
             compare.Show();
+        }
+
+        /*When the Confirm year button is pressed we want to change
+         the contents of the boxes to be the cars of the year chosen e.g.
+         from 2017 to 2015.*/
+        private void ConfirmYearButton_Click(object sender, EventArgs e)
+        {
+            //if the user has selected a year.
+            if(YearBox.SelectedIndex != -1)
+            {
+
+                //if we have selected one year we are going to get all of the cars from this year.
+                if(!YearBox.SelectedItem.Equals("All"))
+                {
+                    //the year that the user has selected.
+                    string selectedYear = YearBox.SelectedItem.ToString();
+                    JsonReader json = new JsonReader(selectedYear);
+                    //cars = json.getCars();
+
+                    //setting the year to be the year that was selected.
+                    year = selectedYear;
+
+                    drawListBox(json);
+                }
+
+                //if the all button has been selected we want to display all the cars in all databases.
+                else
+                {
+
+                }
+            }
         }
     }
 }

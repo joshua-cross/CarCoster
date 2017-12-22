@@ -36,6 +36,7 @@
             this.LogoBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.YearBox = new System.Windows.Forms.ListBox();
             this.ManufactorerLabel = new System.Windows.Forms.Label();
             this.ManufactorerSearch = new System.Windows.Forms.Label();
             this.MakeBox = new System.Windows.Forms.TextBox();
@@ -61,9 +62,10 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.SideBarPanel = new System.Windows.Forms.Panel();
             this.SelectedButton = new System.Windows.Forms.Panel();
+            this.CompareButton = new System.Windows.Forms.Button();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.CompareButton = new System.Windows.Forms.Button();
+            this.ConfirmYearButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -145,12 +147,25 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.ConfirmYearButton);
+            this.panel6.Controls.Add(this.YearBox);
             this.panel6.Controls.Add(this.ManufactorerLabel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(515, 37);
             this.panel6.TabIndex = 0;
+            // 
+            // YearBox
+            // 
+            this.YearBox.BackColor = System.Drawing.Color.ForestGreen;
+            this.YearBox.ForeColor = System.Drawing.Color.White;
+            this.YearBox.FormattingEnabled = true;
+            this.YearBox.ItemHeight = 21;
+            this.YearBox.Location = new System.Drawing.Point(157, 7);
+            this.YearBox.Name = "YearBox";
+            this.YearBox.Size = new System.Drawing.Size(210, 25);
+            this.YearBox.TabIndex = 1;
             // 
             // ManufactorerLabel
             // 
@@ -402,6 +417,21 @@
             this.SelectedButton.Size = new System.Drawing.Size(12, 98);
             this.SelectedButton.TabIndex = 0;
             // 
+            // CompareButton
+            // 
+            this.CompareButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CompareButton.FlatAppearance.BorderSize = 0;
+            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompareButton.Location = new System.Drawing.Point(0, 405);
+            this.CompareButton.Name = "CompareButton";
+            this.CompareButton.Size = new System.Drawing.Size(143, 100);
+            this.CompareButton.TabIndex = 6;
+            this.CompareButton.Text = "Compare";
+            this.CompareButton.UseVisualStyleBackColor = true;
+            this.CompareButton.Click += new System.EventHandler(this.button1_Click);
+            this.CompareButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
+            // 
             // AddCarButton
             // 
             this.AddCarButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -431,20 +461,18 @@
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             this.SaveButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
-            // CompareButton
+            // ConfirmYearButton
             // 
-            this.CompareButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CompareButton.FlatAppearance.BorderSize = 0;
-            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompareButton.Location = new System.Drawing.Point(0, 405);
-            this.CompareButton.Name = "CompareButton";
-            this.CompareButton.Size = new System.Drawing.Size(143, 100);
-            this.CompareButton.TabIndex = 6;
-            this.CompareButton.Text = "Compare";
-            this.CompareButton.UseVisualStyleBackColor = true;
-            this.CompareButton.Click += new System.EventHandler(this.button1_Click);
-            this.CompareButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
+            this.ConfirmYearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.ConfirmYearButton.FlatAppearance.BorderSize = 0;
+            this.ConfirmYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmYearButton.Location = new System.Drawing.Point(402, 2);
+            this.ConfirmYearButton.Name = "ConfirmYearButton";
+            this.ConfirmYearButton.Size = new System.Drawing.Size(97, 34);
+            this.ConfirmYearButton.TabIndex = 2;
+            this.ConfirmYearButton.Text = "Confirm";
+            this.ConfirmYearButton.UseVisualStyleBackColor = false;
+            this.ConfirmYearButton.Click += new System.EventHandler(this.ConfirmYearButton_Click);
             // 
             // Form1
             // 
@@ -528,6 +556,8 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label SaveText;
         private System.Windows.Forms.Button CompareButton;
+        private System.Windows.Forms.ListBox YearBox;
+        private System.Windows.Forms.Button ConfirmYearButton;
     }
 }
 
