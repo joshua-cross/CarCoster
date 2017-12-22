@@ -33,6 +33,25 @@ namespace CarCoster
 
         }
 
+        //Constructor using the year.
+        public JsonReader(string year)
+        {
+
+            string fileLoc = getJsonLocation(year);
+
+            using (StreamReader r = new StreamReader(fileLoc))
+            {
+                string json = r.ReadToEnd();
+                cars = JsonConvert.DeserializeObject<List<Car>>(json);
+                foreach (Car car in cars)
+                {
+                    Console.WriteLine(car.Manufacturer);
+                }
+
+            }
+
+        }
+
 
 
         public List<Car> getCars()
@@ -46,7 +65,7 @@ namespace CarCoster
             return thisDirectory + @"\Json\2017.json";
         }
 
-        public string getCarsYear(string year)
+        public string getJsonLocation(string year)
         {
             string thisDirectory = Directory.GetCurrentDirectory().ToString();
             return thisDirectory + @"\Json\" + year + ".json";

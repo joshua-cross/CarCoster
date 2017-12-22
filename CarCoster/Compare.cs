@@ -56,7 +56,7 @@ namespace CarCoster
 
         private void Compare_Load(object sender, EventArgs e)
         {
-            reader.getCarsYear("2016");
+            //reader.getJsonLocation("2016");
             cars = reader.getCars();
             selectedCars = load.Load();
 

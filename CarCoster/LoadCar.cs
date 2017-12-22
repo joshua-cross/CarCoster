@@ -18,16 +18,42 @@ namespace CarCoster
                Properties.Settings.Default.Descriptions != null)
             {
                 //getting the list of cars from the Json file.
-                JsonReader json = new JsonReader();
+                //JsonReader json = new JsonReader();
                 List<Car> cars = new List<Car>();
-                cars = json.getCars();
+               // cars = json.getCars();
 
 
                 //creating a list of cars which will be displayed to the users.
                 List<Car> usersCars = new List<Car>();
                 CarListReader reader = new CarListReader();
+                
+                /*Getting each of the years that we saved so we know
+                 which one of the JSON files we should open to find the specific saved car.*/
+                 
+                 for(int i = 0; i < Properties.Settings.Default.Years.Count; i++)
+                {
+                    string year = Properties.Settings.Default.Years[i];
 
+                    //Loading the JSON reader for the given year.
+                    JsonReader json = new JsonReader(year);
+
+                    //Getting the list of cars for this year.
+                    List<Car> theCars = new List<Car>();
+                    theCars = json.getCars();
+
+                    //searching for the car based on the same properties.
+                    Car car = reader.findCar(Properties.Settings.Default.Models[i],
+                                             Properties.Settings.Default.Manufacturers[i],
+                                             Properties.Settings.Default.Descriptions[i], theCars);
+                    //adding the car that we've just found to the list of cars.
+                    usersCars.Add(car);
+                }
+                 
+
+
+                 
                 //Going around a loop for as many cars the user has saved (maximum 5.)
+                /*
                 for (int i = 0; i < Properties.Settings.Default.Models.Count; i++)
                 {
                     //searching for the car based on the same properties.
@@ -37,7 +63,10 @@ namespace CarCoster
 
                     //adding the car that we've just found to the list of cars.
                     usersCars.Add(car);
+
                 }
+                */
+                
 
 
 
