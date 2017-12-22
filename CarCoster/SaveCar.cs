@@ -10,7 +10,7 @@ namespace CarCoster
     {
 
         /*Function that saves the selected car to the settings.*/
-        public string Save(Car car)
+        public string Save(Car car, string year)
         {
             if(car == null)
             {
@@ -22,7 +22,8 @@ namespace CarCoster
                     //we cannot own more than 5 cars.
                     if(Properties.Settings.Default.Manufacturers.Count > 5
                        && Properties.Settings.Default.Models.Count > 5
-                       && Properties.Settings.Default.Descriptions.Count > 5)
+                       && Properties.Settings.Default.Descriptions.Count > 5
+                       && Properties.Settings.Default.Years.Count > 5)
                     {
                         /*
                         //the first element in the array (which we want removing.)
@@ -52,6 +53,7 @@ namespace CarCoster
                     Properties.Settings.Default.Manufacturers.Add(car.Manufacturer);
                     Properties.Settings.Default.Models.Add(car.Model);
                     Properties.Settings.Default.Descriptions.Add(car.Description);
+                    Properties.Settings.Default.Years.Add(year);
                     Properties.Settings.Default.Save();
                     return "Car: " + Properties.Settings.Default.Model + " Added!";
                 } catch (Exception e)
@@ -72,16 +74,21 @@ namespace CarCoster
                 Properties.Settings.Default.Models[element] ==
                 Properties.Settings.Default.Model &&
                 Properties.Settings.Default.Descriptions[element] ==
-                Properties.Settings.Default.Description)
+                Properties.Settings.Default.Description &&
+                Properties.Settings.Default.Years[element] ==
+                Properties.Settings.Default.Year)
+
             {
                 Properties.Settings.Default.Manufacturer = null;
                 Properties.Settings.Default.Model = null;
                 Properties.Settings.Default.Description = null;
+                Properties.Settings.Default.Year = null;
             }
 
             Properties.Settings.Default.Manufacturers.RemoveAt(element);
             Properties.Settings.Default.Models.RemoveAt(element);
             Properties.Settings.Default.Descriptions.RemoveAt(element);
+            Properties.Settings.Default.Years.RemoveAt(element);
 
             Properties.Settings.Default.Save();
             return "Car removed";
@@ -93,6 +100,7 @@ namespace CarCoster
             Properties.Settings.Default.Manufacturer = Properties.Settings.Default.Manufacturers[id];
             Properties.Settings.Default.Model = Properties.Settings.Default.Models[id];
             Properties.Settings.Default.Description = Properties.Settings.Default.Descriptions[id];
+            Properties.Settings.Default.Year = Properties.Settings.Default.Years[id];
             Properties.Settings.Default.Save();
         }
 

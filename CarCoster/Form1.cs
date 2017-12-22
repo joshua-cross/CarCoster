@@ -25,6 +25,9 @@ namespace CarCoster
         //the final car.
         Car searchedCar;
 
+        //setting the year to be this year by default.
+        string year = DateTime.Now.Year.ToString();
+
         public Form1()
         {
             InitializeComponent();
@@ -240,7 +243,8 @@ namespace CarCoster
         private void SaveButton_Click(object sender, EventArgs e)
         {
             SaveCar save = new SaveCar();
-            SaveText.Text = save.Save(searchedCar);
+            Console.WriteLine(year);
+            SaveText.Text = save.Save(searchedCar, year);
         }
 
         //when we hover over a button the selecter will go to this location.
