@@ -574,6 +574,7 @@
             this.DieselButton.TabIndex = 4;
             this.DieselButton.Text = "Diesel";
             this.DieselButton.UseVisualStyleBackColor = false;
+            this.DieselButton.Click += new System.EventHandler(this.DieselButton_Click);
             // 
             // HybridButton
             // 
@@ -587,6 +588,7 @@
             this.HybridButton.TabIndex = 5;
             this.HybridButton.Text = "Hybrid";
             this.HybridButton.UseVisualStyleBackColor = false;
+            this.HybridButton.Click += new System.EventHandler(this.HybridButton_Click);
             // 
             // ElectricButton
             // 
@@ -600,6 +602,7 @@
             this.ElectricButton.TabIndex = 6;
             this.ElectricButton.Text = "ElectricButton";
             this.ElectricButton.UseVisualStyleBackColor = false;
+            this.ElectricButton.Click += new System.EventHandler(this.ElectricButton_Click);
             // 
             // Form1
             // 

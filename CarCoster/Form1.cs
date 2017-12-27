@@ -507,7 +507,70 @@ namespace CarCoster
             models.Clear();
             descriptions.Clear();
 
-            orderedCars = order.RemoveAllButPetrol(orderedCars);
+            orderedCars = order.RemoveAllButSpecified(orderedCars, "Petrol");
+            //modelCars.Clear();
+
+            foreach (Car car in orderedCars)
+            {
+                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                models.Add(car.Model.ToString());
+                //modelCars.Add(car);
+                descriptions.Add(car.Description.ToString());
+            }
+        }
+
+        private void HybridButton_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+
+            //CarBox.Items.Clear();
+            ModelBox.Items.Clear();
+            models.Clear();
+            descriptions.Clear();
+
+            orderedCars = order.RemoveAllButSpecified(orderedCars, "Hybrid");
+            //modelCars.Clear();
+
+            foreach (Car car in orderedCars)
+            {
+                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                models.Add(car.Model.ToString());
+                //modelCars.Add(car);
+                descriptions.Add(car.Description.ToString());
+            }
+        }
+
+        private void DieselButton_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+
+            //CarBox.Items.Clear();
+            ModelBox.Items.Clear();
+            models.Clear();
+            descriptions.Clear();
+
+            orderedCars = order.RemoveAllButSpecified(orderedCars, "Diesel");
+            //modelCars.Clear();
+
+            foreach (Car car in orderedCars)
+            {
+                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                models.Add(car.Model.ToString());
+                //modelCars.Add(car);
+                descriptions.Add(car.Description.ToString());
+            }
+        }
+
+        private void ElectricButton_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+
+            //CarBox.Items.Clear();
+            ModelBox.Items.Clear();
+            models.Clear();
+            descriptions.Clear();
+
+            orderedCars = order.RemoveAllButSpecified(orderedCars, "Electricity");
             //modelCars.Clear();
 
             foreach (Car car in orderedCars)

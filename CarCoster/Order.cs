@@ -33,22 +33,44 @@ namespace CarCoster
         }
 
         /*Function that will remove all cars that are not petrol from the list*/
-        public List<Car> RemoveAllButPetrol(List<Car> cars)
+        public List<Car> RemoveAllButSpecified(List<Car> cars, string targetFuel)
         {
-            string targetFuel = "Petrol";
 
             List<Car> newCars = new List<Car>();
 
-            /*Going through all the cars that the user is sent, and adding only
-             the petrol cars to the new array.*/
-            for (int i = 0; i < cars.Count; i = i + 1) {
 
-                /*If the car is petrol then we will add this to the new array.*/
-                if(cars[i].FuelType.Equals(targetFuel))
+            /*Only do the following if the car is not a hybrid
+             as hybrids can contain both petrol or diesel which
+             would cause issues when checking for just these.*/
+            if (!targetFuel.Equals("Hybrid"))
+            {
+                /*Going through all the cars that the user is sent, and adding only
+                 the petrol cars to the new array.*/
+                for (int i = 0; i < cars.Count; i = i + 1)
                 {
-                    newCars.Add(cars[i]);
-                }
 
+                    /*If the car is petrol then we will add this to the new array.*/
+                    if (cars[i].FuelType.Equals(targetFuel))
+                    {
+                        newCars.Add(cars[i]);
+                    }
+
+                }
+            } else
+            {
+                /*Going through all the cars that the user is sent, and adding only
+                the petrol cars to the new array.*/
+                for (int i = 0; i < cars.Count; i = i + 1)
+                {
+
+                    /*If the car is petrol then we will add this to the new array.*/
+                    if (cars[i].FuelType.Contains(targetFuel)
+                        || cars[i].FuelType.Contains("Electricity /"))
+                    {
+                        newCars.Add(cars[i]);
+                    }
+
+                }
             }
 
             return newCars;
