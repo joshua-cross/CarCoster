@@ -37,18 +37,52 @@ namespace CarCoster
         public JsonReader(string year)
         {
 
-            string fileLoc = getJsonLocation(year);
-
-            using (StreamReader r = new StreamReader(fileLoc))
+            /*Only do the following if the user has not selected the option
+             all, if they do select all then we want to get all the files in the
+             JSON folder and add them to the cars array, then return the car array.*/
+            if (year.ToLower() != "all")
             {
-                string json = r.ReadToEnd();
-                cars = JsonConvert.DeserializeObject<List<Car>>(json);
-                foreach (Car car in cars)
+                string fileLoc = getJsonLocation(year);
+
+                /*Converting all JSON element to the car object.*/
+                using (StreamReader r = new StreamReader(fileLoc))
                 {
-                    Console.WriteLine(car.Manufacturer);
+                    string json = r.ReadToEnd();
+                    cars = JsonConvert.DeserializeObject<List<Car>>(json);
+                    foreach (Car car in cars)
+                    {
+                        Console.WriteLine(car.Manufacturer);
+                    }
+
                 }
 
+            } else
+            {
+                /*Getting the location of each and all of the JSON files for the project.*/
+                string thisDirectory = Directory.GetCurrentDirectory().ToString();
+                thisDirectory += @"\json";
+                string[] filePaths = Directory.GetFiles(thisDirectory);
+
+                /*For each of the files in the filepath the cars will be added to an
+                 array which will contain the cars for each year.*/
+                foreach (string filePath in filePaths)
+                {
+                    List<Car> theCars = new List<Car>();
+
+                    using (StreamReader r = new StreamReader(filePath))
+                    {
+                        string json = r.ReadToEnd();
+                        theCars = JsonConvert.DeserializeObject<List<Car>>(json);
+                        /*Adding each of the cars in this file to the cars array.*/
+                        foreach (Car car in theCars)
+                        {
+                            cars.Add(car);
+                        }
+                        
+                    }
+                }
             }
+
 
         }
 

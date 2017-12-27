@@ -327,9 +327,7 @@ namespace CarCoster
             if(YearBox.SelectedIndex != -1)
             {
 
-                //if we have selected one year we are going to get all of the cars from this year.
-                if(!YearBox.SelectedItem.Equals("All"))
-                {
+
                     //the year that the user has selected.
                     string selectedYear = YearBox.SelectedItem.ToString();
                     JsonReader json = new JsonReader(selectedYear);
@@ -339,13 +337,7 @@ namespace CarCoster
                     year = selectedYear;
 
                     drawListBox(json);
-                }
 
-                //if the all button has been selected we want to display all the cars in all databases.
-                else
-                {
-
-                }
             }
         }
     }
