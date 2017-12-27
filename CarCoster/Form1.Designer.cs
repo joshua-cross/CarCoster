@@ -69,6 +69,7 @@
             this.CompareButton = new System.Windows.Forms.Button();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.MPGSort = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -123,6 +124,7 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.MPGSort);
             this.panel10.Controls.Add(this.LogoBox);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(0, 648);
@@ -508,6 +510,20 @@
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             this.SaveButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
+            // MPGSort
+            // 
+            this.MPGSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.MPGSort.FlatAppearance.BorderSize = 0;
+            this.MPGSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MPGSort.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.MPGSort.Location = new System.Drawing.Point(313, 3);
+            this.MPGSort.Name = "MPGSort";
+            this.MPGSort.Size = new System.Drawing.Size(93, 84);
+            this.MPGSort.TabIndex = 1;
+            this.MPGSort.Text = "Sort by MPG";
+            this.MPGSort.UseVisualStyleBackColor = false;
+            this.MPGSort.Click += new System.EventHandler(this.MPGSort_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -596,6 +612,7 @@
         private System.Windows.Forms.Label MetricLabel;
         private System.Windows.Forms.Label ImperialLabel;
         private System.Windows.Forms.TrackBar ImperialOrMetric;
+        private System.Windows.Forms.Button MPGSort;
     }
 }
 

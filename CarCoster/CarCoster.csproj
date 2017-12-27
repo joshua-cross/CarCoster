@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="JsonReader.cs" />
     <Compile Include="LoadCar.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Overview.cs">
       <SubType>Form</SubType>
     </Compile>

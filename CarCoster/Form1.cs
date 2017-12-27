@@ -252,8 +252,21 @@ namespace CarCoster
             //getting the model & description based on what has been selected.
             string model = models[ModelBox.SelectedIndex];
             string description = descriptions[ModelBox.SelectedIndex];
-            //getting the manufactorer of the car.
-            string manufactorer = CarBox.SelectedItem.ToString();
+            string manufactorer = "";
+            /*If the maufacturer is selected CarBox is null then we have sorted the cars by MPG or
+             something similar.*/
+            if (CarBox.SelectedIndex != -1)
+            {
+                //getting the manufactorer of the car.
+                manufactorer = CarBox.SelectedItem.ToString();
+            }
+            /*We have potentially sorted by MPG.*/
+            else
+            {
+                /*If we have sorted by MPG then all cars will be displayed in the ModelBox
+                 Drop down menu.*/
+                manufactorer = cars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
+            }
 
             searchedCar = listReader.findCar(model, manufactorer, description, cars);
 
@@ -379,6 +392,27 @@ namespace CarCoster
             else
             {
                 measurementSystem = false;
+            }
+        }
+
+        /*When the MPGSort button is clicked we will call the Order class which
+         will sort the list by the highest MPG.*/
+        private void MPGSort_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+
+            //CarBox.Items.Clear();
+            ModelBox.Items.Clear();
+            models.Clear();
+            descriptions.Clear();
+
+            cars = order.orderByMPG(cars);
+
+            foreach (Car car in cars)
+            {
+                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                models.Add(car.Model.ToString());
+                descriptions.Add(car.Description.ToString());
             }
         }
     }
