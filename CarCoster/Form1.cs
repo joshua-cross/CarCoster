@@ -267,7 +267,18 @@ namespace CarCoster
         {
             SaveCar save = new SaveCar();
             Console.WriteLine(year);
-            SaveText.Text = save.Save(searchedCar, year);
+            /*If the all button is not active then use the year that's been selected
+             from the drop down menu*/
+            if (year != "All")
+            {
+                SaveText.Text = save.Save(searchedCar, year);
+            }
+            /*Else the all button has been selected, in this case get the JSON year of the car 
+             thats in the Car object, and use this instead*/
+            else
+            {
+                SaveText.Text = save.Save(searchedCar, searchedCar.carJSONYear);
+            }
         }
 
         //when we hover over a button the selecter will go to this location.
