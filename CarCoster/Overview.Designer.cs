@@ -30,6 +30,7 @@
         {
             this.SideBar = new System.Windows.Forms.Panel();
             this.SelectedButton = new System.Windows.Forms.Panel();
+            this.CompareButton = new System.Windows.Forms.Button();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
@@ -50,7 +51,9 @@
             this.ImagePanel = new System.Windows.Forms.Panel();
             this.Badge = new System.Windows.Forms.PictureBox();
             this.CarDetails = new System.Windows.Forms.Label();
-            this.CompareButton = new System.Windows.Forms.Button();
+            this.MetricLabel = new System.Windows.Forms.Label();
+            this.ImperialLabel = new System.Windows.Forms.Label();
+            this.ImperialOrMetric = new System.Windows.Forms.TrackBar();
             this.SideBar.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +64,7 @@
             this.ManufactorerLogo.SuspendLayout();
             this.ImagePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Badge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBar
@@ -88,6 +92,22 @@
             this.SelectedButton.Name = "SelectedButton";
             this.SelectedButton.Size = new System.Drawing.Size(12, 98);
             this.SelectedButton.TabIndex = 3;
+            // 
+            // CompareButton
+            // 
+            this.CompareButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CompareButton.FlatAppearance.BorderSize = 0;
+            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompareButton.Location = new System.Drawing.Point(0, 301);
+            this.CompareButton.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.CompareButton.Name = "CompareButton";
+            this.CompareButton.Size = new System.Drawing.Size(143, 98);
+            this.CompareButton.TabIndex = 6;
+            this.CompareButton.Text = "Compare";
+            this.CompareButton.UseVisualStyleBackColor = true;
+            this.CompareButton.Click += new System.EventHandler(this.CompareButton_Click);
+            this.CompareButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // AddCarButton
             // 
@@ -158,7 +178,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(122)))));
+            this.panel2.Controls.Add(this.MetricLabel);
             this.panel2.Controls.Add(this.OverviewText);
+            this.panel2.Controls.Add(this.ImperialLabel);
+            this.panel2.Controls.Add(this.ImperialOrMetric);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(143, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -305,21 +328,32 @@
             this.CarDetails.TabIndex = 8;
             this.CarDetails.Text = "Car Details";
             // 
-            // CompareButton
+            // MetricLabel
             // 
-            this.CompareButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CompareButton.FlatAppearance.BorderSize = 0;
-            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompareButton.Location = new System.Drawing.Point(0, 301);
-            this.CompareButton.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.CompareButton.Name = "CompareButton";
-            this.CompareButton.Size = new System.Drawing.Size(143, 98);
-            this.CompareButton.TabIndex = 6;
-            this.CompareButton.Text = "Compare";
-            this.CompareButton.UseVisualStyleBackColor = true;
-            this.CompareButton.Click += new System.EventHandler(this.CompareButton_Click);
-            this.CompareButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
+            this.MetricLabel.AutoSize = true;
+            this.MetricLabel.Location = new System.Drawing.Point(1393, 16);
+            this.MetricLabel.Name = "MetricLabel";
+            this.MetricLabel.Size = new System.Drawing.Size(68, 21);
+            this.MetricLabel.TabIndex = 11;
+            this.MetricLabel.Text = "Metric";
+            // 
+            // ImperialLabel
+            // 
+            this.ImperialLabel.AutoSize = true;
+            this.ImperialLabel.Location = new System.Drawing.Point(1208, 16);
+            this.ImperialLabel.Name = "ImperialLabel";
+            this.ImperialLabel.Size = new System.Drawing.Size(88, 21);
+            this.ImperialLabel.TabIndex = 10;
+            this.ImperialLabel.Text = "Imperial";
+            // 
+            // ImperialOrMetric
+            // 
+            this.ImperialOrMetric.Location = new System.Drawing.Point(1292, 12);
+            this.ImperialOrMetric.Maximum = 1;
+            this.ImperialOrMetric.Name = "ImperialOrMetric";
+            this.ImperialOrMetric.Size = new System.Drawing.Size(104, 45);
+            this.ImperialOrMetric.TabIndex = 9;
+            this.ImperialOrMetric.Scroll += new System.EventHandler(this.ImperialOrMetric_Scroll);
             // 
             // Overview
             // 
@@ -353,6 +387,7 @@
             this.ManufactorerLogo.PerformLayout();
             this.ImagePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Badge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,5 +418,8 @@
         private System.Windows.Forms.Label CarDetails;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button CompareButton;
+        private System.Windows.Forms.Label MetricLabel;
+        private System.Windows.Forms.Label ImperialLabel;
+        private System.Windows.Forms.TrackBar ImperialOrMetric;
     }
 }

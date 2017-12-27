@@ -8,7 +8,7 @@ namespace CarCoster
 {
     class CarPrinter
     {
-        public string printcar(Car car)
+        public string printcar(Car car, bool measurementSystem)
         {
             string sCar = "";
                           
@@ -47,36 +47,44 @@ namespace CarCoster
             {
                 sCar += "Maximum Range (Miles): " + car.MaximumRangeMiles + "\n";
             }
-            if (car.MetricUrbanCold != null)
+            /*If we have chosen metric system then print out the metric system.*/
+            if (!measurementSystem)
             {
-                sCar += "Fuel Consumption Metric Urban (Cold): " + car.MetricUrbanCold + "\n";
+                if (car.MetricUrbanCold != null)
+                {
+                    sCar += "Fuel Consumption Metric Urban (Cold): " + car.MetricUrbanCold + "\n";
 
+                }
+
+                if (car.MetricExtraUrban != null)
+                {
+                    sCar += "Fuel Consumption Metric Extra-Urban: " + car.MetricExtraUrban + "\n";
+                }
+
+                if (car.MetricCombined != null)
+                {
+                    sCar += "Fuel Consumption Metric Combined: " + car.MetricCombined + "\n";
+                }
             }
-
-            if(car.MetricExtraUrban != null)
+            /*Else, we have chosen imperial so print off the imperial system.*/
+            else
             {
-                sCar += "Fuel Consumption Metric Extra-Urban: " + car.MetricExtraUrban + "\n";
-            }
 
-            if (car.MetricCombined != null)
-            {
-                sCar += "Fuel Consumption Metric Combined: " + car.MetricCombined + "\n";
-            }
+                if (car.ImperialUrbanCold != null)
+                {
+                    sCar += "Fuel Consumption Imperial Urban (Cold): " + car.ImperialUrbanCold + "\n";
+                }
 
-            if (car.ImperialUrbanCold != null)
-            {
-                sCar += "Fuel Consumption Imperial Urban (Cold): " + car.ImperialUrbanCold + "\n";
-            }
-            
-            if(car.ImperialExtraUrban != null)
-            {
-                sCar += "Fuel Consumption Imperial Extra-Urban: " + car.ImperialExtraUrban + "\n";
+                if (car.ImperialExtraUrban != null)
+                {
+                    sCar += "Fuel Consumption Imperial Extra-Urban: " + car.ImperialExtraUrban + "\n";
 
-            }
+                }
 
-            if(car.ImperialCombined != null)
-            {
-                sCar += "Fuel Consumption Imperial Combined: " + car.ImperialCombined + "\n";
+                if (car.ImperialCombined != null)
+                {
+                    sCar += "Fuel Consumption Imperial Combined: " + car.ImperialCombined + "\n";
+                }
             }
 
             if(car.CO2gramsPerKilometer != null)

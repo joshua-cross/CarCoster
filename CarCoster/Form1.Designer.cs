@@ -36,6 +36,7 @@
             this.LogoBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.ConfirmYearButton = new System.Windows.Forms.Button();
             this.YearBox = new System.Windows.Forms.ListBox();
             this.ManufactorerLabel = new System.Windows.Forms.Label();
             this.ManufactorerSearch = new System.Windows.Forms.Label();
@@ -55,6 +56,9 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.OverviewLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.MetricLabel = new System.Windows.Forms.Label();
+            this.ImperialLabel = new System.Windows.Forms.Label();
+            this.ImperialOrMetric = new System.Windows.Forms.TrackBar();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SaveLabel = new System.Windows.Forms.Label();
@@ -65,7 +69,6 @@
             this.CompareButton = new System.Windows.Forms.Button();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.ConfirmYearButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -78,6 +81,7 @@
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).BeginInit();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
@@ -155,6 +159,19 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(515, 37);
             this.panel6.TabIndex = 0;
+            // 
+            // ConfirmYearButton
+            // 
+            this.ConfirmYearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.ConfirmYearButton.FlatAppearance.BorderSize = 0;
+            this.ConfirmYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmYearButton.Location = new System.Drawing.Point(402, 2);
+            this.ConfirmYearButton.Name = "ConfirmYearButton";
+            this.ConfirmYearButton.Size = new System.Drawing.Size(97, 34);
+            this.ConfirmYearButton.TabIndex = 2;
+            this.ConfirmYearButton.Text = "Confirm";
+            this.ConfirmYearButton.UseVisualStyleBackColor = false;
+            this.ConfirmYearButton.Click += new System.EventHandler(this.ConfirmYearButton_Click);
             // 
             // YearBox
             // 
@@ -326,6 +343,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(122)))));
+            this.panel1.Controls.Add(this.MetricLabel);
+            this.panel1.Controls.Add(this.ImperialLabel);
+            this.panel1.Controls.Add(this.ImperialOrMetric);
             this.panel1.Controls.Add(this.Title);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(143, 0);
@@ -333,6 +353,33 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1608, 77);
             this.panel1.TabIndex = 1;
+            // 
+            // MetricLabel
+            // 
+            this.MetricLabel.AutoSize = true;
+            this.MetricLabel.Location = new System.Drawing.Point(1482, 12);
+            this.MetricLabel.Name = "MetricLabel";
+            this.MetricLabel.Size = new System.Drawing.Size(68, 21);
+            this.MetricLabel.TabIndex = 3;
+            this.MetricLabel.Text = "Metric";
+            // 
+            // ImperialLabel
+            // 
+            this.ImperialLabel.AutoSize = true;
+            this.ImperialLabel.Location = new System.Drawing.Point(1297, 12);
+            this.ImperialLabel.Name = "ImperialLabel";
+            this.ImperialLabel.Size = new System.Drawing.Size(88, 21);
+            this.ImperialLabel.TabIndex = 2;
+            this.ImperialLabel.Text = "Imperial";
+            // 
+            // ImperialOrMetric
+            // 
+            this.ImperialOrMetric.Location = new System.Drawing.Point(1381, 8);
+            this.ImperialOrMetric.Maximum = 1;
+            this.ImperialOrMetric.Name = "ImperialOrMetric";
+            this.ImperialOrMetric.Size = new System.Drawing.Size(104, 45);
+            this.ImperialOrMetric.TabIndex = 1;
+            this.ImperialOrMetric.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // LogoPanel
             // 
@@ -461,19 +508,6 @@
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             this.SaveButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
-            // ConfirmYearButton
-            // 
-            this.ConfirmYearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.ConfirmYearButton.FlatAppearance.BorderSize = 0;
-            this.ConfirmYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfirmYearButton.Location = new System.Drawing.Point(402, 2);
-            this.ConfirmYearButton.Name = "ConfirmYearButton";
-            this.ConfirmYearButton.Size = new System.Drawing.Size(97, 34);
-            this.ConfirmYearButton.TabIndex = 2;
-            this.ConfirmYearButton.Text = "Confirm";
-            this.ConfirmYearButton.UseVisualStyleBackColor = false;
-            this.ConfirmYearButton.Click += new System.EventHandler(this.ConfirmYearButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -512,6 +546,7 @@
             this.panel9.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).EndInit();
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SideBarPanel.ResumeLayout(false);
@@ -558,6 +593,9 @@
         private System.Windows.Forms.Button CompareButton;
         private System.Windows.Forms.ListBox YearBox;
         private System.Windows.Forms.Button ConfirmYearButton;
+        private System.Windows.Forms.Label MetricLabel;
+        private System.Windows.Forms.Label ImperialLabel;
+        private System.Windows.Forms.TrackBar ImperialOrMetric;
     }
 }
 

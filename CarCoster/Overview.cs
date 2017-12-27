@@ -15,6 +15,9 @@ namespace CarCoster
         IEnumerable<Car> cars;
         //the car the user has previously loaded.
         Car car;
+
+        bool measurementSystem = true;
+
         public Overview()
         {
             InitializeComponent();
@@ -38,7 +41,7 @@ namespace CarCoster
                     //printer so we can print information about the car.
                     CarPrinter printer = new CarPrinter();
                     string info = printer.carHeader(cars.ElementAt(0));
-                    string details = printer.printcar(cars.ElementAt(0));
+                    string details = printer.printcar(cars.ElementAt(0), measurementSystem);
                     CarInfo.Text = info;
                     CarDetails.Text = details;
 
@@ -58,7 +61,7 @@ namespace CarCoster
             {
                 CarPrinter printer = new CarPrinter();
                 string info = printer.carHeader(car);
-                string details = printer.printcar(car);
+                string details = printer.printcar(car, measurementSystem);
                 CarInfo.Text = info;
                 CarDetails.Text = details;
 
@@ -128,7 +131,7 @@ namespace CarCoster
             string carInfo = printer.carHeader(theCar);
 
             //getting the rest of the cars details.
-            string carDetails = printer.printcar(theCar);
+            string carDetails = printer.printcar(theCar, measurementSystem);
 
             CarInfo.Text = carInfo;
             CarDetails.Text = carDetails;
@@ -170,6 +173,27 @@ namespace CarCoster
             Compare compareCar = new Compare();
             compareCar.Closed += (s, args) => this.Close();
             compareCar.Show();
+        }
+
+        private void ImperialOrMetric_Scroll(object sender, EventArgs e)
+        {
+            /*The value the user has selected
+             0 = Imperial
+             1 = Metric
+             */
+            int value = ImperialOrMetric.Value;
+            /*If the value is imperial then we will set the mesurement system
+             to be true*/
+            if (value == 0)
+            {
+                measurementSystem = true;
+            }
+            /*Else the value is metric so we will set the measurement system
+             to be false.*/
+            else
+            {
+                measurementSystem = false;
+            }
         }
     }
 }

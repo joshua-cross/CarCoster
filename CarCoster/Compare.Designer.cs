@@ -45,6 +45,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.Car1OrLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.hasComparedText = new System.Windows.Forms.Label();
             this.Car1LogoPicture = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Car1SelectedCarList = new System.Windows.Forms.ListBox();
@@ -60,6 +61,7 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.Car2SelectedCarList = new System.Windows.Forms.ListBox();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.CompareButton = new System.Windows.Forms.Button();
             this.Car2LogoPicture = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.Car2Label = new System.Windows.Forms.Label();
@@ -73,8 +75,9 @@
             this.Car2OverviewText = new System.Windows.Forms.Label();
             this.Car2Badge = new System.Windows.Forms.PictureBox();
             this.Car2OverviewLabel = new System.Windows.Forms.Label();
-            this.hasComparedText = new System.Windows.Forms.Label();
-            this.CompareButton = new System.Windows.Forms.Button();
+            this.MetricLabel = new System.Windows.Forms.Label();
+            this.ImperialLabel = new System.Windows.Forms.Label();
+            this.ImperialOrMetric = new System.Windows.Forms.TrackBar();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -99,6 +102,7 @@
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Car2Badge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBarPanel
@@ -197,6 +201,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(122)))));
+            this.panel1.Controls.Add(this.MetricLabel);
+            this.panel1.Controls.Add(this.ImperialLabel);
+            this.panel1.Controls.Add(this.ImperialOrMetric);
             this.panel1.Controls.Add(this.Comparison);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(143, 0);
@@ -290,6 +297,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(432, 79);
             this.panel5.TabIndex = 2;
+            // 
+            // hasComparedText
+            // 
+            this.hasComparedText.AutoSize = true;
+            this.hasComparedText.Font = new System.Drawing.Font("Bookman Old Style", 10.25F);
+            this.hasComparedText.Location = new System.Drawing.Point(115, 30);
+            this.hasComparedText.Name = "hasComparedText";
+            this.hasComparedText.Size = new System.Drawing.Size(52, 19);
+            this.hasComparedText.TabIndex = 1;
+            this.hasComparedText.Text = "label1";
             // 
             // Car1LogoPicture
             // 
@@ -441,6 +458,19 @@
             this.panel10.Size = new System.Drawing.Size(432, 79);
             this.panel10.TabIndex = 1;
             // 
+            // CompareButton
+            // 
+            this.CompareButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.CompareButton.FlatAppearance.BorderSize = 0;
+            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompareButton.Location = new System.Drawing.Point(281, 0);
+            this.CompareButton.Name = "CompareButton";
+            this.CompareButton.Size = new System.Drawing.Size(151, 79);
+            this.CompareButton.TabIndex = 2;
+            this.CompareButton.Text = "Compare";
+            this.CompareButton.UseVisualStyleBackColor = false;
+            this.CompareButton.Click += new System.EventHandler(this.CompareButton_Click);
+            // 
             // Car2LogoPicture
             // 
             this.Car2LogoPicture.Location = new System.Drawing.Point(6, 3);
@@ -562,28 +592,32 @@
             this.Car2OverviewLabel.TabIndex = 0;
             this.Car2OverviewLabel.Text = "Car 2";
             // 
-            // hasComparedText
+            // MetricLabel
             // 
-            this.hasComparedText.AutoSize = true;
-            this.hasComparedText.Font = new System.Drawing.Font("Bookman Old Style", 10.25F);
-            this.hasComparedText.Location = new System.Drawing.Point(115, 30);
-            this.hasComparedText.Name = "hasComparedText";
-            this.hasComparedText.Size = new System.Drawing.Size(52, 19);
-            this.hasComparedText.TabIndex = 1;
-            this.hasComparedText.Text = "label1";
+            this.MetricLabel.AutoSize = true;
+            this.MetricLabel.Location = new System.Drawing.Point(1577, 12);
+            this.MetricLabel.Name = "MetricLabel";
+            this.MetricLabel.Size = new System.Drawing.Size(68, 21);
+            this.MetricLabel.TabIndex = 6;
+            this.MetricLabel.Text = "Metric";
             // 
-            // CompareButton
+            // ImperialLabel
             // 
-            this.CompareButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.CompareButton.FlatAppearance.BorderSize = 0;
-            this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompareButton.Location = new System.Drawing.Point(281, 0);
-            this.CompareButton.Name = "CompareButton";
-            this.CompareButton.Size = new System.Drawing.Size(151, 79);
-            this.CompareButton.TabIndex = 2;
-            this.CompareButton.Text = "Compare";
-            this.CompareButton.UseVisualStyleBackColor = false;
-            this.CompareButton.Click += new System.EventHandler(this.CompareButton_Click);
+            this.ImperialLabel.AutoSize = true;
+            this.ImperialLabel.Location = new System.Drawing.Point(1392, 12);
+            this.ImperialLabel.Name = "ImperialLabel";
+            this.ImperialLabel.Size = new System.Drawing.Size(88, 21);
+            this.ImperialLabel.TabIndex = 5;
+            this.ImperialLabel.Text = "Imperial";
+            // 
+            // ImperialOrMetric
+            // 
+            this.ImperialOrMetric.Location = new System.Drawing.Point(1476, 8);
+            this.ImperialOrMetric.Maximum = 1;
+            this.ImperialOrMetric.Name = "ImperialOrMetric";
+            this.ImperialOrMetric.Size = new System.Drawing.Size(104, 45);
+            this.ImperialOrMetric.TabIndex = 4;
+            this.ImperialOrMetric.Scroll += new System.EventHandler(this.ImperialOrMetric_Scroll);
             // 
             // Compare
             // 
@@ -640,6 +674,7 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Car2Badge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -693,5 +728,8 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label hasComparedText;
         private System.Windows.Forms.Button CompareButton;
+        private System.Windows.Forms.Label MetricLabel;
+        private System.Windows.Forms.Label ImperialLabel;
+        private System.Windows.Forms.TrackBar ImperialOrMetric;
     }
 }

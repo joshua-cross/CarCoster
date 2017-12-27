@@ -22,6 +22,13 @@ namespace CarCoster
         List<string> models = new List<string>();
         List<string> descriptions = new List<string>();
 
+        /*bool that's used to decide if we will display metric or imperial
+         measurements to the user
+         true = imperial
+         false = metric.
+         */
+        bool measurementSystem = true;
+
         //the final car.
         Car searchedCar;
 
@@ -259,7 +266,7 @@ namespace CarCoster
             } else
             {
                 CarPrinter printer = new CarPrinter();
-                OverviewText.Text = printer.printcar(searchedCar);
+                OverviewText.Text = printer.printcar(searchedCar, measurementSystem);
             }
         }
 
@@ -349,6 +356,29 @@ namespace CarCoster
 
                     drawListBox(json);
 
+            }
+        }
+
+        /*Scroll bar which decides if we should display imperial
+         or metric measurements to the users.*/
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            /*The value the user has selected
+             0 = Imperial
+             1 = Metric
+             */
+            int value = ImperialOrMetric.Value;
+            /*If the value is imperial then we will set the mesurement system
+             to be true*/
+            if (value == 0)
+            {
+                measurementSystem = true;
+            }
+            /*Else the value is metric so we will set the measurement system
+             to be false.*/
+            else
+            {
+                measurementSystem = false;
             }
         }
     }

@@ -21,6 +21,8 @@ namespace CarCoster
         List<Car> Car1Models = new List<Car>();
         List<Car> Car2Models = new List<Car>();
 
+        bool measurementSystem = true;
+
         Car userCar;
 
         JsonReader reader = new JsonReader();
@@ -116,7 +118,7 @@ namespace CarCoster
 
             if(car1 != null)
             {
-                sCar1 = print.carHeader(car1) + "\n" + print.printcar(car1);
+                sCar1 = print.carHeader(car1) + "\n" + print.printcar(car1, measurementSystem);
                 //loading the car1 badge
                 changeImage(Car1Badge, car1.Manufacturer);
             } else
@@ -126,7 +128,7 @@ namespace CarCoster
 
             if(car2 != null)
             {
-                sCar2 = print.carHeader(car2) + "\n" + print.printcar(car2);
+                sCar2 = print.carHeader(car2) + "\n" + print.printcar(car2, measurementSystem);
                 changeImage(Car2Badge, car2.Manufacturer);
             }
             else
@@ -357,6 +359,27 @@ namespace CarCoster
                 Car2ManufacturorList.ClearSelected();
                 string manufacturer = selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex).Manufacturer;
                 changeImage(Car2LogoPicture, manufacturer);
+            }
+        }
+
+        private void ImperialOrMetric_Scroll(object sender, EventArgs e)
+        {
+            /*The value the user has selected
+             0 = Imperial
+             1 = Metric
+             */
+            int value = ImperialOrMetric.Value;
+            /*If the value is imperial then we will set the mesurement system
+             to be true*/
+            if (value == 0)
+            {
+                measurementSystem = true;
+            }
+            /*Else the value is metric so we will set the measurement system
+             to be false.*/
+            else
+            {
+                measurementSystem = false;
             }
         }
     }
