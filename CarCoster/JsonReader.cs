@@ -52,6 +52,7 @@ namespace CarCoster
                     foreach (Car car in cars)
                     {
                         Console.WriteLine(car.Manufacturer);
+                        car.carJSONYear = year;
                     }
 
                 }
@@ -63,10 +64,13 @@ namespace CarCoster
                 thisDirectory += @"\json";
                 string[] filePaths = Directory.GetFiles(thisDirectory);
 
+                
+
                 /*For each of the files in the filepath the cars will be added to an
                  array which will contain the cars for each year.*/
                 foreach (string filePath in filePaths)
                 {
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
                     List<Car> theCars = new List<Car>();
 
                     using (StreamReader r = new StreamReader(filePath))
@@ -76,6 +80,7 @@ namespace CarCoster
                         /*Adding each of the cars in this file to the cars array.*/
                         foreach (Car car in theCars)
                         {
+                            car.carJSONYear = fileName;
                             cars.Add(car);
                         }
                         

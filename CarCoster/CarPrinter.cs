@@ -139,7 +139,10 @@ namespace CarCoster
             {
                 sCar += "Particulates (mg/km)" + car.Particulates + "\n";
             }
-
+            if(car.carJSONYear != null)
+            {
+                sCar += "Car year: " + car.carJSONYear; 
+            }
             return sCar;
         }
 

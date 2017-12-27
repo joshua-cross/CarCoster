@@ -37,5 +37,6 @@ namespace CarCoster
         public float? THCAndNOxEmissions { get; set; }
         public float? Particulates { get; set; }
         public string blank { get; set; }
+        public string carJSONYear { get; set; }
     }
 }
