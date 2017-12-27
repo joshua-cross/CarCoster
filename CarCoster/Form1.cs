@@ -18,6 +18,9 @@ namespace CarCoster
         /*List of string that will hold each of the unique manufactorers.*/
         List<string> manufactorers = new List<string>();
 
+        /*List of all the selected cars in the ModelBox.*/
+        List<Car> modelCars = new List<Car>();
+
         //creating a list for all the car models, and the car descriptions
         List<string> models = new List<string>();
         List<string> descriptions = new List<string>();
@@ -82,8 +85,11 @@ namespace CarCoster
             ModelBox.Items.Clear();
             manufactorers.Clear();
             models.Clear();
+            modelCars.Clear();
 
             cars = json.getCars();
+            //adding an option to select all the manufacturers to the list.
+            CarBox.Items.Add("All");
             try
             {
                 foreach (Car car in cars)
@@ -139,29 +145,46 @@ namespace CarCoster
             //clearing the models and descriptions, as new items are present.
             models.Clear();
             descriptions.Clear();
-            
-            /*The manufactorer that has been selected by the CarBox*/
-            string manufactorer = CarBox.SelectedItem.ToString();
-            /*Getting the models*/
-            //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
-            Title.Text = manufactorer;
+            modelCars.Clear();
 
-            carModels = listReader.searchCars(cars, manufactorer);
-
-            Title.Text = carModels.Count().ToString();
-
-            //setting the image in logobox.
-            CarBadge badge = new CarBadge();
-            string url = badge.getBadge(CarBox.SelectedItem.ToString());
-            LogoBox.Image = Image.FromFile(url);
-            LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            foreach (var car in carModels)
+            /*If the item is not all then do the following*/
+            if (!CarBox.SelectedItem.Equals("All"))
             {
-                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                //adding the car model and description to model and description array.
-                models.Add(car.Model.ToString());
-                descriptions.Add(car.Description.ToString());
+                /*The manufactorer that has been selected by the CarBox*/
+                string manufactorer = CarBox.SelectedItem.ToString();
+                /*Getting the models*/
+                //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
+                Title.Text = manufactorer;
+
+                carModels = listReader.searchCars(cars, manufactorer);
+
+                Title.Text = carModels.Count().ToString();
+
+                //setting the image in logobox.
+                CarBadge badge = new CarBadge();
+                string url = badge.getBadge(CarBox.SelectedItem.ToString());
+                LogoBox.Image = Image.FromFile(url);
+                LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                foreach (var car in carModels)
+                {
+                    ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                    //adding the car model and description to model and description array.
+                    models.Add(car.Model.ToString());
+                    modelCars.Add(car);
+                    descriptions.Add(car.Description.ToString());
+                }
+            } else
+            {
+                foreach(Car car in cars)
+                {
+                    ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                    //adding the car model and description to model and description array.
+                    models.Add(car.Model.ToString());
+                    modelCars.Add(car);
+                    descriptions.Add(car.Description.ToString());
+                }
+                carModels = modelCars;
             }
 
         }
@@ -213,6 +236,7 @@ namespace CarCoster
 
                 //clearing the models and descriptions, as new items are present.
                 models.Clear();
+                modelCars.Clear();
                 descriptions.Clear();
 
                 //using the CarListReader to search the Json file for the search result.
@@ -259,15 +283,30 @@ namespace CarCoster
              something similar.*/
             if (CarBox.SelectedIndex != -1)
             {
-                //getting the manufactorer of the car.
-                manufactorer = CarBox.SelectedItem.ToString();
+
+                //if we;re not using All then get the manufacturer from the elementat
+                if (CarBox.SelectedItem.ToString() != "All")
+                {
+                    //getting the manufactorer of the car.
+                    manufactorer = CarBox.SelectedItem.ToString();
+                }
+                //else the manufacturer will be the Car objects manufactorer.
+                else
+                {
+                    if (modelCars.Count != 0)
+                    {
+                        manufactorer = modelCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
+                    }
+                }
             }
             /*We have potentially sorted by MPG.*/
             else
             {
+
                 /*If we have sorted by MPG then all cars will be displayed in the ModelBox
                  Drop down menu.*/
                 manufactorer = orderedCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
+
             }
 
             searchedCar = listReader.findCar(model, manufactorer, description, cars);
@@ -410,12 +449,14 @@ namespace CarCoster
             orderedCars.Clear();
 
 
-            orderedCars = order.orderByMPG(cars);
+            orderedCars = order.orderByMPG(modelCars);
+            modelCars.Clear();
 
             foreach (Car car in orderedCars)
             {
                 ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
                 models.Add(car.Model.ToString());
+                modelCars.Add(car);
                 descriptions.Add(car.Description.ToString());
             }
         }
@@ -432,12 +473,14 @@ namespace CarCoster
             descriptions.Clear();
             orderedCars.Clear();
 
-            orderedCars = order.orderByMPGDescending(cars);
+            orderedCars = order.orderByMPGDescending(modelCars);
+            modelCars.Clear();
 
             foreach (Car car in orderedCars)
             {
                 ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
                 models.Add(car.Model.ToString());
+                modelCars.Add(car);
                 descriptions.Add(car.Description.ToString());
             }
         }
