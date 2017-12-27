@@ -22,6 +22,8 @@ namespace CarCoster
         List<string> models = new List<string>();
         List<string> descriptions = new List<string>();
 
+        List<Car> orderedCars = new List<Car>();
+
         /*bool that's used to decide if we will display metric or imperial
          measurements to the user
          true = imperial
@@ -265,7 +267,7 @@ namespace CarCoster
             {
                 /*If we have sorted by MPG then all cars will be displayed in the ModelBox
                  Drop down menu.*/
-                manufactorer = cars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
+                manufactorer = orderedCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
             }
 
             searchedCar = listReader.findCar(model, manufactorer, description, cars);
@@ -396,7 +398,7 @@ namespace CarCoster
         }
 
         /*When the MPGSort button is clicked we will call the Order class which
-         will sort the list by the highest MPG.*/
+         will sort the list by the lowest MPG.*/
         private void MPGSort_Click(object sender, EventArgs e)
         {
             Order order = new Order();
@@ -405,10 +407,34 @@ namespace CarCoster
             ModelBox.Items.Clear();
             models.Clear();
             descriptions.Clear();
+            orderedCars.Clear();
 
-            cars = order.orderByMPG(cars);
 
-            foreach (Car car in cars)
+            orderedCars = order.orderByMPG(cars);
+
+            foreach (Car car in orderedCars)
+            {
+                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                models.Add(car.Model.ToString());
+                descriptions.Add(car.Description.ToString());
+            }
+        }
+
+        /*When the MPGSort button is clicked we will call the Order class which
+        will sort the list by the highest MPG.*/
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Order order = new Order();
+
+            //CarBox.Items.Clear();
+            ModelBox.Items.Clear();
+            models.Clear();
+            descriptions.Clear();
+            orderedCars.Clear();
+
+            orderedCars = order.orderByMPGDescending(cars);
+
+            foreach (Car car in orderedCars)
             {
                 ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
                 models.Add(car.Model.ToString());
