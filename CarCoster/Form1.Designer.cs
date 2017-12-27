@@ -560,6 +560,7 @@
             this.PetrolButton.TabIndex = 3;
             this.PetrolButton.Text = "Petrol";
             this.PetrolButton.UseVisualStyleBackColor = false;
+            this.PetrolButton.Click += new System.EventHandler(this.PetrolButton_Click);
             // 
             // DieselButton
             // 

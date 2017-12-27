@@ -86,6 +86,7 @@ namespace CarCoster
             manufactorers.Clear();
             models.Clear();
             modelCars.Clear();
+            orderedCars.Clear();
 
             cars = json.getCars();
             //adding an option to select all the manufacturers to the list.
@@ -146,6 +147,7 @@ namespace CarCoster
             models.Clear();
             descriptions.Clear();
             modelCars.Clear();
+            orderedCars.Clear();
 
             /*If the item is not all then do the following*/
             if (!CarBox.SelectedItem.Equals("All"))
@@ -238,6 +240,7 @@ namespace CarCoster
                 models.Clear();
                 modelCars.Clear();
                 descriptions.Clear();
+                orderedCars.Clear();
 
                 //using the CarListReader to search the Json file for the search result.
                 IEnumerable<Car> searchedModels = listReader.searchModels(carModels, ModBox.Text);
@@ -293,9 +296,16 @@ namespace CarCoster
                 //else the manufacturer will be the Car objects manufactorer.
                 else
                 {
-                    if (modelCars.Count != 0)
+                    if (orderedCars.Count != 0)
                     {
-                        manufactorer = modelCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
+                        manufactorer = orderedCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
+                    }
+                    else
+                    {
+                        if(modelCars.Count != 0)
+                        {
+                            manufactorer = modelCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
+                        }
                     }
                 }
             }
@@ -481,6 +491,30 @@ namespace CarCoster
                 ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
                 models.Add(car.Model.ToString());
                 modelCars.Add(car);
+                descriptions.Add(car.Description.ToString());
+            }
+        }
+
+        /*When the petrol button is clicked a call to the removeallbutpetrol
+         function in the Order class will be called which will
+         only display the petrol cars to the user.*/
+        private void PetrolButton_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+
+            //CarBox.Items.Clear();
+            ModelBox.Items.Clear();
+            models.Clear();
+            descriptions.Clear();
+
+            orderedCars = order.RemoveAllButPetrol(orderedCars);
+            //modelCars.Clear();
+
+            foreach (Car car in orderedCars)
+            {
+                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
+                models.Add(car.Model.ToString());
+                //modelCars.Add(car);
                 descriptions.Add(car.Description.ToString());
             }
         }

@@ -32,6 +32,28 @@ namespace CarCoster
             return orderedCars;
         }
 
+        /*Function that will remove all cars that are not petrol from the list*/
+        public List<Car> RemoveAllButPetrol(List<Car> cars)
+        {
+            string targetFuel = "Petrol";
+
+            List<Car> newCars = new List<Car>();
+
+            /*Going through all the cars that the user is sent, and adding only
+             the petrol cars to the new array.*/
+            for (int i = 0; i < cars.Count; i = i + 1) {
+
+                /*If the car is petrol then we will add this to the new array.*/
+                if(cars[i].FuelType.Equals(targetFuel))
+                {
+                    newCars.Add(cars[i]);
+                }
+
+            }
+
+            return newCars;
+        }
+
         /*Function that removes cars from the list if they do not contain both a metric
          combined MPG and a imperial combined MPG.*/
         private List<Car> removeElectricAndInvalidCars(List<Car> cars)
