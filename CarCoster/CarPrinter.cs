@@ -108,10 +108,14 @@ namespace CarCoster
             }
             if(car.CostPer12000Miles != null)
             {
-                sCar += "Total Cost per 12000 Miles: £" + car.CostPer12000Miles + "\n";
+                sCar += "Total Cost (When car was new) per 12000 Miles: £" + car.CostPer12000Miles + "\n";
+            }
+            if (car.ActualCostPer12000Miles != null)
+            {
+                sCar += "Total Cost (Now) per 12000 Miles: £" + car.ActualCostPer12000Miles + "\n";
             }
 
-            if(car.EuroStandard != null)
+            if (car.EuroStandard != null)
             {
                 sCar += "Euro Standard: " + car.EuroStandard + "\n";
             }

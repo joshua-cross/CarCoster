@@ -27,6 +27,8 @@ namespace CarCoster
 
         List<Car> orderedCars = new List<Car>();
 
+        _12000MilesCostCalculator costPer12000 = new _12000MilesCostCalculator();
+
         /*bool that's used to decide if we will display metric or imperial
          measurements to the user
          true = imperial
@@ -101,6 +103,12 @@ namespace CarCoster
             {
                 foreach (Car car in cars)
                 {
+                    //calculating the cost for each of the cars if it does not have one already.
+                    if(car.ActualCostPer12000Miles == null)
+                    {
+                        float? costOf12000 = costPer12000.CostPer12000Miles(car);
+                    }
+
                     //the manufactorer.
                     string theManufactorer = car.Manufacturer;
                     //boolean that checks if the current manufactorer is unique or not.

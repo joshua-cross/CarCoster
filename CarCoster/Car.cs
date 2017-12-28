@@ -39,5 +39,6 @@ namespace CarCoster
         public string blank { get; set; }
         public string carJSONYear { get; set; }
         public float? TaxBand { get; set; }
+        public float? ActualCostPer12000Miles { get; set; }
     }
 }
