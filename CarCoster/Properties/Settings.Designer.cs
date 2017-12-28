@@ -122,5 +122,17 @@ namespace CarCoster.Properties {
                 this["Year"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public decimal FuelPrice {
+            get {
+                return ((decimal)(this["FuelPrice"]));
+            }
+            set {
+                this["FuelPrice"] = value;
+            }
+        }
     }
 }

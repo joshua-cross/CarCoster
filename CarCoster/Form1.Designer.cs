@@ -33,6 +33,12 @@
             this.CarBox = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.ElectricButton = new System.Windows.Forms.Button();
+            this.HybridButton = new System.Windows.Forms.Button();
+            this.DieselButton = new System.Windows.Forms.Button();
+            this.PetrolButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.MPGSort = new System.Windows.Forms.Button();
             this.LogoBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -69,12 +75,11 @@
             this.CompareButton = new System.Windows.Forms.Button();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.MPGSort = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.PetrolButton = new System.Windows.Forms.Button();
-            this.DieselButton = new System.Windows.Forms.Button();
-            this.HybridButton = new System.Windows.Forms.Button();
-            this.ElectricButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.FuelPriceLabel = new System.Windows.Forms.Label();
+            this.FuelUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ConfirmFuelPriceButton = new System.Windows.Forms.Button();
+            this.FuelErrorMessage = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -91,6 +96,7 @@
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FuelUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -141,6 +147,90 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(515, 90);
             this.panel10.TabIndex = 6;
+            // 
+            // ElectricButton
+            // 
+            this.ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.ElectricButton.FlatAppearance.BorderSize = 0;
+            this.ElectricButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ElectricButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.ElectricButton.Location = new System.Drawing.Point(434, 37);
+            this.ElectricButton.Name = "ElectricButton";
+            this.ElectricButton.Size = new System.Drawing.Size(77, 30);
+            this.ElectricButton.TabIndex = 6;
+            this.ElectricButton.Text = "ElectricButton";
+            this.ElectricButton.UseVisualStyleBackColor = false;
+            this.ElectricButton.Click += new System.EventHandler(this.ElectricButton_Click);
+            // 
+            // HybridButton
+            // 
+            this.HybridButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.HybridButton.FlatAppearance.BorderSize = 0;
+            this.HybridButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HybridButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.HybridButton.Location = new System.Drawing.Point(434, 3);
+            this.HybridButton.Name = "HybridButton";
+            this.HybridButton.Size = new System.Drawing.Size(77, 30);
+            this.HybridButton.TabIndex = 5;
+            this.HybridButton.Text = "Hybrid";
+            this.HybridButton.UseVisualStyleBackColor = false;
+            this.HybridButton.Click += new System.EventHandler(this.HybridButton_Click);
+            // 
+            // DieselButton
+            // 
+            this.DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.DieselButton.FlatAppearance.BorderSize = 0;
+            this.DieselButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DieselButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.DieselButton.Location = new System.Drawing.Point(353, 37);
+            this.DieselButton.Name = "DieselButton";
+            this.DieselButton.Size = new System.Drawing.Size(77, 30);
+            this.DieselButton.TabIndex = 4;
+            this.DieselButton.Text = "Diesel";
+            this.DieselButton.UseVisualStyleBackColor = false;
+            this.DieselButton.Click += new System.EventHandler(this.DieselButton_Click);
+            // 
+            // PetrolButton
+            // 
+            this.PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.PetrolButton.FlatAppearance.BorderSize = 0;
+            this.PetrolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PetrolButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.PetrolButton.Location = new System.Drawing.Point(353, 3);
+            this.PetrolButton.Name = "PetrolButton";
+            this.PetrolButton.Size = new System.Drawing.Size(77, 30);
+            this.PetrolButton.TabIndex = 3;
+            this.PetrolButton.Text = "Petrol";
+            this.PetrolButton.UseVisualStyleBackColor = false;
+            this.PetrolButton.Click += new System.EventHandler(this.PetrolButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.button1.Location = new System.Drawing.Point(223, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 84);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Sort by MPG (Descending)";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // MPGSort
+            // 
+            this.MPGSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.MPGSort.FlatAppearance.BorderSize = 0;
+            this.MPGSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MPGSort.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.MPGSort.Location = new System.Drawing.Point(112, 3);
+            this.MPGSort.Name = "MPGSort";
+            this.MPGSort.Size = new System.Drawing.Size(105, 84);
+            this.MPGSort.TabIndex = 1;
+            this.MPGSort.Text = "Sort by MPG (Ascending)";
+            this.MPGSort.UseVisualStyleBackColor = false;
+            this.MPGSort.Click += new System.EventHandler(this.MPGSort_Click);
             // 
             // LogoBox
             // 
@@ -355,6 +445,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(122)))));
+            this.panel1.Controls.Add(this.FuelErrorMessage);
+            this.panel1.Controls.Add(this.ConfirmFuelPriceButton);
+            this.panel1.Controls.Add(this.FuelUpDown);
+            this.panel1.Controls.Add(this.FuelPriceLabel);
             this.panel1.Controls.Add(this.MetricLabel);
             this.panel1.Controls.Add(this.ImperialLabel);
             this.panel1.Controls.Add(this.ImperialOrMetric);
@@ -520,89 +614,59 @@
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             this.SaveButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
-            // MPGSort
+            // contextMenuStrip2
             // 
-            this.MPGSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.MPGSort.FlatAppearance.BorderSize = 0;
-            this.MPGSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MPGSort.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.MPGSort.Location = new System.Drawing.Point(112, 3);
-            this.MPGSort.Name = "MPGSort";
-            this.MPGSort.Size = new System.Drawing.Size(105, 84);
-            this.MPGSort.TabIndex = 1;
-            this.MPGSort.Text = "Sort by MPG (Ascending)";
-            this.MPGSort.UseVisualStyleBackColor = false;
-            this.MPGSort.Click += new System.EventHandler(this.MPGSort_Click);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // button1
+            // FuelPriceLabel
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.button1.Location = new System.Drawing.Point(223, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 84);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Sort by MPG (Descending)";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.FuelPriceLabel.AutoSize = true;
+            this.FuelPriceLabel.Location = new System.Drawing.Point(727, 13);
+            this.FuelPriceLabel.Name = "FuelPriceLabel";
+            this.FuelPriceLabel.Size = new System.Drawing.Size(284, 21);
+            this.FuelPriceLabel.TabIndex = 5;
+            this.FuelPriceLabel.Text = "Current Fuel Price (Per Litre):";
             // 
-            // PetrolButton
+            // FuelUpDown
             // 
-            this.PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.PetrolButton.FlatAppearance.BorderSize = 0;
-            this.PetrolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PetrolButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.PetrolButton.Location = new System.Drawing.Point(353, 3);
-            this.PetrolButton.Name = "PetrolButton";
-            this.PetrolButton.Size = new System.Drawing.Size(77, 30);
-            this.PetrolButton.TabIndex = 3;
-            this.PetrolButton.Text = "Petrol";
-            this.PetrolButton.UseVisualStyleBackColor = false;
-            this.PetrolButton.Click += new System.EventHandler(this.PetrolButton_Click);
+            this.FuelUpDown.DecimalPlaces = 2;
+            this.FuelUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.FuelUpDown.Location = new System.Drawing.Point(1017, 8);
+            this.FuelUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.FuelUpDown.Name = "FuelUpDown";
+            this.FuelUpDown.Size = new System.Drawing.Size(120, 30);
+            this.FuelUpDown.TabIndex = 6;
             // 
-            // DieselButton
+            // ConfirmFuelPriceButton
             // 
-            this.DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.DieselButton.FlatAppearance.BorderSize = 0;
-            this.DieselButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DieselButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.DieselButton.Location = new System.Drawing.Point(353, 37);
-            this.DieselButton.Name = "DieselButton";
-            this.DieselButton.Size = new System.Drawing.Size(77, 30);
-            this.DieselButton.TabIndex = 4;
-            this.DieselButton.Text = "Diesel";
-            this.DieselButton.UseVisualStyleBackColor = false;
-            this.DieselButton.Click += new System.EventHandler(this.DieselButton_Click);
+            this.ConfirmFuelPriceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.ConfirmFuelPriceButton.FlatAppearance.BorderSize = 0;
+            this.ConfirmFuelPriceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmFuelPriceButton.Location = new System.Drawing.Point(1143, 3);
+            this.ConfirmFuelPriceButton.Name = "ConfirmFuelPriceButton";
+            this.ConfirmFuelPriceButton.Size = new System.Drawing.Size(98, 41);
+            this.ConfirmFuelPriceButton.TabIndex = 7;
+            this.ConfirmFuelPriceButton.Text = "Confirm";
+            this.ConfirmFuelPriceButton.UseVisualStyleBackColor = false;
+            this.ConfirmFuelPriceButton.Click += new System.EventHandler(this.ConfirmFuelPriceButton_Click);
             // 
-            // HybridButton
+            // FuelErrorMessage
             // 
-            this.HybridButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.HybridButton.FlatAppearance.BorderSize = 0;
-            this.HybridButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HybridButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.HybridButton.Location = new System.Drawing.Point(434, 3);
-            this.HybridButton.Name = "HybridButton";
-            this.HybridButton.Size = new System.Drawing.Size(77, 30);
-            this.HybridButton.TabIndex = 5;
-            this.HybridButton.Text = "Hybrid";
-            this.HybridButton.UseVisualStyleBackColor = false;
-            this.HybridButton.Click += new System.EventHandler(this.HybridButton_Click);
-            // 
-            // ElectricButton
-            // 
-            this.ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.ElectricButton.FlatAppearance.BorderSize = 0;
-            this.ElectricButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ElectricButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.ElectricButton.Location = new System.Drawing.Point(434, 37);
-            this.ElectricButton.Name = "ElectricButton";
-            this.ElectricButton.Size = new System.Drawing.Size(77, 30);
-            this.ElectricButton.TabIndex = 6;
-            this.ElectricButton.Text = "ElectricButton";
-            this.ElectricButton.UseVisualStyleBackColor = false;
-            this.ElectricButton.Click += new System.EventHandler(this.ElectricButton_Click);
+            this.FuelErrorMessage.AutoSize = true;
+            this.FuelErrorMessage.Font = new System.Drawing.Font("Bookman Old Style", 8.25F);
+            this.FuelErrorMessage.Location = new System.Drawing.Point(728, 35);
+            this.FuelErrorMessage.Name = "FuelErrorMessage";
+            this.FuelErrorMessage.Size = new System.Drawing.Size(0, 15);
+            this.FuelErrorMessage.TabIndex = 8;
             // 
             // Form1
             // 
@@ -647,6 +711,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FuelUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -698,6 +763,11 @@
         private System.Windows.Forms.Button HybridButton;
         private System.Windows.Forms.Button DieselButton;
         private System.Windows.Forms.Button PetrolButton;
+        private System.Windows.Forms.Button ConfirmFuelPriceButton;
+        private System.Windows.Forms.NumericUpDown FuelUpDown;
+        private System.Windows.Forms.Label FuelPriceLabel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.Label FuelErrorMessage;
     }
 }
 

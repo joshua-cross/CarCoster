@@ -58,6 +58,10 @@ namespace CarCoster
 
             string year = theYear.ToString();
 
+            /*when the page is loaded ensure that we're displayed the saved
+             fuel price.*/
+            FuelUpDown.Value = Properties.Settings.Default.FuelPrice;
+
             JsonReader json = new JsonReader(year);
             drawListBox(json);
 
@@ -102,12 +106,19 @@ namespace CarCoster
                     //boolean that checks if the current manufactorer is unique or not.
                     bool isNew = true;
 
-                    //setting the initial year of the car to be the year that we set at the top
-                    car.carJSONYear = theYear.ToString();
+                    if(YearBox.SelectedIndex != -1)
+                    {
+                        car.carJSONYear = YearBox.SelectedItem.ToString();
+                    } else
+                    {
+                        //setting the initial year of the car to be the year that we set at the top
+                        car.carJSONYear = theYear.ToString();
+                    }
+
 
                     /*Only add the manufactorer to the list if 
                      it's not already */
-                     foreach (string manufactorer in manufactorers)
+                    foreach (string manufactorer in manufactorers)
                     {
                         if(car.Manufacturer.Equals(manufactorer))
                         {
@@ -589,6 +600,26 @@ namespace CarCoster
                 //modelCars.Add(car);
                 descriptions.Add(car.Description.ToString());
             }
+        }
+
+        /*Function that sets the setting FuelPrice when the confirm button is clicked
+         the function checks if what the user has typed is valid ie. Not negative
+         and rounds the number up to the second decimal point if the user has typed something such as
+         3.456434*/
+        private void ConfirmFuelPriceButton_Click(object sender, EventArgs e)
+        {
+
+            /*If what the user has typed is less than or equal to 0
+             then this is not a valid fuel price so we will display
+             an error message to the user.*/
+            if(FuelUpDown.Value <= 0)
+            {
+                FuelErrorMessage.Text = "Please enter a valid value";
+            }
+
+            decimal fuelCost = Math.Round(FuelUpDown.Value, 2);
+
+            Properties.Settings.Default.FuelPrice = fuelCost;
         }
     }
 }
