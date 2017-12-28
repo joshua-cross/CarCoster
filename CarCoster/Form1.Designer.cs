@@ -80,6 +80,9 @@
             this.FuelUpDown = new System.Windows.Forms.NumericUpDown();
             this.ConfirmFuelPriceButton = new System.Windows.Forms.Button();
             this.FuelErrorMessage = new System.Windows.Forms.Label();
+            this.DieselUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ConfirmDieselPrice = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -97,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FuelUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DieselUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -445,6 +449,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(122)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.ConfirmDieselPrice);
+            this.panel1.Controls.Add(this.DieselUpDown);
             this.panel1.Controls.Add(this.FuelErrorMessage);
             this.panel1.Controls.Add(this.ConfirmFuelPriceButton);
             this.panel1.Controls.Add(this.FuelUpDown);
@@ -622,11 +629,11 @@
             // FuelPriceLabel
             // 
             this.FuelPriceLabel.AutoSize = true;
-            this.FuelPriceLabel.Location = new System.Drawing.Point(727, 13);
+            this.FuelPriceLabel.Location = new System.Drawing.Point(628, 13);
             this.FuelPriceLabel.Name = "FuelPriceLabel";
-            this.FuelPriceLabel.Size = new System.Drawing.Size(284, 21);
+            this.FuelPriceLabel.Size = new System.Drawing.Size(383, 21);
             this.FuelPriceLabel.TabIndex = 5;
-            this.FuelPriceLabel.Text = "Current Fuel Price (Per Litre):";
+            this.FuelPriceLabel.Text = "Current Petrol Price (Per Litre) in pence:";
             // 
             // FuelUpDown
             // 
@@ -651,9 +658,9 @@
             this.ConfirmFuelPriceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
             this.ConfirmFuelPriceButton.FlatAppearance.BorderSize = 0;
             this.ConfirmFuelPriceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfirmFuelPriceButton.Location = new System.Drawing.Point(1143, 3);
+            this.ConfirmFuelPriceButton.Location = new System.Drawing.Point(1143, 8);
             this.ConfirmFuelPriceButton.Name = "ConfirmFuelPriceButton";
-            this.ConfirmFuelPriceButton.Size = new System.Drawing.Size(98, 41);
+            this.ConfirmFuelPriceButton.Size = new System.Drawing.Size(98, 30);
             this.ConfirmFuelPriceButton.TabIndex = 7;
             this.ConfirmFuelPriceButton.Text = "Confirm";
             this.ConfirmFuelPriceButton.UseVisualStyleBackColor = false;
@@ -667,6 +674,46 @@
             this.FuelErrorMessage.Name = "FuelErrorMessage";
             this.FuelErrorMessage.Size = new System.Drawing.Size(0, 15);
             this.FuelErrorMessage.TabIndex = 8;
+            // 
+            // DieselUpDown
+            // 
+            this.DieselUpDown.DecimalPlaces = 2;
+            this.DieselUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.DieselUpDown.Location = new System.Drawing.Point(1017, 44);
+            this.DieselUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DieselUpDown.Name = "DieselUpDown";
+            this.DieselUpDown.Size = new System.Drawing.Size(120, 30);
+            this.DieselUpDown.TabIndex = 9;
+            // 
+            // ConfirmDieselPrice
+            // 
+            this.ConfirmDieselPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.ConfirmDieselPrice.FlatAppearance.BorderSize = 0;
+            this.ConfirmDieselPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmDieselPrice.Location = new System.Drawing.Point(1143, 44);
+            this.ConfirmDieselPrice.Name = "ConfirmDieselPrice";
+            this.ConfirmDieselPrice.Size = new System.Drawing.Size(98, 30);
+            this.ConfirmDieselPrice.TabIndex = 10;
+            this.ConfirmDieselPrice.Text = "Confirm";
+            this.ConfirmDieselPrice.UseVisualStyleBackColor = false;
+            this.ConfirmDieselPrice.Click += new System.EventHandler(this.ConfirmDieselPrice_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(677, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(334, 21);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Current Diesel (Per Litre) in pence:";
             // 
             // Form1
             // 
@@ -712,6 +759,7 @@
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FuelUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DieselUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -768,6 +816,9 @@
         private System.Windows.Forms.Label FuelPriceLabel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.Label FuelErrorMessage;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ConfirmDieselPrice;
+        private System.Windows.Forms.NumericUpDown DieselUpDown;
     }
 }
 

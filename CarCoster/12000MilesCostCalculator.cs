@@ -15,26 +15,46 @@ namespace CarCoster
          of date now.*/
         public float? CostPer12000Miles(Car car)
         {
+
+            /*The fuel types this calculator will work for (petrol and diesel for now.)*/
+            string[] fueltypes = new string[2];
+            fueltypes[0] = "petrol";
+            fueltypes[1] = "diesel";
+
             /*If the car has got a legitimate ImperialCombined MPG then
              we will calculate the cost for 12000 miles.*/
             if (car.ImperialCombined != null)
             {
-                double litresInAGallon = GetLitresInAGallon();
-                double costOfFuelPerGallonInPence = costPerGallon(litresInAGallon);
-                double gallonsNeededFor12000Miles = GallonsNeededPer12000Miles(car.ImperialCombined);
 
-                /*Calculating the cost (in pence) per 12000 miles travelled.*/
-                double costPer12000Miles = costOfFuelPerGallonInPence * gallonsNeededFor12000Miles;
-                /*converting this to pounds*/
-                costPer12000Miles = costPer12000Miles / 100;
-                /*Rounding to the nearest 2 decimal places.*/
-                costPer12000Miles = Math.Round(costPer12000Miles, 2);
+                /*If the car is either petrol or diesel then we will
+                 calculate the fuel cost per 12000 miles, else we will
+                 not.*/
+                if (car.FuelType.ToLower().Equals(fueltypes[0])
+                   || car.FuelType.ToLower().Equals(fueltypes[1]))
+                {
+                    double litresInAGallon = GetLitresInAGallon();
+                    double costOfFuelPerGallonInPence = costPerGallon(litresInAGallon, car.FuelType);
+                    double gallonsNeededFor12000Miles = GallonsNeededPer12000Miles(car.ImperialCombined);
 
-                float? cost = (float?) costPer12000Miles;
+                    /*Calculating the cost (in pence) per 12000 miles travelled.*/
+                    double costPer12000Miles = costOfFuelPerGallonInPence * gallonsNeededFor12000Miles;
+                    /*converting this to pounds*/
+                    costPer12000Miles = costPer12000Miles / 100;
+                    /*Rounding to the nearest 2 decimal places.*/
+                    costPer12000Miles = Math.Round(costPer12000Miles, 2);
 
-                car.ActualCostPer12000Miles = cost;
+                    float? cost = (float?)costPer12000Miles;
 
-                return cost;
+                    car.ActualCostPer12000Miles = cost;
+
+                    return cost;
+                }
+                /*Else we will return null, as Hybrid/electric cars will require a seperate
+                 * calculation in the future..*/
+                else
+                {
+                    return null;
+                }
             }
             /*If the ImperialCombined variable is null this means
              that either the car is not valid, or it's an electric car
@@ -68,9 +88,19 @@ namespace CarCoster
         }
 
         /*Returns the cost of fuel per gallon.*/
-        private double costPerGallon(double litresInAGallon)
+        private double costPerGallon(double litresInAGallon, string fuelType)
         {
-            decimal costOfFuelPerLitre = Properties.Settings.Default.FuelPrice;
+            decimal costOfFuelPerLitre = 0;
+            /*If the car is petrol then we will get the price of petrol*/
+            if (fuelType.Equals("Petrol"))
+            {
+                costOfFuelPerLitre = Properties.Settings.Default.PetrolPrice;
+            }
+            /*If the car is disel then we will get the price of diesel.*/
+            else if(fuelType.Equals("Diesel"))
+            {
+                costOfFuelPerLitre = Properties.Settings.Default.DieselPrice;
+            }
             return litresInAGallon * (double) costOfFuelPerLitre;
         }
 

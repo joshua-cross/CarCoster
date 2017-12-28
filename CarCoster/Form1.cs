@@ -62,7 +62,8 @@ namespace CarCoster
 
             /*when the page is loaded ensure that we're displayed the saved
              fuel price.*/
-            FuelUpDown.Value = Properties.Settings.Default.FuelPrice;
+            FuelUpDown.Value = Properties.Settings.Default.PetrolPrice;
+            DieselUpDown.Value = Properties.Settings.Default.DieselPrice;
 
             JsonReader json = new JsonReader(year);
             drawListBox(json);
@@ -627,7 +628,23 @@ namespace CarCoster
 
             decimal fuelCost = Math.Round(FuelUpDown.Value, 2);
 
-            Properties.Settings.Default.FuelPrice = fuelCost;
+            Properties.Settings.Default.PetrolPrice = fuelCost;
+        }
+
+        private void ConfirmDieselPrice_Click(object sender, EventArgs e)
+        {
+
+            /*If what the user has typed is less than or equal to 0
+             then this is not a valid fuel price so we will display
+             an error message to the user.*/
+            if (FuelUpDown.Value <= 0)
+            {
+                FuelErrorMessage.Text = "Please enter a valid value";
+            }
+
+            decimal fuelCost = Math.Round(DieselUpDown.Value, 2);
+
+            Properties.Settings.Default.DieselPrice = fuelCost;
         }
     }
 }

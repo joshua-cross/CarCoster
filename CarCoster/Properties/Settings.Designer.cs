@@ -126,12 +126,24 @@ namespace CarCoster.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public decimal FuelPrice {
+        public decimal PetrolPrice {
             get {
-                return ((decimal)(this["FuelPrice"]));
+                return ((decimal)(this["PetrolPrice"]));
             }
             set {
-                this["FuelPrice"] = value;
+                this["PetrolPrice"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public decimal DieselPrice {
+            get {
+                return ((decimal)(this["DieselPrice"]));
+            }
+            set {
+                this["DieselPrice"] = value;
             }
         }
     }
