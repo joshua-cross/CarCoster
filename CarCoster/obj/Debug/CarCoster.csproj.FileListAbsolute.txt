@@ -106,3 +106,4 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mg rov
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mg motors uk.png
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Json\2013.json
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Json\2014.json
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Init.resources

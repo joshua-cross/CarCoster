@@ -60,10 +60,7 @@ namespace CarCoster
 
             string year = theYear.ToString();
 
-            /*when the page is loaded ensure that we're displayed the saved
-             fuel price.*/
-            FuelUpDown.Value = Properties.Settings.Default.PetrolPrice;
-            DieselUpDown.Value = Properties.Settings.Default.DieselPrice;
+
 
             JsonReader json = new JsonReader(year);
             drawListBox(json);
@@ -645,6 +642,12 @@ namespace CarCoster
             decimal fuelCost = Math.Round(DieselUpDown.Value, 2);
 
             Properties.Settings.Default.DieselPrice = fuelCost;
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            Init init = new Init();
+            init.Show();
         }
     }
 }

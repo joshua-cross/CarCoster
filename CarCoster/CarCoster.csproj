@@ -70,6 +70,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Init.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init.Designer.cs">
+      <DependentUpon>Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="JsonReader.cs" />
     <Compile Include="LoadCar.cs" />
     <Compile Include="Order.cs" />
@@ -84,11 +90,15 @@
     <Compile Include="SaveCar.cs" />
     <Compile Include="TaxBrackets.cs" />
     <Compile Include="TaxCalculator.cs" />
+    <None Include="Resources\cog.ico" />
     <EmbeddedResource Include="Compare.resx">
       <DependentUpon>Compare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init.resx">
+      <DependentUpon>Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
@@ -101,6 +111,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Content Include="Images\CarBadges\abarth.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -321,6 +332,7 @@
     <Content Include="Images\CarBadges\volvo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\cog.ico" />
     <Content Include="Json\2017.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

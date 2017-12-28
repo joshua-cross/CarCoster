@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Title = new System.Windows.Forms.Label();
             this.CarBox = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -83,6 +84,7 @@
             this.DieselUpDown = new System.Windows.Forms.NumericUpDown();
             this.ConfirmDieselPrice = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.SettingsButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -117,17 +119,19 @@
             // CarBox
             // 
             this.CarBox.BackColor = System.Drawing.Color.ForestGreen;
+            this.CarBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CarBox.ForeColor = System.Drawing.Color.White;
             this.CarBox.FormattingEnabled = true;
             this.CarBox.ItemHeight = 21;
             this.CarBox.Location = new System.Drawing.Point(10, 92);
             this.CarBox.Name = "CarBox";
-            this.CarBox.Size = new System.Drawing.Size(490, 550);
+            this.CarBox.Size = new System.Drawing.Size(490, 546);
             this.CarBox.TabIndex = 2;
             this.CarBox.SelectedIndexChanged += new System.EventHandler(this.CarBox_SelectedIndexChanged);
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.ForestGreen;
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.CarBox);
@@ -281,7 +285,7 @@
             // 
             // YearBox
             // 
-            this.YearBox.BackColor = System.Drawing.Color.ForestGreen;
+            this.YearBox.BackColor = System.Drawing.Color.White;
             this.YearBox.ForeColor = System.Drawing.Color.White;
             this.YearBox.FormattingEnabled = true;
             this.YearBox.ItemHeight = 21;
@@ -395,12 +399,13 @@
             // ModelBox
             // 
             this.ModelBox.BackColor = System.Drawing.Color.ForestGreen;
+            this.ModelBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ModelBox.ForeColor = System.Drawing.Color.White;
             this.ModelBox.FormattingEnabled = true;
             this.ModelBox.ItemHeight = 21;
             this.ModelBox.Location = new System.Drawing.Point(6, 91);
             this.ModelBox.Name = "ModelBox";
-            this.ModelBox.Size = new System.Drawing.Size(490, 550);
+            this.ModelBox.Size = new System.Drawing.Size(490, 546);
             this.ModelBox.TabIndex = 3;
             this.ModelBox.SelectedIndexChanged += new System.EventHandler(this.ModelBox_SelectedIndexChanged);
             // 
@@ -552,7 +557,8 @@
             // 
             // SideBarPanel
             // 
-            this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.SideBarPanel.Controls.Add(this.SettingsButton);
             this.SideBarPanel.Controls.Add(this.SelectedButton);
             this.SideBarPanel.Controls.Add(this.CompareButton);
             this.SideBarPanel.Controls.Add(this.AddCarButton);
@@ -562,6 +568,7 @@
             this.SideBarPanel.Controls.Add(this.SaveLabel);
             this.SideBarPanel.Controls.Add(this.LogoPanel);
             this.SideBarPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SideBarPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.SideBarPanel.Location = new System.Drawing.Point(0, 0);
             this.SideBarPanel.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.SideBarPanel.Name = "SideBarPanel";
@@ -572,7 +579,7 @@
             // SelectedButton
             // 
             this.SelectedButton.BackColor = System.Drawing.Color.Red;
-            this.SelectedButton.Location = new System.Drawing.Point(131, 106);
+            this.SelectedButton.Location = new System.Drawing.Point(131, 307);
             this.SelectedButton.Name = "SelectedButton";
             this.SelectedButton.Size = new System.Drawing.Size(12, 98);
             this.SelectedButton.TabIndex = 0;
@@ -594,6 +601,7 @@
             // 
             // AddCarButton
             // 
+            this.AddCarButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(139)))));
             this.AddCarButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.AddCarButton.FlatAppearance.BorderSize = 0;
             this.AddCarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -603,7 +611,7 @@
             this.AddCarButton.Size = new System.Drawing.Size(143, 100);
             this.AddCarButton.TabIndex = 5;
             this.AddCarButton.Text = "Add Car";
-            this.AddCarButton.UseVisualStyleBackColor = true;
+            this.AddCarButton.UseVisualStyleBackColor = false;
             this.AddCarButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // SaveButton
@@ -715,6 +723,20 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Current Diesel (Per Litre) in pence:";
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SettingsButton.FlatAppearance.BorderSize = 0;
+            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
+            this.SettingsButton.Location = new System.Drawing.Point(0, 505);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(143, 100);
+            this.SettingsButton.TabIndex = 8;
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
@@ -819,6 +841,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ConfirmDieselPrice;
         private System.Windows.Forms.NumericUpDown DieselUpDown;
+        private System.Windows.Forms.Button SettingsButton;
     }
 }
 
