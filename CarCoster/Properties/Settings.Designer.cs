@@ -146,5 +146,17 @@ namespace CarCoster.Properties {
                 this["DieselPrice"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ImperialOrMetric {
+            get {
+                return ((bool)(this["ImperialOrMetric"]));
+            }
+            set {
+                this["ImperialOrMetric"] = value;
+            }
+        }
     }
 }

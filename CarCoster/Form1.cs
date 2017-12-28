@@ -356,7 +356,7 @@ namespace CarCoster
                 TaxCalculator tax = new TaxCalculator();
                 float? taxCost = tax.CalculateTax(searchedCar);
                 CarPrinter printer = new CarPrinter();
-                OverviewText.Text = printer.printcar(searchedCar, measurementSystem);
+                OverviewText.Text = printer.printcar(searchedCar, Properties.Settings.Default.ImperialOrMetric);
             }
         }
 

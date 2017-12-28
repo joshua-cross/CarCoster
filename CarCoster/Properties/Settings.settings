@@ -36,5 +36,8 @@
     <Setting Name="DieselPrice" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
+    <Setting Name="ImperialOrMetric" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

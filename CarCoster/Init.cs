@@ -35,6 +35,38 @@ namespace CarCoster
 
             Properties.Settings.Default.PetrolPrice = fuelCost;
 
+            /*If what the user has typed is less than or equal to 0
+             then this is not a valid fuel price so we will display
+             an error message to the user.*/
+            if (FuelUpDown.Value <= 0)
+            {
+                ConfirmError.SetError(DieselUpDown, "Invalid Fuel Price");
+            }
+
+            decimal dieselCost = Math.Round(DieselUpDown.Value, 2);
+
+            Properties.Settings.Default.DieselPrice = dieselCost;
+
+            /*The value the user has selected
+             0 = Imperial
+             1 = Metric
+             */
+            int value = ImperialOrMetric.Value;
+            /*If the value is imperial then we will set the mesurement system
+             to be true*/
+            if (value == 0)
+            {
+                Properties.Settings.Default.ImperialOrMetric = true;
+            }
+            /*Else the value is metric so we will set the measurement system
+             to be false.*/
+            else
+            {
+                Properties.Settings.Default.ImperialOrMetric = false;
+            }
+
+            this.Close();
+
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
