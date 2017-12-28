@@ -323,12 +323,15 @@ namespace CarCoster
 
             if (searchedCar == null)
             {
-
+                TaxCalculator tax = new TaxCalculator();
+                float? taxCost = tax.CalculateTax(searchedCar);
                 OverviewText.Text = ModelBox.SelectedIndex.ToString();
                 //getting the model based on what was selected.
                 OverviewText.Text = model + "\n" + description + "\n" + manufactorer + "\n";
             } else
             {
+                TaxCalculator tax = new TaxCalculator();
+                float? taxCost = tax.CalculateTax(searchedCar);
                 CarPrinter printer = new CarPrinter();
                 OverviewText.Text = printer.printcar(searchedCar, measurementSystem);
             }

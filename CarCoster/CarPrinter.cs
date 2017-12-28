@@ -149,8 +149,12 @@ namespace CarCoster
             }
             if(car.carJSONYear != null)
             {
-                sCar += "Car year: " + car.carJSONYear; 
+                sCar += "Car year: " + car.carJSONYear + "\n"; 
             }
+            if (car.TaxBand != null)
+            {
+                sCar += "Tax cost: " + car.TaxBand + "\n";
+            } 
             return sCar;
         }
 

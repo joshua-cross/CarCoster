@@ -38,5 +38,6 @@ namespace CarCoster
         public float? Particulates { get; set; }
         public string blank { get; set; }
         public string carJSONYear { get; set; }
+        public float? TaxBand { get; set; }
     }
 }
