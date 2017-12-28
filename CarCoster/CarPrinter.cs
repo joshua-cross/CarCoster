@@ -153,7 +153,7 @@ namespace CarCoster
             }
             if (car.TaxBand != null)
             {
-                sCar += "Tax cost: " + car.TaxBand + "\n";
+                sCar += "Tax cost: £" + car.TaxBand + "\n";
             } 
             return sCar;
         }

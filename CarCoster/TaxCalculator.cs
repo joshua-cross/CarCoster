@@ -9,9 +9,12 @@ namespace CarCoster
     class TaxCalculator
     {
         /*Function that takes in a car, then uses the CO2 emissions, and
-         the fuel type of the vehicle to find the tax cost of the vehicle.*/
+         the fuel type of the vehicle to find the tax cost of the vehicle.
+         This function is for cars that are registered after the date of 
+         March 2017.*/
         public float? CalculateTax(Car car)
         {
+
             /*The 3 strings for alternativly fueled cars.*/
             string[] fuelTypes = new string[3];
             fuelTypes[0] = "Hybrid";
@@ -19,7 +22,7 @@ namespace CarCoster
             fuelTypes[2] = "Electricity /";
 
             //float where the tax value will be stored.
-            float fuelCost = 0.0f;
+            float fuelCost = -1.0f;
 
             /*If the car has a CO2 value then the car is valid.*/
             if(car.CO2gramsPerKilometer != null)
@@ -28,166 +31,308 @@ namespace CarCoster
                 //the CO2 emissions of the vehicle
                 float CO2 = (float) car.CO2gramsPerKilometer;
 
-                /*If the cars fuel type is not one of the alternative fuel types
-                 then we can calculate the tax like a normal car, else we need to do the
-                 alterate fuel tax costing.*/
+                //parsing the year of the car added to the database to an integer.
+                int carYear = int.Parse(car.carJSONYear);
+
+                List<TaxBrackets> taxBrackets = new List<TaxBrackets>();
+                /*If the car is newer than 2017 then we will get the new taxes, else we will
+                 use the old taxes.*/
+                if(carYear >= 2017)
+                {
+                    taxBrackets = postMarch2017TaxBrackets();
+                }
+                /*Else the car is older than 2017 so use the old tax system.*/
+                else
+                {
+                    taxBrackets = preMarch2017TaxBrackets();
+                }
+                /*If the cars f can calculate the tax like a normal car, else we need to do the
+                     alterate fuel tax costing.*/
                 if (!car.FuelType.Equals(fuelTypes[0]) &&
                    !car.FuelType.Equals(fuelTypes[1]) &&
                    !car.FuelType.Contains(fuelTypes[2]))
                 {
-                    /*If the CO2 is 0 then the tax payable is 0.*/
-                    if (CO2 == 0)
+                    foreach(TaxBrackets tax in taxBrackets)
                     {
-                        fuelCost = 0.0f;
-                    }
-                    /*If the CO2 emissions are between 1 and 50 then the tax cost is £10*/
-                    else if (CO2 >= 1 && CO2 <= 50)
-                    {
-                        fuelCost = 10.0f;
-                    }
-                    /*Else if the CO2 emissions are between 51 and 75 then the tax cost is 25*/
-                    else if (CO2 >= 51 && CO2 <= 75)
-                    {
-                        fuelCost = 25.0f;
-                    }
-                    /*Else if the CO2 emissions are between 76 and 90 then the tax cost is 100*/
-                    else if (CO2 >= 76 && CO2 <= 90)
-                    {
-                        fuelCost = 100.0f;
-                    }
-                    /*Else if the CO2 emissions are between 91 and 100 then the tax cost is 120*/
-                    else if (CO2 >= 91 && CO2 <= 100)
-                    {
-                        fuelCost = 120.0f;
-                    }
-                    /*Else if the CO2 emissions are between 101 and 110 then the tax cost is 140*/
-                    else if (CO2 >= 101 && CO2 <= 110)
-                    {
-                        fuelCost = 140.0f;
-                    }
-                    /*Else if the CO2 emissions are between 111 and 130 then the tax cost is 160*/
-                    else if (CO2 >= 111 && CO2 <= 130)
-                    {
-                        fuelCost = 160.0f;
-                    }
-                    /*Else if the CO2 emissions are between 131 and 150 then the tax cost is 200*/
-                    else if (CO2 >= 131 && CO2 <= 150)
-                    {
-                        fuelCost = 200.0f;
-                    }
-                    /*Else if the CO2 emissions are between 151 and 170 then the tax cost is 500*/
-                    else if (CO2 >= 151 && CO2 <= 170)
-                    {
-                        fuelCost = 500.0f;
-                    }
-                    /*Else if the CO2 emissions are between 171 and 190 then the tax cost is 800*/
-                    else if (CO2 >= 171 && CO2 <= 190)
-                    {
-                        fuelCost = 800.0f;
-                    }
-                    /*Else if the CO2 emissions are between 191 and 225 then the tax cost is 1200*/
-                    else if (CO2 >= 191 && CO2 <= 225)
-                    {
-                        fuelCost = 1200.0f;
-                    }
-                    /*Else if the CO2 emissions are between 226 and 255 then the tax cost is 1700*/
-                    else if (CO2 >= 226 && CO2 <= 255)
-                    {
-                        fuelCost = 1700.0f;
-                    }
-                    /*Else if the CO2 emissions are more then 255 then the tax cost is 2000*/
-                    else if (CO2 > 255)
-                    {
-                        fuelCost = 2000.0f;
-                    }
-                    /*Else the CO2 is something invalid e.g. -5 therefore we will return -1.*/
-                    else
-                    {
-                        fuelCost = -1.0f;
+                        if (CO2 >= tax.MinCO2 && CO2 <= tax.MaxCO2)
+                            fuelCost = tax.TaxCost;
                     }
                 }
                 /*Else we are an alternate fuel so the alternate fuel calculations
                  will take place.*/
                 else
                 {
-                    /*If the CO2 is 0 then the tax payable is 0.*/
-                    if (CO2 == 0)
+                    foreach (TaxBrackets tax in taxBrackets)
                     {
-                        fuelCost = 0.0f;
+                        if (CO2 >= tax.MinCO2 && CO2 <= tax.MaxCO2)
+                            fuelCost = tax.TaxCostAlternate;
                     }
-                    /*If the CO2 emissions are between 1 and 50 then the tax cost is £0*/
-                    else if (CO2 >= 1 && CO2 <= 50)
-                    {
-                        fuelCost = 0.0f;
-                    }
-                    /*Else if the CO2 emissions are between 51 and 75 then the tax cost is 15*/
-                    else if (CO2 >= 51 && CO2 <= 75)
-                    {
-                        fuelCost = 15.0f;
-                    }
-                    /*Else if the CO2 emissions are between 76 and 90 then the tax cost is 90*/
-                    else if (CO2 >= 76 && CO2 <= 90)
-                    {
-                        fuelCost = 90.0f;
-                    }
-                    /*Else if the CO2 emissions are between 91 and 100 then the tax cost is 110*/
-                    else if (CO2 >= 91 && CO2 <= 100)
-                    {
-                        fuelCost = 110.0f;
-                    }
-                    /*Else if the CO2 emissions are between 101 and 110 then the tax cost is 130*/
-                    else if (CO2 >= 101 && CO2 <= 110)
-                    {
-                        fuelCost = 130.0f;
-                    }
-                    /*Else if the CO2 emissions are between 111 and 130 then the tax cost is 150*/
-                    else if (CO2 >= 111 && CO2 <= 130)
-                    {
-                        fuelCost = 150.0f;
-                    }
-                    /*Else if the CO2 emissions are between 131 and 150 then the tax cost is 190*/
-                    else if (CO2 >= 131 && CO2 <= 150)
-                    {
-                        fuelCost = 190.0f;
-                    }
-                    /*Else if the CO2 emissions are between 151 and 170 then the tax cost is 490*/
-                    else if (CO2 >= 151 && CO2 <= 170)
-                    {
-                        fuelCost = 490.0f;
-                    }
-                    /*Else if the CO2 emissions are between 171 and 190 then the tax cost is 790*/
-                    else if (CO2 >= 171 && CO2 <= 190)
-                    {
-                        fuelCost = 790.0f;
-                    }
-                    /*Else if the CO2 emissions are between 191 and 225 then the tax cost is 1190*/
-                    else if (CO2 >= 191 && CO2 <= 225)
-                    {
-                        fuelCost = 1190.0f;
-                    }
-                    /*Else if the CO2 emissions are between 226 and 255 then the tax cost is 1690*/
-                    else if (CO2 >= 226 && CO2 <= 255)
-                    {
-                        fuelCost = 1690.0f;
-                    }
-                    /*Else if the CO2 emissions are more then 255 then the tax cost is 1990*/
-                    else if (CO2 > 255)
-                    {
-                        fuelCost = 1990.0f;
-                    }
-                    /*Else the CO2 is something invalid e.g. -5 therefore we will return -1.*/
-                    else
-                    {
-                        fuelCost = -1.0f;
-                    }
+                }
+
+
+                
+                   
 
                     
-                }
 
                 car.TaxBand = fuelCost;
             }
 
             return fuelCost;
+        }
+
+        /*Function that returns the tax brackets for post March 2017*/
+        public List<TaxBrackets> postMarch2017TaxBrackets()
+        {
+            List<TaxBrackets> taxBrackets = new List<TaxBrackets>()
+            {
+                new TaxBrackets()
+                {
+                    Id = 'A',
+                    MinCO2 = 0,
+                    MaxCO2 = 0,
+                    TaxCost = 0,
+                    TaxCostAlternate = 0
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'B',
+                    MinCO2 = 1,
+                    MaxCO2 = 50,
+                    TaxCost = 10,
+                    TaxCostAlternate = 0
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'C',
+                    MinCO2 = 51,
+                    MaxCO2 = 75,
+                    TaxCost = 25,
+                    TaxCostAlternate = 15
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'D',
+                    MinCO2 = 76,
+                    MaxCO2 = 90,
+                    TaxCost = 100,
+                    TaxCostAlternate = 90
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'E',
+                    MinCO2 = 91,
+                    MaxCO2 = 100,
+                    TaxCost = 120,
+                    TaxCostAlternate = 110
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'F',
+                    MinCO2 = 101,
+                    MaxCO2 = 110,
+                    TaxCost = 140,
+                    TaxCostAlternate = 130
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'G',
+                    MinCO2 = 111,
+                    MaxCO2 = 130,
+                    TaxCost = 160,
+                    TaxCostAlternate = 150
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'H',
+                    MinCO2 = 131,
+                    MaxCO2 = 150,
+                    TaxCost = 200,
+                    TaxCostAlternate = 190
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'I',
+                    MinCO2 = 151,
+                    MaxCO2 = 170,
+                    TaxCost = 500,
+                    TaxCostAlternate = 490
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'J',
+                    MinCO2 = 171,
+                    MaxCO2 = 190,
+                    TaxCost = 800,
+                    TaxCostAlternate = 790
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'K',
+                    MinCO2 = 191,
+                    MaxCO2 = 225,
+                    TaxCost = 1200,
+                    TaxCostAlternate = 1190
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'L',
+                    MinCO2 = 226,
+                    MaxCO2 = 255,
+                    TaxCost = 1700,
+                    TaxCostAlternate = 1690
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'M',
+                    MinCO2 = 256,
+                    MaxCO2 = float.MaxValue,
+                    TaxCost = 2000,
+                    TaxCostAlternate = 1990
+                },
+            };
+
+
+            return taxBrackets;
+        }
+
+        /*Function that returns the tax brackets for pre March 2017*/
+        public List<TaxBrackets> preMarch2017TaxBrackets()
+        {
+            List<TaxBrackets> taxBrackets = new List<TaxBrackets>()
+            {
+                new TaxBrackets()
+                {
+                    Id = 'A',
+                    MinCO2 = 0,
+                    MaxCO2 = 1000,
+                    TaxCost = 0,
+                    TaxCostAlternate = 0
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'B',
+                    MinCO2 = 101,
+                    MaxCO2 = 110,
+                    TaxCost = 20,
+                    TaxCostAlternate = 10
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'C',
+                    MinCO2 = 111,
+                    MaxCO2 = 120,
+                    TaxCost = 30,
+                    TaxCostAlternate = 20
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'D',
+                    MinCO2 = 121,
+                    MaxCO2 = 130,
+                    TaxCost = 115,
+                    TaxCostAlternate = 105
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'E',
+                    MinCO2 = 131,
+                    MaxCO2 = 140,
+                    TaxCost = 115,
+                    TaxCostAlternate = 105
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'F',
+                    MinCO2 = 141,
+                    MaxCO2 = 150,
+                    TaxCost = 135,
+                    TaxCostAlternate = 125
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'G',
+                    MinCO2 = 151,
+                    MaxCO2 = 165,
+                    TaxCost = 190,
+                    TaxCostAlternate = 180
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'H',
+                    MinCO2 = 166,
+                    MaxCO2 = 175,
+                    TaxCost = 220,
+                    TaxCostAlternate = 210
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'I',
+                    MinCO2 = 176,
+                    MaxCO2 = 185,
+                    TaxCost = 240,
+                    TaxCostAlternate = 230
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'J',
+                    MinCO2 = 186,
+                    MaxCO2 = 200,
+                    TaxCost = 280,
+                    TaxCostAlternate = 270
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'K',
+                    MinCO2 = 201,
+                    MaxCO2 = 225,
+                    TaxCost = 305,
+                    TaxCostAlternate = 295
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'L',
+                    MinCO2 = 226,
+                    MaxCO2 = 255,
+                    TaxCost = 520,
+                    TaxCostAlternate = 510
+                },
+
+                new TaxBrackets()
+                {
+                    Id = 'M',
+                    MinCO2 = 256,
+                    MaxCO2 = float.MaxValue,
+                    TaxCost = 535,
+                    TaxCostAlternate = 525
+                },
+            };
+
+
+            return taxBrackets;
         }
     }
 }

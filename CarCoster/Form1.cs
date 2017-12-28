@@ -56,7 +56,9 @@ namespace CarCoster
             string thisDirectory = Directory.GetCurrentDirectory().ToString();
             string fileLoc = thisDirectory + @"\Images\LeafIcon.png";
 
-            JsonReader json = new JsonReader();
+            string year = theYear.ToString();
+
+            JsonReader json = new JsonReader(year);
             drawListBox(json);
 
             drawYearsBox();
@@ -99,6 +101,10 @@ namespace CarCoster
                     string theManufactorer = car.Manufacturer;
                     //boolean that checks if the current manufactorer is unique or not.
                     bool isNew = true;
+
+                    //setting the initial year of the car to be the year that we set at the top
+                    car.carJSONYear = theYear.ToString();
+
                     /*Only add the manufactorer to the list if 
                      it's not already */
                      foreach (string manufactorer in manufactorers)
