@@ -31,7 +31,7 @@ namespace CarCoster
         }
 
         /*Function that gets each unique manufacturer from the list of cars and returns them*/
-        public List<string> GetManufacturers(List<Car> cars)
+        public List<string> GetManufacturers(IEnumerable<Car> cars)
         {
             List<string> manufacturers = new List<string>();
 

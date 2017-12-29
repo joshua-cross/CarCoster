@@ -54,6 +54,8 @@ namespace CarCoster
         /*A Listed object that will contain the current cars and the manifacturers*/
         Listed carList = new Listed();
 
+        PopulateListBox listBoxes = new PopulateListBox();
+
         public Form1()
         {
             InitializeComponent();
@@ -109,10 +111,8 @@ namespace CarCoster
             //adding an option to select all the manufacturers to the list.
             CarBox.Items.Add("All");
 
-            foreach(string manufacturer in carList.Manufacturers)
-            {
-                CarBox.Items.Add(manufacturer);
-            }
+            /*Populating the CarBox list box with all the manufacturers.*/
+            listBoxes.PopulateListBoxWithManufacturers(CarBox, carList.Manufacturers);
         }
 
         //function to clear a listBox.
@@ -126,8 +126,10 @@ namespace CarCoster
         {
            //clearing the model searchbox as we're selecting a different model.
             ModBox.Text = "";
-
             clearListBox(ModelBox);
+
+            /*Clearing the unecessary lists in the carList.*/
+            carList = carList.ClearLists(carList);
 
             //clearing the models and descriptions, as new items are present.
             models.Clear();
@@ -143,42 +145,32 @@ namespace CarCoster
                 /*Getting the models*/
                 //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
 
-                carModels = listReader.searchCars(cars, manufactorer);
+                carList.CarsFromManufacturer = listReader.searchCars(cars, manufactorer);
 
 
-                //setting the image in logobox.
+                /*Loading the manufacturers logo in the form.*/
                 CarBadge badge = new CarBadge();
                 string url = badge.getBadge(CarBox.SelectedItem.ToString());
                 LogoBox.Image = Image.FromFile(url);
                 LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                foreach (var car in carModels)
-                {
-                    ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                    //adding the car model and description to model and description array.
-                    models.Add(car.Model.ToString());
-                    modelCars.Add(car);
-                    descriptions.Add(car.Description.ToString());
-                }
+                listBoxes.PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
             } else
             {
-                foreach(Car car in cars)
-                {
-                    ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                    //adding the car model and description to model and description array.
-                    models.Add(car.Model.ToString());
-                    modelCars.Add(car);
-                    descriptions.Add(car.Description.ToString());
-                }
+                /*As we've selected all, just set the manufacturers to each available car in the
+                 Listed object.*/
+                carList.CarsFromManufacturer = carList.Cars;
+                listBoxes.PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
                 carModels = modelCars;
             }
 
         }
 
-        /*When the user types anything into the textbox repopulate */
+        /*When the user types something into the manufactuer textbox, then clear the existing
+         list of manufacturers and repopulate with the searched manufacturers.*/
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(manufactorers.Count() != 0)
+            if(carList.searchedManufacturers.Count() != 0)
             {
                 //clearning the CarBox so we can repopulate it.
                 clearListBox(CarBox);
@@ -189,24 +181,19 @@ namespace CarCoster
                 //clearing the ModelBox as we are not longer on the same manufactorer.
                 clearListBox(ModelBox);
 
-                IEnumerable<string> searchedMakes = listReader.searchString(manufactorers, MakeBox.Text);
+                carList.searchedManufacturers = 
+                    listReader.searchString(carList.Manufacturers, MakeBox.Text);
 
-
-                //Title.Text = manufactorers.Count().ToString();
-
-                foreach (string car in searchedMakes)
-                {
-                    CarBox.Items.Add(car);
-                }
+                /*Repopulating the listbox with what was searched rather than all the
+                 manufacturers.*/
+                listBoxes.PopulateListBoxWithManufacturers(CarBox, carList.searchedManufacturers);
 
                 /*if the user has reset the search box ie. MakeBox.Text = "" then we will
                  repopulate the listbox with all the makes.*/
                 if (MakeBox.Text.Equals(""))
                 {
-                    foreach(string car in manufactorers)
-                    {
-                        CarBox.Items.Add(car);
-                    }
+                    carList.searchedManufacturers = carList.Manufacturers;
+                    listBoxes.PopulateListBoxWithManufacturers(CarBox, carList.searchedManufacturers);
                 }
             }
         }
@@ -566,8 +553,16 @@ namespace CarCoster
     /*Class that contains all the properties that need to be printed.*/
     public class Listed
     {
-        public List<Car> Cars { get; set; }
-        public List<string> Manufacturers { get; set; }
+        /*The complete list of cars that can be displayed.*/
+        public IEnumerable<Car> Cars { get; set; }
+        /*The cars from the manufacturer*/
+        public IEnumerable<Car> CarsFromManufacturer { get; set; }
+        /*The current list of cars in the list (after sorting, restrictions etc.)*/
+        public IEnumerable<Car> CurrentCars { get; set; }
+        /*The list of car manufacturers in a given year.*/
+        public IEnumerable<string> Manufacturers { get; set; }
+        /*List for the searched manufacturers*/
+        public IEnumerable<string> searchedManufacturers { get; set; }
 
         public Listed DefaultForm1ToLoad()
         {
@@ -583,8 +578,18 @@ namespace CarCoster
 
             list.Manufacturers = reader.GetManufacturers(list.Cars);
 
+            list.searchedManufacturers = list.Manufacturers;
+
             return list;
 
+        }
+
+        /*Function that clears all the uncecessary lists when they are not needed.*/
+        public Listed ClearLists(Listed list)
+        {
+
+
+            return list;
         }
     }
 }
