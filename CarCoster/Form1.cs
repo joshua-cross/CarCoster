@@ -69,7 +69,6 @@ namespace CarCoster
 
             pictureBox1.Image = Image.FromFile(fileLoc);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            Title.Text = fileLoc;
         }
 
         /*Drawing all the years between the beginning year and the current latest
@@ -179,11 +178,9 @@ namespace CarCoster
                 string manufactorer = CarBox.SelectedItem.ToString();
                 /*Getting the models*/
                 //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
-                Title.Text = manufactorer;
 
                 carModels = listReader.searchCars(cars, manufactorer);
 
-                Title.Text = carModels.Count().ToString();
 
                 //setting the image in logobox.
                 CarBadge badge = new CarBadge();
@@ -230,8 +227,7 @@ namespace CarCoster
 
                 IEnumerable<string> searchedMakes = listReader.searchString(manufactorers, MakeBox.Text);
 
-                //Title.Text = MakeBox.Text.ToLower();
-                Title.Text = searchedMakes.Count().ToString();
+
                 //Title.Text = manufactorers.Count().ToString();
 
                 foreach (string car in searchedMakes)
@@ -271,7 +267,6 @@ namespace CarCoster
                 IEnumerable<Car> searchedDescription = listReader.searchDescriptions(carModels, ModBox.Text);
                 //creating a list that contains both searchModels and searchedDescription
                 IEnumerable<Car> allSearches = searchedModels.Concat(searchedDescription);
-                Title.Text = ModBox.Text.ToLower();
                 //Title.Text = searchedModels.Count().ToString();
 
                 //for each car that contains what we searched we will print the Car and the Description.
@@ -449,28 +444,7 @@ namespace CarCoster
             }
         }
 
-        /*Scroll bar which decides if we should display imperial
-         or metric measurements to the users.*/
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            /*The value the user has selected
-             0 = Imperial
-             1 = Metric
-             */
-            int value = ImperialOrMetric.Value;
-            /*If the value is imperial then we will set the mesurement system
-             to be true*/
-            if (value == 0)
-            {
-                measurementSystem = true;
-            }
-            /*Else the value is metric so we will set the measurement system
-             to be false.*/
-            else
-            {
-                measurementSystem = false;
-            }
-        }
+
 
         /*When the MPGSort button is clicked we will call the Order class which
          will sort the list by the lowest MPG.*/
@@ -606,42 +580,6 @@ namespace CarCoster
                 //modelCars.Add(car);
                 descriptions.Add(car.Description.ToString());
             }
-        }
-
-        /*Function that sets the setting FuelPrice when the confirm button is clicked
-         the function checks if what the user has typed is valid ie. Not negative
-         and rounds the number up to the second decimal point if the user has typed something such as
-         3.456434*/
-        private void ConfirmFuelPriceButton_Click(object sender, EventArgs e)
-        {
-
-            /*If what the user has typed is less than or equal to 0
-             then this is not a valid fuel price so we will display
-             an error message to the user.*/
-            if(FuelUpDown.Value <= 0)
-            {
-                FuelErrorMessage.Text = "Please enter a valid value";
-            }
-
-            decimal fuelCost = Math.Round(FuelUpDown.Value, 2);
-
-            Properties.Settings.Default.PetrolPrice = fuelCost;
-        }
-
-        private void ConfirmDieselPrice_Click(object sender, EventArgs e)
-        {
-
-            /*If what the user has typed is less than or equal to 0
-             then this is not a valid fuel price so we will display
-             an error message to the user.*/
-            if (FuelUpDown.Value <= 0)
-            {
-                FuelErrorMessage.Text = "Please enter a valid value";
-            }
-
-            decimal fuelCost = Math.Round(DieselUpDown.Value, 2);
-
-            Properties.Settings.Default.DieselPrice = fuelCost;
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)

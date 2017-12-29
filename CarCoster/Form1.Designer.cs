@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Title = new System.Windows.Forms.Label();
             this.CarBox = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -62,10 +61,6 @@
             this.OverviewText = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.OverviewLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.MetricLabel = new System.Windows.Forms.Label();
-            this.ImperialLabel = new System.Windows.Forms.Label();
-            this.ImperialOrMetric = new System.Windows.Forms.TrackBar();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SaveLabel = new System.Windows.Forms.Label();
@@ -77,13 +72,6 @@
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.FuelPriceLabel = new System.Windows.Forms.Label();
-            this.FuelUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ConfirmFuelPriceButton = new System.Windows.Forms.Button();
-            this.FuelErrorMessage = new System.Windows.Forms.Label();
-            this.DieselUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ConfirmDieselPrice = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -96,25 +84,10 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).BeginInit();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FuelUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DieselUpDown)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Bookman Old Style", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(12, 26);
-            this.Title.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(83, 27);
-            this.Title.TabIndex = 0;
-            this.Title.Text = "label1";
             // 
             // CarBox
             // 
@@ -136,9 +109,9 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.CarBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(143, 77);
+            this.panel2.Location = new System.Drawing.Point(143, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(515, 738);
+            this.panel2.Size = new System.Drawing.Size(515, 815);
             this.panel2.TabIndex = 3;
             // 
             // panel10
@@ -151,7 +124,7 @@
             this.panel10.Controls.Add(this.MPGSort);
             this.panel10.Controls.Add(this.LogoBox);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 648);
+            this.panel10.Location = new System.Drawing.Point(0, 725);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(515, 90);
             this.panel10.TabIndex = 6;
@@ -326,16 +299,16 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.ModelBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(658, 77);
+            this.panel3.Location = new System.Drawing.Point(658, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(510, 738);
+            this.panel3.Size = new System.Drawing.Size(510, 815);
             this.panel3.TabIndex = 4;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.SaveText);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(0, 648);
+            this.panel11.Location = new System.Drawing.Point(0, 725);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(510, 90);
             this.panel11.TabIndex = 6;
@@ -419,9 +392,9 @@
             this.panel8.Controls.Add(this.OverviewText);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(1212, 77);
+            this.panel8.Location = new System.Drawing.Point(1212, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(539, 738);
+            this.panel8.Size = new System.Drawing.Size(539, 815);
             this.panel8.TabIndex = 5;
             // 
             // OverviewText
@@ -450,54 +423,6 @@
             this.OverviewLabel.Size = new System.Drawing.Size(96, 21);
             this.OverviewLabel.TabIndex = 0;
             this.OverviewLabel.Text = "Overview";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(122)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.ConfirmDieselPrice);
-            this.panel1.Controls.Add(this.DieselUpDown);
-            this.panel1.Controls.Add(this.FuelErrorMessage);
-            this.panel1.Controls.Add(this.ConfirmFuelPriceButton);
-            this.panel1.Controls.Add(this.FuelUpDown);
-            this.panel1.Controls.Add(this.FuelPriceLabel);
-            this.panel1.Controls.Add(this.MetricLabel);
-            this.panel1.Controls.Add(this.ImperialLabel);
-            this.panel1.Controls.Add(this.ImperialOrMetric);
-            this.panel1.Controls.Add(this.Title);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(143, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1608, 77);
-            this.panel1.TabIndex = 1;
-            // 
-            // MetricLabel
-            // 
-            this.MetricLabel.AutoSize = true;
-            this.MetricLabel.Location = new System.Drawing.Point(1482, 12);
-            this.MetricLabel.Name = "MetricLabel";
-            this.MetricLabel.Size = new System.Drawing.Size(68, 21);
-            this.MetricLabel.TabIndex = 3;
-            this.MetricLabel.Text = "Metric";
-            // 
-            // ImperialLabel
-            // 
-            this.ImperialLabel.AutoSize = true;
-            this.ImperialLabel.Location = new System.Drawing.Point(1297, 12);
-            this.ImperialLabel.Name = "ImperialLabel";
-            this.ImperialLabel.Size = new System.Drawing.Size(88, 21);
-            this.ImperialLabel.TabIndex = 2;
-            this.ImperialLabel.Text = "Imperial";
-            // 
-            // ImperialOrMetric
-            // 
-            this.ImperialOrMetric.Location = new System.Drawing.Point(1381, 8);
-            this.ImperialOrMetric.Maximum = 1;
-            this.ImperialOrMetric.Name = "ImperialOrMetric";
-            this.ImperialOrMetric.Size = new System.Drawing.Size(104, 45);
-            this.ImperialOrMetric.TabIndex = 1;
-            this.ImperialOrMetric.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // LogoPanel
             // 
@@ -634,95 +559,6 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // FuelPriceLabel
-            // 
-            this.FuelPriceLabel.AutoSize = true;
-            this.FuelPriceLabel.Location = new System.Drawing.Point(628, 13);
-            this.FuelPriceLabel.Name = "FuelPriceLabel";
-            this.FuelPriceLabel.Size = new System.Drawing.Size(383, 21);
-            this.FuelPriceLabel.TabIndex = 5;
-            this.FuelPriceLabel.Text = "Current Petrol Price (Per Litre) in pence:";
-            // 
-            // FuelUpDown
-            // 
-            this.FuelUpDown.DecimalPlaces = 2;
-            this.FuelUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.FuelUpDown.Location = new System.Drawing.Point(1017, 8);
-            this.FuelUpDown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.FuelUpDown.Name = "FuelUpDown";
-            this.FuelUpDown.Size = new System.Drawing.Size(120, 30);
-            this.FuelUpDown.TabIndex = 6;
-            // 
-            // ConfirmFuelPriceButton
-            // 
-            this.ConfirmFuelPriceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.ConfirmFuelPriceButton.FlatAppearance.BorderSize = 0;
-            this.ConfirmFuelPriceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfirmFuelPriceButton.Location = new System.Drawing.Point(1143, 8);
-            this.ConfirmFuelPriceButton.Name = "ConfirmFuelPriceButton";
-            this.ConfirmFuelPriceButton.Size = new System.Drawing.Size(98, 30);
-            this.ConfirmFuelPriceButton.TabIndex = 7;
-            this.ConfirmFuelPriceButton.Text = "Confirm";
-            this.ConfirmFuelPriceButton.UseVisualStyleBackColor = false;
-            this.ConfirmFuelPriceButton.Click += new System.EventHandler(this.ConfirmFuelPriceButton_Click);
-            // 
-            // FuelErrorMessage
-            // 
-            this.FuelErrorMessage.AutoSize = true;
-            this.FuelErrorMessage.Font = new System.Drawing.Font("Bookman Old Style", 8.25F);
-            this.FuelErrorMessage.Location = new System.Drawing.Point(728, 35);
-            this.FuelErrorMessage.Name = "FuelErrorMessage";
-            this.FuelErrorMessage.Size = new System.Drawing.Size(0, 15);
-            this.FuelErrorMessage.TabIndex = 8;
-            // 
-            // DieselUpDown
-            // 
-            this.DieselUpDown.DecimalPlaces = 2;
-            this.DieselUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.DieselUpDown.Location = new System.Drawing.Point(1017, 44);
-            this.DieselUpDown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.DieselUpDown.Name = "DieselUpDown";
-            this.DieselUpDown.Size = new System.Drawing.Size(120, 30);
-            this.DieselUpDown.TabIndex = 9;
-            // 
-            // ConfirmDieselPrice
-            // 
-            this.ConfirmDieselPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
-            this.ConfirmDieselPrice.FlatAppearance.BorderSize = 0;
-            this.ConfirmDieselPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfirmDieselPrice.Location = new System.Drawing.Point(1143, 44);
-            this.ConfirmDieselPrice.Name = "ConfirmDieselPrice";
-            this.ConfirmDieselPrice.Size = new System.Drawing.Size(98, 30);
-            this.ConfirmDieselPrice.TabIndex = 10;
-            this.ConfirmDieselPrice.Text = "Confirm";
-            this.ConfirmDieselPrice.UseVisualStyleBackColor = false;
-            this.ConfirmDieselPrice.Click += new System.EventHandler(this.ConfirmDieselPrice_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(677, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 21);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Current Diesel (Per Litre) in pence:";
-            // 
             // SettingsButton
             // 
             this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -746,7 +582,6 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.SideBarPanel);
             this.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -773,21 +608,15 @@
             this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImperialOrMetric)).EndInit();
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FuelUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DieselUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Label Title;
         private System.Windows.Forms.ListBox CarBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -807,7 +636,6 @@
         private System.Windows.Forms.Label OverviewText;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel LogoPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label SaveLabel;
@@ -824,23 +652,13 @@
         private System.Windows.Forms.Button CompareButton;
         private System.Windows.Forms.ListBox YearBox;
         private System.Windows.Forms.Button ConfirmYearButton;
-        private System.Windows.Forms.Label MetricLabel;
-        private System.Windows.Forms.Label ImperialLabel;
-        private System.Windows.Forms.TrackBar ImperialOrMetric;
         private System.Windows.Forms.Button MPGSort;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ElectricButton;
         private System.Windows.Forms.Button HybridButton;
         private System.Windows.Forms.Button DieselButton;
         private System.Windows.Forms.Button PetrolButton;
-        private System.Windows.Forms.Button ConfirmFuelPriceButton;
-        private System.Windows.Forms.NumericUpDown FuelUpDown;
-        private System.Windows.Forms.Label FuelPriceLabel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.Label FuelErrorMessage;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button ConfirmDieselPrice;
-        private System.Windows.Forms.NumericUpDown DieselUpDown;
         private System.Windows.Forms.Button SettingsButton;
     }
 }
