@@ -170,47 +170,34 @@ namespace CarCoster
          list of manufacturers and repopulate with the searched manufacturers.*/
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(carList.searchedManufacturers.Count() != 0)
-            {
-                //clearning the CarBox so we can repopulate it.
-                clearListBox(CarBox);
-                
-                //clearing the modbox search box as we are no longer on the same manufactorer.
-                ModBox.Text = "";
 
-                //clearing the ModelBox as we are not longer on the same manufactorer.
-                clearListBox(ModelBox);
+            //clearning the CarBox so we can repopulate it.
+            clearListBox(CarBox);
+            //clearing the modbox search box as we are no longer on the same manufactorer.
+            ModBox.Text = "";
+            //clearing the ModelBox as we are not longer on the same manufactorer.
+            clearListBox(ModelBox);
 
-                carList.searchedManufacturers = 
-                    listReader.searchString(carList.Manufacturers, MakeBox.Text);
+            /*Searching for manufacturers based on what was typed into the MakeBox TexbBox.*/
+            carList = listBoxes.UpdateManufacturersThroughSearch(MakeBox, carList, CarBox);
 
-                /*Repopulating the listbox with what was searched rather than all the
-                 manufacturers.*/
-                listBoxes.PopulateListBoxWithManufacturers(CarBox, carList.searchedManufacturers);
-
-                /*if the user has reset the search box ie. MakeBox.Text = "" then we will
-                 repopulate the listbox with all the makes.*/
-                if (MakeBox.Text.Equals(""))
-                {
-                    carList.searchedManufacturers = carList.Manufacturers;
-                    listBoxes.PopulateListBoxWithManufacturers(CarBox, carList.searchedManufacturers);
-                }
-            }
         }
 
         private void ModBox_TextChanged(object sender, EventArgs e)
         {
-            /*If there are models of cars in the listbox.*/
-            if(carModels.Count() != 0)
-            {
-                //clearing the ModelBox so we can replace it with the searched models.
-                clearListBox(ModelBox);
+            //clearing the ModelBox so we can replace it with the searched models.
+            clearListBox(ModelBox);
 
-                //clearing the models and descriptions, as new items are present.
-                models.Clear();
-                modelCars.Clear();
-                descriptions.Clear();
-                orderedCars.Clear();
+            //clearing the models and descriptions, as new items are present.
+            models.Clear();
+            modelCars.Clear();
+            descriptions.Clear();
+            orderedCars.Clear();
+
+            /*If there are models of cars in the listbox.*/
+            if (carList.CarsFromManufacturer.Count() != 0)
+            {
+
 
                 //using the CarListReader to search the Json file for the search result.
                 IEnumerable<Car> searchedModels = listReader.searchModels(carModels, ModBox.Text);
