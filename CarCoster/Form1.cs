@@ -194,42 +194,7 @@ namespace CarCoster
             descriptions.Clear();
             orderedCars.Clear();
 
-            /*If there are models of cars in the listbox.*/
-            if (carList.CarsFromManufacturer.Count() != 0)
-            {
-
-
-                //using the CarListReader to search the Json file for the search result.
-                IEnumerable<Car> searchedModels = listReader.searchModels(carModels, ModBox.Text);
-                //searching the description for what has been typed.
-                IEnumerable<Car> searchedDescription = listReader.searchDescriptions(carModels, ModBox.Text);
-                //creating a list that contains both searchModels and searchedDescription
-                IEnumerable<Car> allSearches = searchedModels.Concat(searchedDescription);
-                //Title.Text = searchedModels.Count().ToString();
-
-                //for each car that contains what we searched we will print the Car and the Description.
-                foreach(Car car in allSearches)
-                {
-                    string toPrint = car.Model.ToString() + " " + car.Description.ToString();
-                    ModelBox.Items.Add(toPrint);
-                    //adding the car model and description to model and description array.
-                    models.Add(car.Model.ToString());
-                    descriptions.Add(car.Description.ToString());
-                }
-
-                //if the user empties the search box then we want to refill the listbox with the array of models.
-                if(ModBox.Text.Equals(""))
-                {
-                    foreach(Car car in carModels)
-                    {
-                        string toPrint = car.Model.ToString() + " " + car.Description.ToString();
-                        ModelBox.Items.Add(toPrint);
-                        //adding the car model and description to model and description array.
-                        models.Add(car.Model.ToString());
-                        descriptions.Add(car.Description.ToString());
-                    }
-                }
-            }
+            carList = listBoxes.UpdatedModelsThroughSearch(ModBox, carList, ModelBox);
         }
 
         private void ModelBox_SelectedIndexChanged(object sender, EventArgs e)
