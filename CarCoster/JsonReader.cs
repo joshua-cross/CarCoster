@@ -14,11 +14,46 @@ namespace CarCoster
     {
         List<Car> cars = new List<Car>();
 
-        //default constructor.
+        /*Default constructor that gets all the files in the Json folder, and
+         then checks which is the latest file and uses this as the default.*/
         public JsonReader()
         {
 
-            string fileLoc = getJsonLocation();
+            string[] fileLocs = GetAllFiles();
+            string fileLoc = "";
+            //int that holds the most recent integer so we can replace when a new larger one comes.
+            int mostRecent = 0;
+
+            foreach (string file in fileLocs)
+            {
+
+                //setting file to be string name without an extension.
+                string theFile = Path.GetFileNameWithoutExtension(file);
+
+                /*Trying to parse the filename to an integer so we can compare them.*/
+                try
+                {
+                    int thisYear = int.Parse(theFile);
+                    /*If this new year is greater than the previous one then this is the latest year.*/
+                    if(thisYear > mostRecent)
+                    {
+                        mostRecent = thisYear;
+                    }
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            /*If mostRecent is still 0 then we will set it as 2017 to be our new default.*/
+            if (mostRecent == 0)
+            {
+                mostRecent = 2017;
+            }
+
+            /*Setting the fileLoc to be the value of mostRecent.*/
+            fileLoc = mostRecent.ToString();
+
 
             using (StreamReader r = new StreamReader(fileLoc))
             {
@@ -59,12 +94,7 @@ namespace CarCoster
 
             } else
             {
-                /*Getting the location of each and all of the JSON files for the project.*/
-                string thisDirectory = Directory.GetCurrentDirectory().ToString();
-                thisDirectory += @"\json";
-                string[] filePaths = Directory.GetFiles(thisDirectory);
-
-                
+                string[] filePaths = GetAllFiles();
 
                 /*For each of the files in the filepath the cars will be added to an
                  array which will contain the cars for each year.*/
@@ -91,7 +121,16 @@ namespace CarCoster
 
         }
 
+        /*function that gets all the filepaths.*/
+        public string[] GetAllFiles()
+        {
+            /*Getting the location of each and all of the JSON files for the project.*/
+            string thisDirectory = Directory.GetCurrentDirectory().ToString();
+            thisDirectory += @"\json";
+            string[] filePaths = Directory.GetFiles(thisDirectory);
 
+            return filePaths;
+        }
 
         public List<Car> getCars()
         {

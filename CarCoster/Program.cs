@@ -17,6 +17,8 @@ namespace CarCoster
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            /*string that holds the year of the latest database.*/
+
             //loading a car from the database.
             LoadCar load = new LoadCar();
             IEnumerable<Car> cars = load.Load();
