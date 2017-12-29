@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 namespace CarCoster
 {
-    class Car
+    public class Car
     {
         public string Manufacturer { get; set; }
         public string Model { get; set; }

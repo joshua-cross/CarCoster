@@ -114,8 +114,10 @@ namespace CarCoster
          and open the add car form (Form1).*/
         private void AddCarButton_Click(object sender, EventArgs e)
         {
+            Listed list = new Listed();
+            list = list.DefaultForm1ToLoad();
             this.Hide();
-            Form1 addCar = new Form1();
+            Form1 addCar = new Form1(list);
             addCar.Closed += (s, args) => this.Close();
             addCar.Show();
         }

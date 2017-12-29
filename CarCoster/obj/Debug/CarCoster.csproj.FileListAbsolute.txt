@@ -4,7 +4,6 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\CarCoster.exe
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\CarCoster.pdb
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Newtonsoft.Json.dll
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Newtonsoft.Json.xml
-C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Form1.resources
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Overview.resources
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Properties.Resources.resources
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.csproj.GenerateResource.Cache
@@ -108,3 +107,4 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Json\2013.json
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Json\2014.json
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Init.resources
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.CarDetails.resources
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Form1.resources

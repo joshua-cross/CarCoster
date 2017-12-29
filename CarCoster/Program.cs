@@ -17,15 +17,16 @@ namespace CarCoster
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*string that holds the year of the latest database.*/
+            Listed list = new Listed();
+            list.DefaultForm1ToLoad();
 
             //loading a car from the database.
             LoadCar load = new LoadCar();
-            IEnumerable<Car> cars = load.Load();
+            IEnumerable<Car> loadedCars = load.Load();
 
             //if the car is null then there was no saved car.
-            if (cars.Count() ==  0)
-                Application.Run(new Form1());
+            if (loadedCars.Count() ==  0)
+                Application.Run(new Form1(list));
             else
                 Application.Run(new Overview());
             

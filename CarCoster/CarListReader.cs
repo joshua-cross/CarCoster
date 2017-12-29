@@ -30,6 +30,51 @@ namespace CarCoster
             return newCars;
         }
 
+        /*Function that gets each unique manufacturer from the list of cars and returns them*/
+        public List<string> GetManufacturers(List<Car> cars)
+        {
+            List<string> manufacturers = new List<string>();
+
+            try
+            {
+                foreach (Car car in cars)
+                {
+
+                    //the manufactorer.
+                    string theManufactorer = car.Manufacturer;
+                    //boolean that checks if the current manufactorer is unique or not.
+                    bool isNew = true;
+
+                    /*Only add the manufactorer to the list if 
+                     it's not already */
+                    foreach (string manufactorer in manufacturers)
+                    {
+                        if (car.Manufacturer.Equals(manufactorer))
+                        {
+                            //setting is new to false at it already exists in the array.
+                            isNew = false;
+                            break;
+                        }
+                    }
+
+                    //if the manufactorer is new then add to the array and the list.
+                    if (isNew)
+                    {
+                        manufacturers.Add(car.Manufacturer);
+                    }
+
+                }
+
+                return manufacturers;
+            }
+            catch (Exception error)
+            {
+
+                return null;
+
+            }
+        }
+
         /*Takes in the selected data from the form (manufactorer/model and description) and
          finds the full car from this.*/
         public Car findCar(string model, string manufactorer, string description, IEnumerable<Car> cars)

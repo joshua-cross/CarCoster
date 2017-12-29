@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.IO;
 namespace CarCoster
 {
+
+
+
     public partial class Form1 : Form
     {
         List<Car> cars = new List<Car>();
@@ -47,8 +50,18 @@ namespace CarCoster
         //setting the year to be this year by default.
         string year = DateTime.Now.Year.ToString();
 
+
+        /*A Listed object that will contain the current cars and the manifacturers*/
+        Listed carList = new Listed();
+
         public Form1()
         {
+            InitializeComponent();
+        }
+
+        public Form1(Listed theCarList)
+        {
+            carList = theCarList;
             InitializeComponent();
         }
 
@@ -60,8 +73,6 @@ namespace CarCoster
 
             string year = theYear.ToString();
 
-
-
             JsonReader json = new JsonReader(year);
             drawListBox(json);
 
@@ -69,6 +80,7 @@ namespace CarCoster
 
             pictureBox1.Image = Image.FromFile(fileLoc);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
 
         /*Drawing all the years between the beginning year and the current latest
@@ -96,58 +108,10 @@ namespace CarCoster
             cars = json.getCars();
             //adding an option to select all the manufacturers to the list.
             CarBox.Items.Add("All");
-            try
+
+            foreach(string manufacturer in carList.Manufacturers)
             {
-                foreach (Car car in cars)
-                {
-                    //calculating the cost for each of the cars if it does not have one already.
-                    if(car.ActualCostPer12000Miles == null)
-                    {
-                        float? costOf12000 = costPer12000.CostPer12000Miles(car);
-                    }
-
-                    //the manufactorer.
-                    string theManufactorer = car.Manufacturer;
-                    //boolean that checks if the current manufactorer is unique or not.
-                    bool isNew = true;
-
-                    if(YearBox.SelectedIndex != -1)
-                    {
-                        car.carJSONYear = YearBox.SelectedItem.ToString();
-                    } else
-                    {
-                        //setting the initial year of the car to be the year that we set at the top
-                        car.carJSONYear = theYear.ToString();
-                    }
-
-
-                    /*Only add the manufactorer to the list if 
-                     it's not already */
-                    foreach (string manufactorer in manufactorers)
-                    {
-                        if(car.Manufacturer.Equals(manufactorer))
-                        {
-                            //setting is new to false at it already exists in the array.
-                            isNew = false;
-                            break;
-                        }
-                    }
-
-                     //if the manufactorer is new then add to the array and the list.
-                     if(isNew)
-                    {
-                        manufactorers.Add(car.Manufacturer);
-                        CarBox.Items.Add(car.Manufacturer);
-
-                    }
-
-                }
-            }
-            catch (Exception error)
-            {
-
-                CarBox.Items.Add(error.ToString());
-
+                CarBox.Items.Add(manufacturer);
             }
         }
 
@@ -596,6 +560,31 @@ namespace CarCoster
              all necessary items to be displayed.*/
             CarOverview overview = new CarOverview();
             overview.OpenCarDetails(searchedCar);
+        }
+    }
+
+    /*Class that contains all the properties that need to be printed.*/
+    public class Listed
+    {
+        public List<Car> Cars { get; set; }
+        public List<string> Manufacturers { get; set; }
+
+        public Listed DefaultForm1ToLoad()
+        {
+            CarListReader reader = new CarListReader();
+
+            Listed list = new Listed();
+
+            /*Setting the cars in JSON reader to be that of the most recent year.*/
+            JsonReader json = new JsonReader();
+
+            /*Getting the list of cars from json.*/
+            list.Cars = json.getCars();
+
+            list.Manufacturers = reader.GetManufacturers(list.Cars);
+
+            return list;
+
         }
     }
 }
