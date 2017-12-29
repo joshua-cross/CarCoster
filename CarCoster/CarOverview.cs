@@ -9,7 +9,7 @@ namespace CarCoster
     /*Class that contains properties for the car that needs to be displayed
      (the image for the cars label if it exists, and the string from the 
      car printer.)*/
-    class CarToBeDisplayed
+    public class CarToBeDisplayed
     {
         //all the details about the car.
         public string carDetails { get; set; }
@@ -27,6 +27,8 @@ namespace CarCoster
          public void OpenCarDetails(Car car)
         {
             CarToBeDisplayed displayed = detailsToBeDisplayed(car);
+            CarDetails details = new CarDetails(displayed);
+            details.Show();
         }
 
         /*Function that gets all the details for the car, including the

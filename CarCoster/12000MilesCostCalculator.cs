@@ -82,7 +82,7 @@ namespace CarCoster
 
             /*dividing the gallon by litresToGallons to provde us with how
              many litres are in a gallon.*/
-            litresInAGallon = 1 / 0.22;
+            litresInAGallon = gallon / litresToGallons;
 
             return litresInAGallon;
         }

@@ -67,12 +67,13 @@
             this.OverviewButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.SideBarPanel = new System.Windows.Forms.Panel();
+            this.SettingsButton = new System.Windows.Forms.Button();
             this.SelectedButton = new System.Windows.Forms.Panel();
             this.CompareButton = new System.Windows.Forms.Button();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.SettingsButton = new System.Windows.Forms.Button();
+            this.LoadCar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -389,6 +390,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.LoadCar);
             this.panel8.Controls.Add(this.OverviewText);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
@@ -501,6 +503,20 @@
             this.SideBarPanel.TabIndex = 0;
             this.SideBarPanel.MouseLeave += new System.EventHandler(this.SideBarPanel_MouseLeave);
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SettingsButton.FlatAppearance.BorderSize = 0;
+            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
+            this.SettingsButton.Location = new System.Drawing.Point(0, 505);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(143, 100);
+            this.SettingsButton.TabIndex = 8;
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // SelectedButton
             // 
             this.SelectedButton.BackColor = System.Drawing.Color.Red;
@@ -559,19 +575,15 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // SettingsButton
+            // LoadCar
             // 
-            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SettingsButton.FlatAppearance.BorderSize = 0;
-            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
-            this.SettingsButton.Location = new System.Drawing.Point(0, 505);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(143, 100);
-            this.SettingsButton.TabIndex = 8;
-            this.SettingsButton.UseVisualStyleBackColor = true;
-            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            this.LoadCar.Location = new System.Drawing.Point(383, 762);
+            this.LoadCar.Name = "LoadCar";
+            this.LoadCar.Size = new System.Drawing.Size(95, 41);
+            this.LoadCar.TabIndex = 2;
+            this.LoadCar.Text = "LoadCar";
+            this.LoadCar.UseVisualStyleBackColor = true;
+            this.LoadCar.Click += new System.EventHandler(this.LoadCar_Click);
             // 
             // Form1
             // 
@@ -660,6 +672,7 @@
         private System.Windows.Forms.Button PetrolButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.Button SettingsButton;
+        private System.Windows.Forms.Button LoadCar;
     }
 }
 

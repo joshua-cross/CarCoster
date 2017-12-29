@@ -587,5 +587,15 @@ namespace CarCoster
             Init init = new Init();
             init.Show();
         }
+
+        /*When the load car button is clicked we will send over the selected car
+         to the CarDetails form which will display all the cars information.*/
+        private void LoadCar_Click(object sender, EventArgs e)
+        {
+            /*Getting CarOverview, which is a class that specialises in displaying
+             all necessary items to be displayed.*/
+            CarOverview overview = new CarOverview();
+            overview.OpenCarDetails(searchedCar);
+        }
     }
 }
