@@ -107,3 +107,4 @@ C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Images\CarBadges\mg mot
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Json\2013.json
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\bin\Debug\Json\2014.json
 C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.Init.resources
+C:\Users\josh\Source\Repos\CarCoster\CarCoster\obj\Debug\CarCoster.CarDetails.resources
