@@ -788,6 +788,7 @@
             this.Car1PetrolButton.TabIndex = 0;
             this.Car1PetrolButton.Text = "Petrol";
             this.Car1PetrolButton.UseVisualStyleBackColor = false;
+            this.Car1PetrolButton.Click += new System.EventHandler(this.Car1PetrolButton_Click);
             // 
             // Car1DieselButton
             // 
@@ -801,6 +802,7 @@
             this.Car1DieselButton.TabIndex = 1;
             this.Car1DieselButton.Text = "Diesel";
             this.Car1DieselButton.UseVisualStyleBackColor = false;
+            this.Car1DieselButton.Click += new System.EventHandler(this.Car1DieselButton_Click);
             // 
             // Car1HybridButton
             // 
@@ -814,6 +816,7 @@
             this.Car1HybridButton.TabIndex = 2;
             this.Car1HybridButton.Text = "Hybrid";
             this.Car1HybridButton.UseVisualStyleBackColor = false;
+            this.Car1HybridButton.Click += new System.EventHandler(this.Car1HybridButton_Click);
             // 
             // Car1ElectricButton
             // 
@@ -827,6 +830,7 @@
             this.Car1ElectricButton.TabIndex = 3;
             this.Car1ElectricButton.Text = "Electric";
             this.Car1ElectricButton.UseVisualStyleBackColor = false;
+            this.Car1ElectricButton.Click += new System.EventHandler(this.Car1ElectricButton_Click);
             // 
             // Car2PetrolButton
             // 
@@ -840,6 +844,7 @@
             this.Car2PetrolButton.TabIndex = 4;
             this.Car2PetrolButton.Text = "Petrol";
             this.Car2PetrolButton.UseVisualStyleBackColor = false;
+            this.Car2PetrolButton.Click += new System.EventHandler(this.Car2PetrolButton_Click);
             // 
             // Car2DieselButton
             // 
@@ -853,6 +858,7 @@
             this.Car2DieselButton.TabIndex = 5;
             this.Car2DieselButton.Text = "Diesel";
             this.Car2DieselButton.UseVisualStyleBackColor = false;
+            this.Car2DieselButton.Click += new System.EventHandler(this.Car2DieselButton_Click);
             // 
             // Car2HyrbidButton
             // 
@@ -866,6 +872,7 @@
             this.Car2HyrbidButton.TabIndex = 6;
             this.Car2HyrbidButton.Text = "Hyrbrid";
             this.Car2HyrbidButton.UseVisualStyleBackColor = false;
+            this.Car2HyrbidButton.Click += new System.EventHandler(this.Car2HyrbidButton_Click);
             // 
             // Car2ElectricButton
             // 
@@ -879,6 +886,7 @@
             this.Car2ElectricButton.TabIndex = 7;
             this.Car2ElectricButton.Text = "Electric";
             this.Car2ElectricButton.UseVisualStyleBackColor = false;
+            this.Car2ElectricButton.Click += new System.EventHandler(this.Car2ElectricButton_Click);
             // 
             // label3
             // 
