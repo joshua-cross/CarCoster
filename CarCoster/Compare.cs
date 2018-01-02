@@ -96,11 +96,6 @@ namespace CarCoster
             //if the car is null display an error message.
             if(theCar == null)
             {
-                Car1OverviewLabel.Text = "ERROR!";
-                Car2OverviewLabel.Text = "ERROR!";
-                Car1OverviewLabel.ForeColor = Color.Red;
-                Car2OverviewLabel.ForeColor = Color.Red;
-
                 Car1OverviewText.Text = "Something's gone wrong.";
                 Car2OverviewText.Text = "Something's gone wrong.";
             } else
@@ -362,25 +357,6 @@ namespace CarCoster
             }
         }
 
-        private void ImperialOrMetric_Scroll(object sender, EventArgs e)
-        {
-            /*The value the user has selected
-             0 = Imperial
-             1 = Metric
-             */
-            int value = ImperialOrMetric.Value;
-            /*If the value is imperial then we will set the mesurement system
-             to be true*/
-            if (value == 0)
-            {
-                measurementSystem = true;
-            }
-            /*Else the value is metric so we will set the measurement system
-             to be false.*/
-            else
-            {
-                measurementSystem = false;
-            }
-        }
+       
     }
 }

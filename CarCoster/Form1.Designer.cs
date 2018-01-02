@@ -511,7 +511,7 @@
             // SelectedButton
             // 
             this.SelectedButton.BackColor = System.Drawing.Color.Red;
-            this.SelectedButton.Location = new System.Drawing.Point(131, 307);
+            this.SelectedButton.Location = new System.Drawing.Point(131, 207);
             this.SelectedButton.Name = "SelectedButton";
             this.SelectedButton.Size = new System.Drawing.Size(12, 98);
             this.SelectedButton.TabIndex = 0;
@@ -521,7 +521,7 @@
             this.CompareButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.CompareButton.FlatAppearance.BorderSize = 0;
             this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompareButton.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompareButton.Location = new System.Drawing.Point(0, 305);
             this.CompareButton.Name = "CompareButton";
             this.CompareButton.Size = new System.Drawing.Size(143, 100);
@@ -537,7 +537,7 @@
             this.AddCarButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.AddCarButton.FlatAppearance.BorderSize = 0;
             this.AddCarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddCarButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddCarButton.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddCarButton.Location = new System.Drawing.Point(0, 205);
             this.AddCarButton.Name = "AddCarButton";
             this.AddCarButton.Size = new System.Drawing.Size(143, 100);
