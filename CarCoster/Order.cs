@@ -9,9 +9,9 @@ namespace CarCoster
     class Order
     {
         /*Function that sorts the given cars by the lowest MPG's*/
-        public List<Car> orderByMPG(List<Car> cars)
+        public IEnumerable<Car> orderByMPG(IEnumerable<Car> cars)
         {
-            List<Car> orderedCars = cars;
+            IEnumerable<Car> orderedCars = cars;
 
             orderedCars = removeElectricAndInvalidCars(orderedCars);
 
@@ -21,9 +21,9 @@ namespace CarCoster
         }
 
         /*Function that sorts the given cars by the highest MPG.*/
-        public List<Car> orderByMPGDescending(List<Car> cars)
+        public IEnumerable<Car> orderByMPGDescending(IEnumerable<Car> cars)
         {
-            List<Car> orderedCars = cars;
+            IEnumerable<Car> orderedCars = cars;
 
             orderedCars = removeElectricAndInvalidCars(orderedCars);
 
@@ -32,8 +32,8 @@ namespace CarCoster
             return orderedCars;
         }
 
-        /*Function that will remove all cars that are not petrol from the list*/
-        public List<Car> RemoveAllButSpecified(List<Car> cars, string targetFuel)
+        /*Function that will remove all cars that are not petrol from the IEnumerable*/
+        public IEnumerable<Car> RemoveAllButSpecified(IEnumerable<Car> cars, string targetFuel)
         {
 
             List<Car> newCars = new List<Car>();
@@ -46,13 +46,13 @@ namespace CarCoster
             {
                 /*Going through all the cars that the user is sent, and adding only
                  the petrol cars to the new array.*/
-                for (int i = 0; i < cars.Count; i = i + 1)
+                for (int i = 0; i < cars.Count(); i = i + 1)
                 {
 
                     /*If the car is petrol then we will add this to the new array.*/
-                    if (cars[i].FuelType.Equals(targetFuel))
+                    if (cars.ElementAt(i).FuelType.Equals(targetFuel))
                     {
-                        newCars.Add(cars[i]);
+                        newCars.Add(cars.ElementAt(i));
                     }
 
                 }
@@ -60,14 +60,14 @@ namespace CarCoster
             {
                 /*Going through all the cars that the user is sent, and adding only
                 the petrol cars to the new array.*/
-                for (int i = 0; i < cars.Count; i = i + 1)
+                for (int i = 0; i < cars.Count(); i = i + 1)
                 {
 
                     /*If the car is petrol then we will add this to the new array.*/
-                    if (cars[i].FuelType.Contains(targetFuel)
-                        || cars[i].FuelType.Contains("Electricity /"))
+                    if (cars.ElementAt(i).FuelType.Contains(targetFuel)
+                        || cars.ElementAt(i).FuelType.Contains("Electricity /"))
                     {
-                        newCars.Add(cars[i]);
+                        newCars.Add(cars.ElementAt(i));
                     }
 
                 }
@@ -76,9 +76,9 @@ namespace CarCoster
             return newCars;
         }
 
-        /*Function that removes cars from the list if they do not contain both a metric
+        /*Function that removes cars from the IEnumerable if they do not contain both a metric
          combined MPG and a imperial combined MPG.*/
-        private List<Car> removeElectricAndInvalidCars(List<Car> cars)
+        private IEnumerable<Car> removeElectricAndInvalidCars(IEnumerable<Car> cars)
         {
 
             string electric = "Electricity";
@@ -86,28 +86,28 @@ namespace CarCoster
             List<Car> newCars = new List<Car>();
 
 
-            for (int i = 0; i < cars.Count; i = i + 1)
+            for (int i = 0; i < cars.Count(); i = i + 1)
             {
 
 
                 /*If the car has either a null imperial combined, or
-                 null metric combined then remove it from the list.*/
-                if (cars[i].ImperialCombined == null
-                    || cars[i].MetricCombined == null
-                    || cars[i].ImperialCombined == 0
-                    || cars[i].MetricCombined == 0
-                    || cars[i].FuelType.ToLower().Equals(electric.ToLower()))
+                 null metric combined then remove it from the IEnumerable.*/
+                if (cars.ElementAt(i).ImperialCombined == null
+                    || cars.ElementAt(i).MetricCombined == null
+                    || cars.ElementAt(i).ImperialCombined == 0
+                    || cars.ElementAt(i).MetricCombined == 0
+                    || cars.ElementAt(i).FuelType.ToLower().Equals(electric.ToLower()))
                 {
                    
                 }
-                //else add this to a new list so we can return this.
+                //else add this to a new IEnumerable so we can return this.
                 else
                 {
-                    newCars.Add(cars[i]);
+                    newCars.Add(cars.ElementAt(i));
                 }
             }
 
-            //return the completed list.
+            //return the completed IEnumerable.
             return newCars;
         }
     }

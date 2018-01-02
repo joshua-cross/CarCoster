@@ -50,6 +50,9 @@ namespace CarCoster
         //setting the year to be this year by default.
         string year = DateTime.Now.Year.ToString();
 
+        /*a boolean that indicated if we want to sort by ascending or descending order
+         true = ascending, false = descending*/
+        bool ordering = true;
 
         /*A Listed object that will contain the current cars and the manifacturers*/
         Listed carList = new Listed();
@@ -276,25 +279,8 @@ namespace CarCoster
          will sort the list by the lowest MPG.*/
         private void MPGSort_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-
-            //CarBox.Items.Clear();
-            ModelBox.Items.Clear();
-            models.Clear();
-            descriptions.Clear();
-            orderedCars.Clear();
-
-
-            orderedCars = order.orderByMPG(modelCars);
-            modelCars.Clear();
-
-            foreach (Car car in orderedCars)
-            {
-                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                models.Add(car.Model.ToString());
-                modelCars.Add(car);
-                descriptions.Add(car.Description.ToString());
-            }
+            ordering = true;
+            listBoxes.OrderedCars(carList.CurrentCars, ordering, ModelBox);
         }
 
         /*When the MPGSort button is clicked we will call the Order class which

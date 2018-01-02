@@ -14,6 +14,7 @@ namespace CarCoster
          prints adds these manufactuers to the ListBox.*/
          public void PopulateListBoxWithManufacturers(ListBox list, IEnumerable<string> manufacturers)
         {
+            list.Items.Clear();
             foreach(string manufacturer in manufacturers)
             {
                 list.Items.Add(manufacturer);
@@ -24,6 +25,7 @@ namespace CarCoster
          then prints the manufacturer, model and description of the car.*/
          public void PopulateListBoxWithCarsDetails(ListBox list, IEnumerable<Car> cars)
         {
+            list.Items.Clear();
             foreach (Car car in cars)
             {
                 list.Items.Add(car.Manufacturer.ToString() + " " + car.Model.ToString() + " " + car.Description.ToString());
@@ -161,6 +163,34 @@ namespace CarCoster
 
             /*Returns the car list after we've seleted the chosen car.*/
             return carList;
+        }
+
+        /*Function that's called when the user wants to sort out the CurrentCars by taking in:
+         a. the array of cars that we need ordering
+         b. boolean that indicated if we want to sort by ascending or descending order.
+            i. true = ascending
+            ii. false = descending
+        c. the ListBox we want to populate afterwards (most likely ModelBox.).
+         the array then returns the new IEnumerable*/
+        public IEnumerable<Car> OrderedCars(IEnumerable<Car> carsToBeSorted, bool sortingOrder, ListBox list)
+        {
+            Order order = new Order();
+            /*If we are sorting by ascneding order then we want to tell the Order class
+             else we're sorting by descending order.*/
+            if (sortingOrder)
+            {
+                carsToBeSorted = order.orderByMPG(carsToBeSorted);
+                PopulateListBoxWithCarsDetails(list, carsToBeSorted);
+            }
+            else
+            {
+                
+            }
+
+            /*repopulating the listbox with the new, sorted list.*/
+            PopulateListBoxWithCarsDetails(list, carsToBeSorted);
+            /*Return the list after sorting.*/
+            return carsToBeSorted;
         }
     }
 }
