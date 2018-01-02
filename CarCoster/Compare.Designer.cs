@@ -276,6 +276,7 @@
             this.Car1ModelList.Name = "Car1ModelList";
             this.Car1ModelList.Size = new System.Drawing.Size(318, 256);
             this.Car1ModelList.TabIndex = 6;
+            this.Car1ModelList.SelectedIndexChanged += new System.EventHandler(this.Car1ModelList_SelectedIndexChanged);
             // 
             // Car1ManufacturorList
             // 

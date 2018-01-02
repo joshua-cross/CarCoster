@@ -13,6 +13,9 @@ namespace CarCoster
     public partial class Compare : Form
     {
 
+        /*The PopulateListBox class that will maintain the listboxes, and the Listed objects.*/
+        PopulateListBox listBoxes = new PopulateListBox();
+
         IEnumerable<Car> cars;
         IEnumerable<Car> selectedCars;
         //list of the cars manufacturers.
@@ -153,38 +156,12 @@ namespace CarCoster
         /*Function that gets all the cars and displays the manufacturers of them.*/
         private void populateManufacturers()
         {
-            //do if the cars have loaded successfully.
-            if(cars != null)
-            {
+            Car1ManufacturorList.Items.Clear();
+            Car2ManufacturorList.Items.Clear();
 
-                /*For each of the cars, we are going to check if we already have the manufacturer
-                 present, and if we do not then we're going to add it to both the
-                 Car 1 and Car 2 side.*/
-                foreach(Car theCar in cars)
-                {
+            listBoxes.PopulateListBoxWithManufacturers(Car1ManufacturorList, car1List.Manufacturers);
+            listBoxes.PopulateListBoxWithManufacturers(Car2ManufacturorList, car2List.Manufacturers);
 
-                    bool isNew = true;
-
-                    foreach(string manufacturer in manufacturers)
-                    {
-                        //if the value of the cars manufacturer is already in the array, the it's not a unique
-                        //manufactuer so we should not add it to the list.
-                        if(manufacturer.Equals(theCar.Manufacturer))
-                        {
-                            isNew = false;
-                            break;
-                        }
-                    }
-
-                    if(isNew == true)
-                    {
-                        manufacturers.Add(theCar.Manufacturer);
-                        Car1ManufacturorList.Items.Add(theCar.Manufacturer);
-                        Car2ManufacturorList.Items.Add(theCar.Manufacturer);
-                    }
-
-                }
-            }
         }
 
         /*Adding each of the users selected cars to the listbox so the user can compare there
@@ -239,11 +216,11 @@ namespace CarCoster
             //only change the image when we have something selected(if selected has not been wiped.)
             if (Car1ManufacturorList.SelectedIndex != -1)
             {
-                changeImage(Car1LogoPicture, Car1ManufacturorList.SelectedItem.ToString());
-                Car1Models.Clear();
-                Car1SelectedCarList.ClearSelected();
-                Car1Models = populateModels(Car1ManufacturorList.SelectedItem.ToString(), Car1ModelList);
+                string manufacturer = Car1ManufacturorList.SelectedItem.ToString();
+                changeImage(Car1LogoPicture, manufacturer);
+                car1List = listBoxes.ManufactuerSelected(Car1ModelList, manufacturer, car1List, Car1LogoPicture);
             }
+
         }
 
         /*When the Car2ManufacturerList Index is changed a couple of things will happen
@@ -254,11 +231,9 @@ namespace CarCoster
             //only change the image when we have something selected(if selected has not been wiped.)
             if (Car2ManufacturorList.SelectedIndex != -1)
             {
-                changeImage(Car2LogoPicture, Car2ManufacturorList.SelectedItem.ToString());
-                //clearing the models, as we're repopulating
-                Car2Models.Clear();
-                Car2SelectedCarList.ClearSelected();
-                Car2Models = populateModels(Car2ManufacturorList.SelectedItem.ToString(), Car2ModelList);
+                string manufacturer = Car2ManufacturorList.SelectedItem.ToString();
+                changeImage(Car2LogoPicture, manufacturer);
+                car2List = listBoxes.ManufactuerSelected(Car2ModelList, manufacturer, car2List, Car2LogoPicture);
             }
         }
 
@@ -301,8 +276,8 @@ namespace CarCoster
             if (Car1ModelList.SelectedIndex != -1 &&
                 Car2ModelList.SelectedIndex != -1)
             {
-                car1 = Car1Models[Car1ModelList.SelectedIndex];
-                car2 = Car2Models[Car2ModelList.SelectedIndex];
+                car1 = car1List.CurrentCars.ElementAt(Car1ModelList.SelectedIndex);
+                car2 = car2List.CurrentCars.ElementAt(Car2ModelList.SelectedIndex);
                 setComparison(car1, car2);
                 hasComparedText.Text = "Success";
             }
@@ -310,7 +285,7 @@ namespace CarCoster
             else if (Car1ModelList.SelectedIndex != -1 &&
                      Car2SelectedCarList.SelectedIndex != -1)
             {
-                car1 = Car1Models[Car1ModelList.SelectedIndex];
+                car1 = car1List.CurrentCars.ElementAt(Car1ModelList.SelectedIndex);
                 car2 = selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex);
                 setComparison(car1, car2);
                 hasComparedText.Text = "Success";
@@ -320,7 +295,7 @@ namespace CarCoster
                      Car1SelectedCarList.SelectedIndex != -1)
             {
                 car1 = selectedCars.ElementAt(Car1SelectedCarList.SelectedIndex);
-                car2 = Car2Models[Car2ModelList.SelectedIndex];
+                car2 = car2List.CurrentCars.ElementAt(Car2ModelList.SelectedIndex);
                 setComparison(car1, car2);
                 hasComparedText.Text = "Success";
             }
@@ -370,6 +345,10 @@ namespace CarCoster
             }
         }
 
-       
+        private void Car1ModelList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            car1List.SelectedCar = car1List.CurrentCars.ElementAt(Car1ModelList.SelectedIndex);
+            Console.WriteLine(car1List.SelectedCar);
+        }
     }
 }
