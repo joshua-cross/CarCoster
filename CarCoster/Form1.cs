@@ -287,24 +287,8 @@ namespace CarCoster
         will sort the list by the highest MPG.*/
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Order order = new Order();
-
-            //CarBox.Items.Clear();
-            ModelBox.Items.Clear();
-            models.Clear();
-            descriptions.Clear();
-            orderedCars.Clear();
-
-            orderedCars = order.orderByMPGDescending(modelCars);
-            modelCars.Clear();
-
-            foreach (Car car in orderedCars)
-            {
-                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                models.Add(car.Model.ToString());
-                modelCars.Add(car);
-                descriptions.Add(car.Description.ToString());
-            }
+            ordering = false;
+            listBoxes.OrderedCars(carList.CurrentCars, ordering, ModelBox);
         }
 
         /*When the petrol button is clicked a call to the removeallbutpetrol
@@ -312,86 +296,22 @@ namespace CarCoster
          only display the petrol cars to the user.*/
         private void PetrolButton_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-
-            //CarBox.Items.Clear();
-            ModelBox.Items.Clear();
-            models.Clear();
-            descriptions.Clear();
-
-            orderedCars = order.RemoveAllButSpecified(orderedCars, "Petrol");
-            //modelCars.Clear();
-
-            foreach (Car car in orderedCars)
-            {
-                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                models.Add(car.Model.ToString());
-                //modelCars.Add(car);
-                descriptions.Add(car.Description.ToString());
-            }
+            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Petrol", ModelBox, carList.CurrentCars);
         }
 
         private void HybridButton_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-
-            //CarBox.Items.Clear();
-            ModelBox.Items.Clear();
-            models.Clear();
-            descriptions.Clear();
-
-            orderedCars = order.RemoveAllButSpecified(orderedCars, "Hybrid");
-            //modelCars.Clear();
-
-            foreach (Car car in orderedCars)
-            {
-                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                models.Add(car.Model.ToString());
-                //modelCars.Add(car);
-                descriptions.Add(car.Description.ToString());
-            }
+            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Hyrbid", ModelBox, carList.CurrentCars);
         }
 
         private void DieselButton_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-
-            //CarBox.Items.Clear();
-            ModelBox.Items.Clear();
-            models.Clear();
-            descriptions.Clear();
-
-            orderedCars = order.RemoveAllButSpecified(orderedCars, "Diesel");
-            //modelCars.Clear();
-
-            foreach (Car car in orderedCars)
-            {
-                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                models.Add(car.Model.ToString());
-                //modelCars.Add(car);
-                descriptions.Add(car.Description.ToString());
-            }
+            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Diesel", ModelBox, carList.CurrentCars);
         }
 
         private void ElectricButton_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-
-            //CarBox.Items.Clear();
-            ModelBox.Items.Clear();
-            models.Clear();
-            descriptions.Clear();
-
-            orderedCars = order.RemoveAllButSpecified(orderedCars, "Electricity");
-            //modelCars.Clear();
-
-            foreach (Car car in orderedCars)
-            {
-                ModelBox.Items.Add(car.Model.ToString() + " " + car.Description.ToString());
-                models.Add(car.Model.ToString());
-                //modelCars.Add(car);
-                descriptions.Add(car.Description.ToString());
-            }
+            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Electricity", ModelBox, carList.CurrentCars);
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)

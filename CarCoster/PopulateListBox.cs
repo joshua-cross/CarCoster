@@ -184,12 +184,43 @@ namespace CarCoster
             }
             else
             {
-                
+                carsToBeSorted = order.orderByMPGDescending(carsToBeSorted);
+                PopulateListBoxWithCarsDetails(list, carsToBeSorted);
             }
 
             /*repopulating the listbox with the new, sorted list.*/
             PopulateListBoxWithCarsDetails(list, carsToBeSorted);
             /*Return the list after sorting.*/
+            return carsToBeSorted;
+        }
+
+        /*Function that takes in: 
+         a. the fueltype of the vehicle we want to display e.g. if the user wants to display
+            only petrol cars then the fuelType would be petrol.
+         b. the list box we want to update, most likely ModelBox.
+         c. the IEnumerable<Car> we wish to update.
+         The function will then remove all but the selected from the array and return the new
+         array.*/
+         public IEnumerable<Car> ShowOnlySelectedFuelType(string fuelType, ListBox list, IEnumerable<Car> carsToBeSorted)
+        {
+            try
+            {
+                /*Only remove fuelTypes if the list we was given is not empty or null.*/
+                if (carsToBeSorted.Count() != 0 &&
+                    carsToBeSorted != null)
+                {
+                    Order order = new Order();
+
+                    /*removing all but the cars with the selected fuelType.*/
+                    carsToBeSorted = order.RemoveAllButSpecified(carsToBeSorted, fuelType);
+                    /*redrawing the ListBox with only cars of this fuelType.*/
+                    PopulateListBoxWithCarsDetails(list, carsToBeSorted);
+                    /*Returning the cars to be sorted when we remove all but the necessary fueltypes.*/
+                }
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
             return carsToBeSorted;
         }
     }
