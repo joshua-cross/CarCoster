@@ -32,6 +32,19 @@ namespace CarCoster
         CarPrinter print = new CarPrinter();
 
 
+        /*Creating listed objects for the cars that we need to compare.*/
+        Listed car1List = new Listed();
+        Listed car2List = new Listed();
+
+        /*constructor that takes in 2 Listed objects and sets thhe car1List, and the car2List
+         with these inputs.*/
+         public Compare(Listed list1, Listed list2)
+        {
+            car1List = list1;
+            car2List = list2;
+            InitializeComponent();
+        }
+
         public Compare()
         {
             InitializeComponent();

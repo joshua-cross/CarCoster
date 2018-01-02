@@ -171,8 +171,11 @@ namespace CarCoster
 
         private void CompareButton_Click(object sender, EventArgs e)
         {
+            /*Creating a listed object to send to the compare form.*/
+            Listed list = new Listed();
+            list = list.DefaultForm1ToLoad();
             this.Hide();
-            Compare compareCar = new Compare();
+            Compare compareCar = new Compare(list, list);
             compareCar.Closed += (s, args) => this.Close();
             compareCar.Show();
         }
