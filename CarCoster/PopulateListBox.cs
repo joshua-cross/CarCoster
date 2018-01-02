@@ -98,7 +98,7 @@ namespace CarCoster
          b. the manufactuerer selected from the ManufacturerBox.
          c. the current Listed object.
          d. the pictureBox we want to update with the selected manufacturers logo.
-         then returns all the cars from this selected */
+         then returns all the cars from this selected manufacturer.*/
         public Listed ManufactuerSelected(ListBox ModelBox, string manufacturer, Listed carList, PictureBox LogoBox)
         {
             CarListReader listReader = new CarListReader();
@@ -111,6 +111,9 @@ namespace CarCoster
                 //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
                 carList.CarsFromManufacturer = listReader.searchCars(carList.Cars, manufacturer);
 
+                /*As we've only just drew the list of models we should assume that
+                 the CurrentCars is the CarsFromManufacturer*/
+                carList.CurrentCars = carList.CarsFromManufacturer;
 
                 /*Loading the manufacturers logo in the form.*/
                 CarBadge badge = new CarBadge();
@@ -129,6 +132,34 @@ namespace CarCoster
             }
 
             /*Returning the carList after updating the carLists CarsFromManufacturer*/
+            return carList;
+        }
+
+        /*Function that takes in:
+         a. the classes Listed Object.
+         b. the element from the ListBox that the user has selected.*/
+        public Listed ModelSelected(int element, Listed carList)
+        {
+            Car car = null;
+
+            /*If the user has selected a legitimate element that's not null.*/
+            if(element > -1)
+            {
+                /*selecting the car at the selected element.*/
+                car = carList.CurrentCars.ElementAt(element);
+                /*If the car we just got is not null then we will calculate the cost.*/
+                if(car != null)
+                {
+                    TaxCalculator tax = new TaxCalculator();
+                    float? taxCost = tax.CalculateTax(car);
+                }
+            }
+
+            /*setting the carLists selected car to either be the car at the element selected
+             or if the element selected is invalid then null.*/
+            carList.SelectedCar = car;
+
+            /*Returns the car list after we've seleted the chosen car.*/
             return carList;
         }
     }

@@ -124,7 +124,8 @@ namespace CarCoster
         /*Function for when an item is selected in the CarBox.*/
         private void CarBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           //clearing the model searchbox as we're selecting a different model.
+           
+            //clearing the model searchbox as we're selecting a different model.
             ModBox.Text = "";
             clearListBox(ModelBox);
 
@@ -177,63 +178,7 @@ namespace CarCoster
 
         private void ModelBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //getting the model & description based on what has been selected.
-            string model = models[ModelBox.SelectedIndex];
-            string description = descriptions[ModelBox.SelectedIndex];
-            string manufactorer = "";
-            /*If the maufacturer is selected CarBox is null then we have sorted the cars by MPG or
-             something similar.*/
-            if (CarBox.SelectedIndex != -1)
-            {
-
-                //if we;re not using All then get the manufacturer from the elementat
-                if (CarBox.SelectedItem.ToString() != "All")
-                {
-                    //getting the manufactorer of the car.
-                    manufactorer = CarBox.SelectedItem.ToString();
-                }
-                //else the manufacturer will be the Car objects manufactorer.
-                else
-                {
-                    if (orderedCars.Count != 0)
-                    {
-                        manufactorer = orderedCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
-                    }
-                    else
-                    {
-                        if(modelCars.Count != 0)
-                        {
-                            manufactorer = modelCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
-                        }
-                    }
-                }
-            }
-            /*We have potentially sorted by MPG.*/
-            else
-            {
-
-                /*If we have sorted by MPG then all cars will be displayed in the ModelBox
-                 Drop down menu.*/
-                manufactorer = orderedCars.ElementAt(ModelBox.SelectedIndex).Manufacturer;
-
-            }
-
-            searchedCar = listReader.findCar(model, manufactorer, description, cars);
-
-            if (searchedCar == null)
-            {
-                TaxCalculator tax = new TaxCalculator();
-                float? taxCost = tax.CalculateTax(searchedCar);
-                OverviewText.Text = ModelBox.SelectedIndex.ToString();
-                //getting the model based on what was selected.
-                OverviewText.Text = model + "\n" + description + "\n" + manufactorer + "\n";
-            } else
-            {
-                TaxCalculator tax = new TaxCalculator();
-                float? taxCost = tax.CalculateTax(searchedCar);
-                CarPrinter printer = new CarPrinter();
-                OverviewText.Text = printer.printcar(searchedCar, Properties.Settings.Default.ImperialOrMetric);
-            }
+            carList = listBoxes.ModelSelected(ModelBox.SelectedIndex, carList);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -476,7 +421,7 @@ namespace CarCoster
             /*Getting CarOverview, which is a class that specialises in displaying
              all necessary items to be displayed.*/
             CarOverview overview = new CarOverview();
-            overview.OpenCarDetails(searchedCar);
+            overview.OpenCarDetails(carList.SelectedCar);
         }
     }
 
