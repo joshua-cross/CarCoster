@@ -49,7 +49,6 @@
             this.MakeBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.SaveText = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ModelLabel = new System.Windows.Forms.Label();
@@ -57,11 +56,7 @@
             this.ModelSearch = new System.Windows.Forms.Label();
             this.ModelBox = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.panel8 = new System.Windows.Forms.Panel();
             this.LoadCar = new System.Windows.Forms.Button();
-            this.OverviewText = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.OverviewLabel = new System.Windows.Forms.Label();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SaveLabel = new System.Windows.Forms.Label();
@@ -74,6 +69,28 @@
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SaveText = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -83,11 +100,21 @@
             this.panel11.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
             // CarBox
@@ -117,12 +144,6 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.ElectricButton);
-            this.panel10.Controls.Add(this.HybridButton);
-            this.panel10.Controls.Add(this.DieselButton);
-            this.panel10.Controls.Add(this.PetrolButton);
-            this.panel10.Controls.Add(this.button1);
-            this.panel10.Controls.Add(this.MPGSort);
             this.panel10.Controls.Add(this.LogoBox);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(0, 725);
@@ -132,27 +153,29 @@
             // 
             // ElectricButton
             // 
-            this.ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.ElectricButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ElectricButton.FlatAppearance.BorderSize = 0;
             this.ElectricButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ElectricButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.ElectricButton.Location = new System.Drawing.Point(434, 37);
+            this.ElectricButton.Location = new System.Drawing.Point(125, 0);
             this.ElectricButton.Name = "ElectricButton";
-            this.ElectricButton.Size = new System.Drawing.Size(77, 30);
+            this.ElectricButton.Size = new System.Drawing.Size(115, 52);
             this.ElectricButton.TabIndex = 6;
-            this.ElectricButton.Text = "ElectricButton";
+            this.ElectricButton.Text = "Electric";
             this.ElectricButton.UseVisualStyleBackColor = false;
             this.ElectricButton.Click += new System.EventHandler(this.ElectricButton_Click);
             // 
             // HybridButton
             // 
-            this.HybridButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.HybridButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.HybridButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.HybridButton.FlatAppearance.BorderSize = 0;
             this.HybridButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HybridButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.HybridButton.Location = new System.Drawing.Point(434, 3);
+            this.HybridButton.Location = new System.Drawing.Point(0, 0);
             this.HybridButton.Name = "HybridButton";
-            this.HybridButton.Size = new System.Drawing.Size(77, 30);
+            this.HybridButton.Size = new System.Drawing.Size(115, 52);
             this.HybridButton.TabIndex = 5;
             this.HybridButton.Text = "Hybrid";
             this.HybridButton.UseVisualStyleBackColor = false;
@@ -160,13 +183,14 @@
             // 
             // DieselButton
             // 
-            this.DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.DieselButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.DieselButton.FlatAppearance.BorderSize = 0;
             this.DieselButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DieselButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.DieselButton.Location = new System.Drawing.Point(353, 37);
+            this.DieselButton.Location = new System.Drawing.Point(125, 0);
             this.DieselButton.Name = "DieselButton";
-            this.DieselButton.Size = new System.Drawing.Size(77, 30);
+            this.DieselButton.Size = new System.Drawing.Size(115, 52);
             this.DieselButton.TabIndex = 4;
             this.DieselButton.Text = "Diesel";
             this.DieselButton.UseVisualStyleBackColor = false;
@@ -174,13 +198,14 @@
             // 
             // PetrolButton
             // 
-            this.PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.PetrolButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.PetrolButton.FlatAppearance.BorderSize = 0;
             this.PetrolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PetrolButton.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.PetrolButton.Location = new System.Drawing.Point(353, 3);
+            this.PetrolButton.Location = new System.Drawing.Point(0, 0);
             this.PetrolButton.Name = "PetrolButton";
-            this.PetrolButton.Size = new System.Drawing.Size(77, 30);
+            this.PetrolButton.Size = new System.Drawing.Size(115, 52);
             this.PetrolButton.TabIndex = 3;
             this.PetrolButton.Text = "Petrol";
             this.PetrolButton.UseVisualStyleBackColor = false;
@@ -188,13 +213,14 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.button1.Location = new System.Drawing.Point(223, 3);
+            this.button1.Location = new System.Drawing.Point(125, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 84);
+            this.button1.Size = new System.Drawing.Size(115, 71);
             this.button1.TabIndex = 2;
             this.button1.Text = "Sort by MPG (Descending)";
             this.button1.UseVisualStyleBackColor = false;
@@ -202,13 +228,14 @@
             // 
             // MPGSort
             // 
-            this.MPGSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.MPGSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.MPGSort.Dock = System.Windows.Forms.DockStyle.Left;
             this.MPGSort.FlatAppearance.BorderSize = 0;
             this.MPGSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MPGSort.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.MPGSort.Location = new System.Drawing.Point(112, 3);
+            this.MPGSort.Location = new System.Drawing.Point(0, 0);
             this.MPGSort.Name = "MPGSort";
-            this.MPGSort.Size = new System.Drawing.Size(105, 84);
+            this.MPGSort.Size = new System.Drawing.Size(115, 71);
             this.MPGSort.TabIndex = 1;
             this.MPGSort.Text = "Sort by MPG (Ascending)";
             this.MPGSort.UseVisualStyleBackColor = false;
@@ -235,8 +262,6 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.ConfirmYearButton);
-            this.panel6.Controls.Add(this.YearBox);
             this.panel6.Controls.Add(this.ManufactorerLabel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
@@ -246,12 +271,12 @@
             // 
             // ConfirmYearButton
             // 
-            this.ConfirmYearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.ConfirmYearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ConfirmYearButton.FlatAppearance.BorderSize = 0;
             this.ConfirmYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfirmYearButton.Location = new System.Drawing.Point(402, 2);
+            this.ConfirmYearButton.Location = new System.Drawing.Point(0, 0);
             this.ConfirmYearButton.Name = "ConfirmYearButton";
-            this.ConfirmYearButton.Size = new System.Drawing.Size(97, 34);
+            this.ConfirmYearButton.Size = new System.Drawing.Size(99, 34);
             this.ConfirmYearButton.TabIndex = 2;
             this.ConfirmYearButton.Text = "Confirm";
             this.ConfirmYearButton.UseVisualStyleBackColor = false;
@@ -263,9 +288,9 @@
             this.YearBox.ForeColor = System.Drawing.Color.Black;
             this.YearBox.FormattingEnabled = true;
             this.YearBox.ItemHeight = 21;
-            this.YearBox.Location = new System.Drawing.Point(157, 7);
+            this.YearBox.Location = new System.Drawing.Point(62, 40);
             this.YearBox.Name = "YearBox";
-            this.YearBox.Size = new System.Drawing.Size(210, 25);
+            this.YearBox.Size = new System.Drawing.Size(160, 25);
             this.YearBox.TabIndex = 1;
             // 
             // ManufactorerLabel
@@ -313,16 +338,6 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(510, 90);
             this.panel11.TabIndex = 6;
-            // 
-            // SaveText
-            // 
-            this.SaveText.AutoSize = true;
-            this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
-            this.SaveText.Location = new System.Drawing.Point(6, 12);
-            this.SaveText.Name = "SaveText";
-            this.SaveText.Size = new System.Drawing.Size(40, 15);
-            this.SaveText.TabIndex = 5;
-            this.SaveText.Text = "label1";
             // 
             // panel5
             // 
@@ -388,53 +403,19 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.LoadCar);
-            this.panel8.Controls.Add(this.OverviewText);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(1212, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(539, 815);
-            this.panel8.TabIndex = 5;
-            // 
             // LoadCar
             // 
-            this.LoadCar.Location = new System.Drawing.Point(383, 762);
+            this.LoadCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.LoadCar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LoadCar.FlatAppearance.BorderSize = 0;
+            this.LoadCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoadCar.Location = new System.Drawing.Point(0, 0);
             this.LoadCar.Name = "LoadCar";
-            this.LoadCar.Size = new System.Drawing.Size(95, 41);
+            this.LoadCar.Size = new System.Drawing.Size(116, 90);
             this.LoadCar.TabIndex = 2;
-            this.LoadCar.Text = "LoadCar";
-            this.LoadCar.UseVisualStyleBackColor = true;
+            this.LoadCar.Text = "Load Car";
+            this.LoadCar.UseVisualStyleBackColor = false;
             this.LoadCar.Click += new System.EventHandler(this.LoadCar_Click);
-            // 
-            // OverviewText
-            // 
-            this.OverviewText.AutoSize = true;
-            this.OverviewText.Location = new System.Drawing.Point(8, 46);
-            this.OverviewText.Name = "OverviewText";
-            this.OverviewText.Size = new System.Drawing.Size(67, 21);
-            this.OverviewText.TabIndex = 1;
-            this.OverviewText.Text = "label1";
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.OverviewLabel);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(539, 37);
-            this.panel9.TabIndex = 0;
-            // 
-            // OverviewLabel
-            // 
-            this.OverviewLabel.AutoSize = true;
-            this.OverviewLabel.Location = new System.Drawing.Point(8, 7);
-            this.OverviewLabel.Name = "OverviewLabel";
-            this.OverviewLabel.Size = new System.Drawing.Size(96, 21);
-            this.OverviewLabel.TabIndex = 0;
-            this.OverviewLabel.Text = "Overview";
             // 
             // LogoPanel
             // 
@@ -448,10 +429,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 105);
+            this.pictureBox1.Size = new System.Drawing.Size(143, 105);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -499,7 +481,6 @@
             this.SideBarPanel.Controls.Add(this.SelectedButton);
             this.SideBarPanel.Controls.Add(this.CompareButton);
             this.SideBarPanel.Controls.Add(this.AddCarButton);
-            this.SideBarPanel.Controls.Add(this.SaveButton);
             this.SideBarPanel.Controls.Add(this.CloseButton);
             this.SideBarPanel.Controls.Add(this.OverviewButton);
             this.SideBarPanel.Controls.Add(this.SaveLabel);
@@ -520,7 +501,7 @@
             this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SettingsButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
-            this.SettingsButton.Location = new System.Drawing.Point(0, 505);
+            this.SettingsButton.Location = new System.Drawing.Point(0, 405);
             this.SettingsButton.Name = "SettingsButton";
             this.SettingsButton.Size = new System.Drawing.Size(143, 100);
             this.SettingsButton.TabIndex = 8;
@@ -541,7 +522,7 @@
             this.CompareButton.FlatAppearance.BorderSize = 0;
             this.CompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CompareButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompareButton.Location = new System.Drawing.Point(0, 405);
+            this.CompareButton.Location = new System.Drawing.Point(0, 305);
             this.CompareButton.Name = "CompareButton";
             this.CompareButton.Size = new System.Drawing.Size(143, 100);
             this.CompareButton.TabIndex = 6;
@@ -557,7 +538,7 @@
             this.AddCarButton.FlatAppearance.BorderSize = 0;
             this.AddCarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddCarButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddCarButton.Location = new System.Drawing.Point(0, 305);
+            this.AddCarButton.Location = new System.Drawing.Point(0, 205);
             this.AddCarButton.Name = "AddCarButton";
             this.AddCarButton.Size = new System.Drawing.Size(143, 100);
             this.AddCarButton.TabIndex = 5;
@@ -567,16 +548,17 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.SaveButton.FlatAppearance.BorderSize = 0;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(0, 205);
+            this.SaveButton.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.Location = new System.Drawing.Point(124, 0);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(143, 100);
+            this.SaveButton.Size = new System.Drawing.Size(116, 90);
             this.SaveButton.TabIndex = 0;
-            this.SaveButton.Text = "Save";
-            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Text = "Save Car";
+            this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             this.SaveButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
@@ -585,13 +567,225 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel20);
+            this.panel1.Controls.Add(this.panel17);
+            this.panel1.Controls.Add(this.panel16);
+            this.panel1.Controls.Add(this.panel15);
+            this.panel1.Controls.Add(this.panel14);
+            this.panel1.Controls.Add(this.panel13);
+            this.panel1.Controls.Add(this.panel12);
+            this.panel1.Controls.Add(this.panel9);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1160, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(240, 815);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.panel25);
+            this.panel8.Controls.Add(this.panel24);
+            this.panel8.Controls.Add(this.panel23);
+            this.panel8.Controls.Add(this.panel18);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(240, 305);
+            this.panel8.TabIndex = 0;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 305);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(240, 52);
+            this.panel9.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 357);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(240, 10);
+            this.panel12.TabIndex = 2;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.PetrolButton);
+            this.panel13.Controls.Add(this.DieselButton);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 367);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(240, 52);
+            this.panel13.TabIndex = 3;
+            // 
+            // panel14
+            // 
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 419);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(240, 10);
+            this.panel14.TabIndex = 4;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.HybridButton);
+            this.panel15.Controls.Add(this.ElectricButton);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 429);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(240, 52);
+            this.panel15.TabIndex = 5;
+            // 
+            // panel16
+            // 
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 481);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(240, 10);
+            this.panel16.TabIndex = 6;
+            // 
+            // panel17
+            // 
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 491);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(240, 52);
+            this.panel17.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Restrictions:";
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.SaveButton);
+            this.panel20.Controls.Add(this.LoadCar);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel20.Location = new System.Drawing.Point(0, 725);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(240, 90);
+            this.panel20.TabIndex = 8;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.panel21);
+            this.panel18.Controls.Add(this.YearBox);
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Controls.Add(this.label2);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(240, 105);
+            this.panel18.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Year:";
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.label3);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(240, 37);
+            this.panel19.TabIndex = 0;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.panel22);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel21.Location = new System.Drawing.Point(0, 71);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(240, 34);
+            this.panel21.TabIndex = 3;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.ConfirmYearButton);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel22.Location = new System.Drawing.Point(0, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(99, 34);
+            this.panel22.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Select Year:";
+            // 
+            // panel23
+            // 
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel23.Location = new System.Drawing.Point(0, 105);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(240, 10);
+            this.panel23.TabIndex = 3;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.label4);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 115);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(240, 52);
+            this.panel24.TabIndex = 4;
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.button1);
+            this.panel25.Controls.Add(this.MPGSort);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(0, 167);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(240, 71);
+            this.panel25.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Sorting:";
+            // 
+            // SaveText
+            // 
+            this.SaveText.AutoSize = true;
+            this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
+            this.SaveText.Location = new System.Drawing.Point(6, 12);
+            this.SaveText.Name = "SaveText";
+            this.SaveText.Size = new System.Drawing.Size(40, 15);
+            this.SaveText.TabIndex = 5;
+            this.SaveText.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.ForestGreen;
-            this.ClientSize = new System.Drawing.Size(1751, 815);
-            this.Controls.Add(this.panel8);
+            this.ClientSize = new System.Drawing.Size(1400, 815);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.SideBarPanel);
@@ -616,14 +810,26 @@
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            this.panel25.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -642,10 +848,6 @@
         private System.Windows.Forms.Label ManufactorerLabel;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label ModelLabel;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label OverviewLabel;
-        private System.Windows.Forms.Label OverviewText;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel LogoPanel;
@@ -660,7 +862,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox LogoBox;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label SaveText;
         private System.Windows.Forms.Button CompareButton;
         private System.Windows.Forms.ListBox YearBox;
         private System.Windows.Forms.Button ConfirmYearButton;
@@ -673,6 +874,28 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.Button LoadCar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label SaveText;
     }
 }
 

@@ -174,7 +174,6 @@ namespace CarCoster
             SelectedButton.Visible = true;
 
             Button button = (Button)sender;
-            OverviewText.Text = button.Text;
 
             while (SelectedButton.Location.Y != button.Location.Y)
             {
