@@ -137,33 +137,10 @@ namespace CarCoster
             modelCars.Clear();
             orderedCars.Clear();
 
-            /*If the item is not all then do the following*/
-            if (!CarBox.SelectedItem.Equals("All"))
-            {
-                /*The manufactorer that has been selected by the CarBox*/
-                string manufactorer = CarBox.SelectedItem.ToString();
-                /*Getting the models*/
-                //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
+            /*The manufactorer that has been selected by the CarBox*/
+            string manufactorer = CarBox.SelectedItem.ToString();
 
-                carList.CarsFromManufacturer = listReader.searchCars(cars, manufactorer);
-
-
-                /*Loading the manufacturers logo in the form.*/
-                CarBadge badge = new CarBadge();
-                string url = badge.getBadge(CarBox.SelectedItem.ToString());
-                LogoBox.Image = Image.FromFile(url);
-                LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
-                listBoxes.PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
-            } else
-            {
-                /*As we've selected all, just set the manufacturers to each available car in the
-                 Listed object.*/
-                carList.CarsFromManufacturer = carList.Cars;
-                listBoxes.PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
-                carModels = modelCars;
-            }
-
+            listBoxes.ManufactuerSelected(ModelBox, manufactorer, carList, LogoBox);
         }
 
         /*When the user types something into the manufactuer textbox, then clear the existing
@@ -181,6 +158,7 @@ namespace CarCoster
             /*Searching for manufacturers based on what was typed into the MakeBox TexbBox.*/
             carList = listBoxes.UpdateManufacturersThroughSearch(MakeBox, carList, CarBox);
 
+            
         }
 
         private void ModBox_TextChanged(object sender, EventArgs e)
@@ -515,6 +493,8 @@ namespace CarCoster
         public IEnumerable<string> Manufacturers { get; set; }
         /*List for the searched manufacturers*/
         public IEnumerable<string> searchedManufacturers { get; set; }
+        /*The car that the user has selected.*/
+        public Car SelectedCar { get; set; }
 
         public Listed DefaultForm1ToLoad()
         {

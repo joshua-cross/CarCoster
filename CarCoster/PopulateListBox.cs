@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace CarCoster
 {
@@ -89,6 +90,45 @@ namespace CarCoster
                 PopulateListBoxWithCarsDetails(ModelBox, carList.CurrentCars);
             }
 
+            return carList;
+        }
+
+        /*Function that takes in:
+         a. the ListBox for the model.
+         b. the manufactuerer selected from the ManufacturerBox.
+         c. the current Listed object.
+         d. the pictureBox we want to update with the selected manufacturers logo.
+         then returns all the cars from this selected */
+        public Listed ManufactuerSelected(ListBox ModelBox, string manufacturer, Listed carList, PictureBox LogoBox)
+        {
+            CarListReader listReader = new CarListReader();
+
+            /*If the item is not all then do the following*/
+            if (!manufacturer.Equals("All"))
+            {
+
+                /*Getting the models*/
+                //contstructor that takes in a manufactorer and searches the array for cars that match the manufactorer.
+                carList.CarsFromManufacturer = listReader.searchCars(carList.Cars, manufacturer);
+
+
+                /*Loading the manufacturers logo in the form.*/
+                CarBadge badge = new CarBadge();
+                string url = badge.getBadge(manufacturer);
+                LogoBox.Image = Image.FromFile(url);
+                LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
+            }
+            else
+            {
+                /*As we've selected all, just set the manufacturers to each available car in the
+                 Listed object.*/
+                carList.CarsFromManufacturer = carList.Cars;
+                PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
+            }
+
+            /*Returning the carList after updating the carLists CarsFromManufacturer*/
             return carList;
         }
     }
