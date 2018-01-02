@@ -12,6 +12,8 @@ namespace CarCoster
      */
     class JsonReader
     {
+        int mostRecent = 0;
+
         List<Car> cars = new List<Car>();
 
         /*Default constructor that gets all the files in the Json folder, and
@@ -22,7 +24,7 @@ namespace CarCoster
             string[] fileLocs = GetAllFiles();
             string fileLoc = "";
             //int that holds the most recent integer so we can replace when a new larger one comes.
-            int mostRecent = 0;
+            mostRecent = 0;
 
             //int that holds which array element holds the correct file.
             string fileToRead = "";
@@ -175,6 +177,11 @@ namespace CarCoster
         {
             string thisDirectory = Directory.GetCurrentDirectory().ToString();
             return thisDirectory + @"\Json\" + year + ".json";
+        }
+
+        public int getMostRecent()
+        {
+            return mostRecent;
         }
     }
 }

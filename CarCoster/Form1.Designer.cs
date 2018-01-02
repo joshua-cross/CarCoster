@@ -58,6 +58,7 @@
             this.ModelBox = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
+            this.LoadCar = new System.Windows.Forms.Button();
             this.OverviewText = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.OverviewLabel = new System.Windows.Forms.Label();
@@ -73,7 +74,6 @@
             this.AddCarButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.LoadCar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -260,7 +260,7 @@
             // YearBox
             // 
             this.YearBox.BackColor = System.Drawing.Color.White;
-            this.YearBox.ForeColor = System.Drawing.Color.White;
+            this.YearBox.ForeColor = System.Drawing.Color.Black;
             this.YearBox.FormattingEnabled = true;
             this.YearBox.ItemHeight = 21;
             this.YearBox.Location = new System.Drawing.Point(157, 7);
@@ -398,6 +398,16 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(539, 815);
             this.panel8.TabIndex = 5;
+            // 
+            // LoadCar
+            // 
+            this.LoadCar.Location = new System.Drawing.Point(383, 762);
+            this.LoadCar.Name = "LoadCar";
+            this.LoadCar.Size = new System.Drawing.Size(95, 41);
+            this.LoadCar.TabIndex = 2;
+            this.LoadCar.Text = "LoadCar";
+            this.LoadCar.UseVisualStyleBackColor = true;
+            this.LoadCar.Click += new System.EventHandler(this.LoadCar_Click);
             // 
             // OverviewText
             // 
@@ -574,16 +584,6 @@
             // 
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-            // 
-            // LoadCar
-            // 
-            this.LoadCar.Location = new System.Drawing.Point(383, 762);
-            this.LoadCar.Name = "LoadCar";
-            this.LoadCar.Size = new System.Drawing.Size(95, 41);
-            this.LoadCar.TabIndex = 2;
-            this.LoadCar.Text = "LoadCar";
-            this.LoadCar.UseVisualStyleBackColor = true;
-            this.LoadCar.Click += new System.EventHandler(this.LoadCar_Click);
             // 
             // Form1
             // 

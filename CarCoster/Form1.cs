@@ -15,40 +15,19 @@ namespace CarCoster
 
     public partial class Form1 : Form
     {
-        List<Car> cars = new List<Car>();
         CarListReader listReader = new CarListReader();
-        IEnumerable<Car> carModels = new List<Car>();
-        /*List of string that will hold each of the unique manufactorers.*/
-        List<string> manufactorers = new List<string>();
-
-        /*List of all the selected cars in the ModelBox.*/
-        List<Car> modelCars = new List<Car>();
-
-        //creating a list for all the car models, and the car descriptions
-        List<string> models = new List<string>();
-        List<string> descriptions = new List<string>();
-
-        List<Car> orderedCars = new List<Car>();
 
         _12000MilesCostCalculator costPer12000 = new _12000MilesCostCalculator();
-
-        /*bool that's used to decide if we will display metric or imperial
-         measurements to the user
-         true = imperial
-         false = metric.
-         */
-        bool measurementSystem = true;
-
-        //the final car.
-        Car searchedCar;
 
         //the beginning year for the car json files.
         int beginningYear = 2000;
 
         int theYear = 2017;
 
+        JsonReader json = new JsonReader();
+
         //setting the year to be this year by default.
-        string year = DateTime.Now.Year.ToString();
+        string year;
 
         /*a boolean that indicated if we want to sort by ascending or descending order
          true = ascending, false = descending*/
@@ -76,7 +55,7 @@ namespace CarCoster
             string thisDirectory = Directory.GetCurrentDirectory().ToString();
             string fileLoc = thisDirectory + @"\Images\LeafIcon.png";
 
-            string year = theYear.ToString();
+            year = carList.LatestFileYear.ToString();
 
             JsonReader json = new JsonReader(year);
             drawListBox(json);
@@ -105,12 +84,7 @@ namespace CarCoster
             //clearing all the items in CarBox/ModelBox. just incase we have some in here already.
             CarBox.Items.Clear();
             ModelBox.Items.Clear();
-            manufactorers.Clear();
-            models.Clear();
-            modelCars.Clear();
-            orderedCars.Clear();
 
-            cars = json.getCars();
             //adding an option to select all the manufacturers to the list.
             CarBox.Items.Add("All");
 
@@ -134,12 +108,6 @@ namespace CarCoster
 
             /*Clearing the unecessary lists in the carList.*/
             carList = carList.ClearLists(carList);
-
-            //clearing the models and descriptions, as new items are present.
-            models.Clear();
-            descriptions.Clear();
-            modelCars.Clear();
-            orderedCars.Clear();
 
             /*The manufactorer that has been selected by the CarBox*/
             string manufactorer = CarBox.SelectedItem.ToString();
@@ -170,11 +138,6 @@ namespace CarCoster
             //clearing the ModelBox so we can replace it with the searched models.
             clearListBox(ModelBox);
 
-            //clearing the models and descriptions, as new items are present.
-            models.Clear();
-            modelCars.Clear();
-            descriptions.Clear();
-            orderedCars.Clear();
 
             carList = listBoxes.UpdatedModelsThroughSearch(ModBox, carList, ModelBox);
         }
@@ -192,13 +155,16 @@ namespace CarCoster
              from the drop down menu*/
             if (year != "All")
             {
-                SaveText.Text = save.Save(searchedCar, year);
+                if (carList.SelectedCar != null) 
+                    SaveText.Text = save.Save(carList.SelectedCar, year);
+
             }
             /*Else the all button has been selected, in this case get the JSON year of the car 
              thats in the Car object, and use this instead*/
             else
             {
-                SaveText.Text = save.Save(searchedCar, searchedCar.carJSONYear);
+                if (carList.SelectedCar != null)
+                    SaveText.Text = save.Save(carList.SelectedCar, carList.SelectedCar.carJSONYear);
             }
         }
 
@@ -259,16 +225,19 @@ namespace CarCoster
             if(YearBox.SelectedIndex != -1)
             {
 
+                //the year that the user has selected.
+                string selectedYear = YearBox.SelectedItem.ToString();
+                JsonReader json = new JsonReader(selectedYear);
+                carList.Cars = json.getCars();
 
-                    //the year that the user has selected.
-                    string selectedYear = YearBox.SelectedItem.ToString();
-                    JsonReader json = new JsonReader(selectedYear);
-                    //cars = json.getCars();
+                carList.Manufacturers = listReader.GetManufacturers(carList.Cars);
 
-                    //setting the year to be the year that was selected.
-                    year = selectedYear;
+                carList.searchedManufacturers = carList.Manufacturers;
 
-                    drawListBox(json);
+                //setting the year to be the year that was selected.
+                year = selectedYear;
+
+                drawListBox(json);
 
             }
         }
@@ -334,6 +303,7 @@ namespace CarCoster
     /*Class that contains all the properties that need to be printed.*/
     public class Listed
     {
+        public int LatestFileYear { get; set; }
         /*The complete list of cars that can be displayed.*/
         public IEnumerable<Car> Cars { get; set; }
         /*The cars from the manufacturer*/
@@ -362,6 +332,8 @@ namespace CarCoster
             list.Manufacturers = reader.GetManufacturers(list.Cars);
 
             list.searchedManufacturers = list.Manufacturers;
+
+            list.LatestFileYear = json.getMostRecent();
 
             return list;
 
