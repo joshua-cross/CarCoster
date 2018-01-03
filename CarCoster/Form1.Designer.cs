@@ -345,9 +345,8 @@
             this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
             this.SaveText.Location = new System.Drawing.Point(6, 12);
             this.SaveText.Name = "SaveText";
-            this.SaveText.Size = new System.Drawing.Size(40, 15);
+            this.SaveText.Size = new System.Drawing.Size(0, 15);
             this.SaveText.TabIndex = 5;
-            this.SaveText.Text = "label1";
             // 
             // panel5
             // 

@@ -136,6 +136,9 @@
     <Content Include="Images\CarBadges\audi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\CarBadges\bentley motors ltd.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\CarBadges\bentley motors.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -244,7 +247,13 @@
     <Content Include="Images\CarBadges\metrocab.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CarBadges\mg rover group - Copy.png">
+    <Content Include="Images\CarBadges\mg motors uk - Copy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CarBadges\mg rover group.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CarBadges\mg rover group ltd.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\CarBadges\mg motors uk.png">
@@ -283,6 +292,12 @@
     <Content Include="Images\CarBadges\renault.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\CarBadges\rolls-royce.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CarBadges\rolls-royce motor cars ltd.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\CarBadges\rolls-royce motor cars.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -305,6 +320,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\CarBadges\micro compact car mcc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CarBadges\micro compact car %28mcc%29.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\CarBadges\smart.png">

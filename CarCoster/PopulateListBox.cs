@@ -120,9 +120,14 @@ namespace CarCoster
                 /*Loading the manufacturers logo in the form.*/
                 CarBadge badge = new CarBadge();
                 string url = badge.getBadge(manufacturer);
-                LogoBox.Image = Image.FromFile(url);
-                LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
+                try
+                {
+                    LogoBox.Image = Image.FromFile(url);
+                    LogoBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                } catch(Exception error)
+                {
+                    Console.WriteLine(error.ToString());
+                }
                 PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
             }
             else
