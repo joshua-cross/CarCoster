@@ -274,7 +274,7 @@ namespace CarCoster
 
         private void HybridButton_Click(object sender, EventArgs e)
         {
-            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Hyrbid", ModelBox, carList.CurrentCars);
+            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Hybrid", ModelBox, carList.CurrentCars);
         }
 
         private void DieselButton_Click(object sender, EventArgs e)
