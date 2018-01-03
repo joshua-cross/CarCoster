@@ -39,6 +39,9 @@ namespace CarCoster
         Listed car1List = new Listed();
         Listed car2List = new Listed();
 
+        int minYear = 2000;
+        int latestYear = 0;
+
         /*constructor that takes in 2 Listed objects and sets thhe car1List, and the car2List
          with these inputs.*/
          public Compare(Listed list1, Listed list2)
@@ -100,8 +103,32 @@ namespace CarCoster
                 loadDefaultComparison(userCar);
             }
 
+            latestYear = car1List.LatestFileYear;
+
+            populateYears();
             populateManufacturers();
             populateSelectedCars();
+        }
+
+        /*Function that draws all the years from the year 2000, to the current latest file
+         in the year ListBoxes.*/
+         private void populateYears()
+        {
+            /*If there was a latest year saved.*/
+            if(latestYear != 0)
+            {
+                /*For each year between the minimum year and the maximum year
+                 add the year to the listboxes*/
+                 for(int i = minYear; i <= latestYear; i = i + 1)
+                {
+                    SelectCar1Year.Items.Add(i.ToString());
+                    SelectCar2Year.Items.Add(i.ToString());
+                }
+
+                /*Add the all option to the end.*/
+                SelectCar1Year.Items.Add("All");
+                SelectCar2Year.Items.Add("All");
+            }
         }
 
         /*Displaying a example comparisson when the form is loaded, by default it will
@@ -390,6 +417,48 @@ namespace CarCoster
         private void Car2ElectricButton_Click(object sender, EventArgs e)
         {
             car2List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Electric", Car2ModelList, car2List.CurrentCars);
+        }
+
+        /*Function that takes in:
+             a. The ListBox of the year that we want to display.
+             b. The Listed object we wish to update with the new cars.
+             c. The ListBox we wish to update with the new manufacturers.
+         and switches the Listed object to display the specific years cars.*/
+         private void SwitchingYear(ListBox year, Listed list, ListBox toUpdate)
+        {
+            //if the user has selected a year.
+            if (year.SelectedIndex != -1)
+            {
+
+                CarListReader listReader = new CarListReader();
+
+                //the year that the user has selected.
+                string selectedYear = year.SelectedItem.ToString();
+
+                JsonReader json = new JsonReader(selectedYear);
+                list.Cars = json.getCars();
+
+                list.Manufacturers = listReader.GetManufacturers(list.Cars);
+
+                list.searchedManufacturers = list.Manufacturers;
+
+                listBoxes.PopulateListBoxWithManufacturers(toUpdate, list.Manufacturers);
+                //setting the year to be the year that was selected.
+                //year = selectedYear;
+
+                //drawListBox(json);
+
+            }
+        }
+
+        private void ConfirmYearCar1_Click(object sender, EventArgs e)
+        {
+            SwitchingYear(SelectCar1Year, car1List, Car1ManufacturorList);
+        }
+
+        private void ConfirmYearCar2_Click(object sender, EventArgs e)
+        {
+            SwitchingYear(SelectCar2Year, car2List, Car2ManufacturorList);
         }
     }
 }

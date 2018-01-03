@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compare));
             this.SideBarPanel = new System.Windows.Forms.Panel();
+            this.SettingsButton = new System.Windows.Forms.Button();
             this.SelectedButton = new System.Windows.Forms.Panel();
+            this.CompButton = new System.Windows.Forms.Button();
             this.AddCarButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.OverviewButton = new System.Windows.Forms.Button();
@@ -38,12 +40,27 @@
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.ConfirmYearCar1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.Car1ElectricButton = new System.Windows.Forms.Button();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.Car1HybridButton = new System.Windows.Forms.Button();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.Car1DieselButton = new System.Windows.Forms.Button();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.Car1PetrolButton = new System.Windows.Forms.Button();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.Car1ModelList = new System.Windows.Forms.ListBox();
             this.Car1ManufacturorList = new System.Windows.Forms.ListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Car1OrLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.hasComparedText = new System.Windows.Forms.Label();
             this.Car1LogoPicture = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Car1SelectedCarList = new System.Windows.Forms.ListBox();
@@ -51,7 +68,21 @@
             this.Car1Label = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ConfirmYearCar2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.Car2ElectricButton = new System.Windows.Forms.Button();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.Car2HyrbidButton = new System.Windows.Forms.Button();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.Car2DieselButton = new System.Windows.Forms.Button();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.Car2PetrolButton = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.Car2ModelList = new System.Windows.Forms.ListBox();
             this.Car2ManufacturorList = new System.Windows.Forms.ListBox();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -71,51 +102,34 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.Car2OverviewText = new System.Windows.Forms.Label();
             this.Car2Badge = new System.Windows.Forms.PictureBox();
-            this.CompButton = new System.Windows.Forms.Button();
-            this.hasComparedText = new System.Windows.Forms.Label();
-            this.SettingsButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.panel30 = new System.Windows.Forms.Panel();
-            this.panel31 = new System.Windows.Forms.Panel();
-            this.Car1PetrolButton = new System.Windows.Forms.Button();
-            this.Car1DieselButton = new System.Windows.Forms.Button();
-            this.Car1HybridButton = new System.Windows.Forms.Button();
-            this.Car1ElectricButton = new System.Windows.Forms.Button();
-            this.Car2PetrolButton = new System.Windows.Forms.Button();
-            this.Car2DieselButton = new System.Windows.Forms.Button();
-            this.Car2HyrbidButton = new System.Windows.Forms.Button();
-            this.Car2ElectricButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ConfirmYearCar1 = new System.Windows.Forms.Button();
-            this.ConfirmYearCar2 = new System.Windows.Forms.Button();
-            this.SelectCar1Year = new System.Windows.Forms.NumericUpDown();
-            this.SelectCar2Year = new System.Windows.Forms.NumericUpDown();
+            this.SelectCar1Year = new System.Windows.Forms.ListBox();
+            this.SelectCar2Year = new System.Windows.Forms.ListBox();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panel17.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Car1LogoPicture)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel31.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -127,22 +141,6 @@
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Car2Badge)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel28.SuspendLayout();
-            this.panel29.SuspendLayout();
-            this.panel30.SuspendLayout();
-            this.panel31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectCar1Year)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectCar2Year)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBarPanel
@@ -164,6 +162,19 @@
             this.SideBarPanel.Size = new System.Drawing.Size(143, 815);
             this.SideBarPanel.TabIndex = 1;
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SettingsButton.FlatAppearance.BorderSize = 0;
+            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
+            this.SettingsButton.Location = new System.Drawing.Point(0, 405);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(143, 100);
+            this.SettingsButton.TabIndex = 9;
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            // 
             // SelectedButton
             // 
             this.SelectedButton.BackColor = System.Drawing.Color.Red;
@@ -171,6 +182,20 @@
             this.SelectedButton.Name = "SelectedButton";
             this.SelectedButton.Size = new System.Drawing.Size(12, 98);
             this.SelectedButton.TabIndex = 0;
+            // 
+            // CompButton
+            // 
+            this.CompButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(139)))));
+            this.CompButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CompButton.FlatAppearance.BorderSize = 0;
+            this.CompButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompButton.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompButton.Location = new System.Drawing.Point(0, 305);
+            this.CompButton.Name = "CompButton";
+            this.CompButton.Size = new System.Drawing.Size(143, 100);
+            this.CompButton.TabIndex = 6;
+            this.CompButton.Text = "Compare";
+            this.CompButton.UseVisualStyleBackColor = false;
             // 
             // AddCarButton
             // 
@@ -256,6 +281,39 @@
             this.panel2.Size = new System.Drawing.Size(432, 815);
             this.panel2.TabIndex = 3;
             // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.SelectCar1Year);
+            this.panel19.Controls.Add(this.ConfirmYearCar1);
+            this.panel19.Controls.Add(this.label3);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 227);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(432, 42);
+            this.panel19.TabIndex = 6;
+            // 
+            // ConfirmYearCar1
+            // 
+            this.ConfirmYearCar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.ConfirmYearCar1.FlatAppearance.BorderSize = 0;
+            this.ConfirmYearCar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmYearCar1.Location = new System.Drawing.Point(327, 6);
+            this.ConfirmYearCar1.Name = "ConfirmYearCar1";
+            this.ConfirmYearCar1.Size = new System.Drawing.Size(99, 30);
+            this.ConfirmYearCar1.TabIndex = 2;
+            this.ConfirmYearCar1.Text = "Confirm";
+            this.ConfirmYearCar1.UseVisualStyleBackColor = false;
+            this.ConfirmYearCar1.Click += new System.EventHandler(this.ConfirmYearCar1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Car 1 Year: ";
+            // 
             // panel17
             // 
             this.panel17.Controls.Add(this.panel20);
@@ -265,6 +323,130 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(432, 283);
             this.panel17.TabIndex = 5;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.panel27);
+            this.panel20.Controls.Add(this.panel26);
+            this.panel20.Controls.Add(this.panel25);
+            this.panel20.Controls.Add(this.panel24);
+            this.panel20.Controls.Add(this.panel23);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel20.Location = new System.Drawing.Point(327, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(105, 283);
+            this.panel20.TabIndex = 7;
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.Car1ElectricButton);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel27.Location = new System.Drawing.Point(0, 208);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(105, 52);
+            this.panel27.TabIndex = 4;
+            // 
+            // Car1ElectricButton
+            // 
+            this.Car1ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car1ElectricButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car1ElectricButton.FlatAppearance.BorderSize = 0;
+            this.Car1ElectricButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car1ElectricButton.Location = new System.Drawing.Point(0, 0);
+            this.Car1ElectricButton.Name = "Car1ElectricButton";
+            this.Car1ElectricButton.Size = new System.Drawing.Size(105, 52);
+            this.Car1ElectricButton.TabIndex = 3;
+            this.Car1ElectricButton.Text = "Electric";
+            this.Car1ElectricButton.UseVisualStyleBackColor = false;
+            this.Car1ElectricButton.Click += new System.EventHandler(this.Car1ElectricButton_Click);
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.Car1HybridButton);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel26.Location = new System.Drawing.Point(0, 156);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(105, 52);
+            this.panel26.TabIndex = 3;
+            // 
+            // Car1HybridButton
+            // 
+            this.Car1HybridButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car1HybridButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car1HybridButton.FlatAppearance.BorderSize = 0;
+            this.Car1HybridButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car1HybridButton.Location = new System.Drawing.Point(0, 0);
+            this.Car1HybridButton.Name = "Car1HybridButton";
+            this.Car1HybridButton.Size = new System.Drawing.Size(105, 52);
+            this.Car1HybridButton.TabIndex = 2;
+            this.Car1HybridButton.Text = "Hybrid";
+            this.Car1HybridButton.UseVisualStyleBackColor = false;
+            this.Car1HybridButton.Click += new System.EventHandler(this.Car1HybridButton_Click);
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.Car1DieselButton);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(0, 104);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(105, 52);
+            this.panel25.TabIndex = 2;
+            // 
+            // Car1DieselButton
+            // 
+            this.Car1DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car1DieselButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car1DieselButton.FlatAppearance.BorderSize = 0;
+            this.Car1DieselButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car1DieselButton.Location = new System.Drawing.Point(0, 0);
+            this.Car1DieselButton.Name = "Car1DieselButton";
+            this.Car1DieselButton.Size = new System.Drawing.Size(105, 52);
+            this.Car1DieselButton.TabIndex = 1;
+            this.Car1DieselButton.Text = "Diesel";
+            this.Car1DieselButton.UseVisualStyleBackColor = false;
+            this.Car1DieselButton.Click += new System.EventHandler(this.Car1DieselButton_Click);
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.Car1PetrolButton);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 52);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(105, 52);
+            this.panel24.TabIndex = 1;
+            // 
+            // Car1PetrolButton
+            // 
+            this.Car1PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car1PetrolButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car1PetrolButton.FlatAppearance.BorderSize = 0;
+            this.Car1PetrolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car1PetrolButton.Location = new System.Drawing.Point(0, 0);
+            this.Car1PetrolButton.Name = "Car1PetrolButton";
+            this.Car1PetrolButton.Size = new System.Drawing.Size(105, 52);
+            this.Car1PetrolButton.TabIndex = 0;
+            this.Car1PetrolButton.Text = "Petrol";
+            this.Car1PetrolButton.UseVisualStyleBackColor = false;
+            this.Car1PetrolButton.Click += new System.EventHandler(this.Car1PetrolButton_Click);
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.label2);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(105, 52);
+            this.panel23.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 10F);
+            this.label2.Location = new System.Drawing.Point(3, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Restrictions:";
             // 
             // Car1ModelList
             // 
@@ -317,6 +499,15 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(432, 79);
             this.panel5.TabIndex = 2;
+            // 
+            // hasComparedText
+            // 
+            this.hasComparedText.AutoSize = true;
+            this.hasComparedText.Font = new System.Drawing.Font("Bookman Old Style", 10.25F);
+            this.hasComparedText.Location = new System.Drawing.Point(115, 30);
+            this.hasComparedText.Name = "hasComparedText";
+            this.hasComparedText.Size = new System.Drawing.Size(0, 19);
+            this.hasComparedText.TabIndex = 1;
             // 
             // Car1LogoPicture
             // 
@@ -388,6 +579,39 @@
             this.panel8.Size = new System.Drawing.Size(432, 815);
             this.panel8.TabIndex = 5;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.SelectCar2Year);
+            this.panel1.Controls.Add(this.ConfirmYearCar2);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 227);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(432, 42);
+            this.panel1.TabIndex = 7;
+            // 
+            // ConfirmYearCar2
+            // 
+            this.ConfirmYearCar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.ConfirmYearCar2.FlatAppearance.BorderSize = 0;
+            this.ConfirmYearCar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmYearCar2.Location = new System.Drawing.Point(327, 8);
+            this.ConfirmYearCar2.Name = "ConfirmYearCar2";
+            this.ConfirmYearCar2.Size = new System.Drawing.Size(99, 30);
+            this.ConfirmYearCar2.TabIndex = 4;
+            this.ConfirmYearCar2.Text = "Confirm";
+            this.ConfirmYearCar2.UseVisualStyleBackColor = false;
+            this.ConfirmYearCar2.Click += new System.EventHandler(this.ConfirmYearCar2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 21);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Car 2 Year: ";
+            // 
             // panel18
             // 
             this.panel18.Controls.Add(this.panel21);
@@ -397,6 +621,130 @@
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(432, 283);
             this.panel18.TabIndex = 6;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.panel31);
+            this.panel21.Controls.Add(this.panel30);
+            this.panel21.Controls.Add(this.panel29);
+            this.panel21.Controls.Add(this.panel28);
+            this.panel21.Controls.Add(this.panel22);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel21.Location = new System.Drawing.Point(327, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(105, 283);
+            this.panel21.TabIndex = 8;
+            // 
+            // panel31
+            // 
+            this.panel31.Controls.Add(this.Car2ElectricButton);
+            this.panel31.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel31.Location = new System.Drawing.Point(0, 208);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(105, 52);
+            this.panel31.TabIndex = 4;
+            // 
+            // Car2ElectricButton
+            // 
+            this.Car2ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car2ElectricButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car2ElectricButton.FlatAppearance.BorderSize = 0;
+            this.Car2ElectricButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car2ElectricButton.Location = new System.Drawing.Point(0, 0);
+            this.Car2ElectricButton.Name = "Car2ElectricButton";
+            this.Car2ElectricButton.Size = new System.Drawing.Size(105, 52);
+            this.Car2ElectricButton.TabIndex = 7;
+            this.Car2ElectricButton.Text = "Electric";
+            this.Car2ElectricButton.UseVisualStyleBackColor = false;
+            this.Car2ElectricButton.Click += new System.EventHandler(this.Car2ElectricButton_Click);
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.Car2HyrbidButton);
+            this.panel30.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel30.Location = new System.Drawing.Point(0, 156);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(105, 52);
+            this.panel30.TabIndex = 3;
+            // 
+            // Car2HyrbidButton
+            // 
+            this.Car2HyrbidButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car2HyrbidButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car2HyrbidButton.FlatAppearance.BorderSize = 0;
+            this.Car2HyrbidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car2HyrbidButton.Location = new System.Drawing.Point(0, 0);
+            this.Car2HyrbidButton.Name = "Car2HyrbidButton";
+            this.Car2HyrbidButton.Size = new System.Drawing.Size(105, 52);
+            this.Car2HyrbidButton.TabIndex = 6;
+            this.Car2HyrbidButton.Text = "Hyrbrid";
+            this.Car2HyrbidButton.UseVisualStyleBackColor = false;
+            this.Car2HyrbidButton.Click += new System.EventHandler(this.Car2HyrbidButton_Click);
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.Car2DieselButton);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel29.Location = new System.Drawing.Point(0, 104);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(105, 52);
+            this.panel29.TabIndex = 2;
+            // 
+            // Car2DieselButton
+            // 
+            this.Car2DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car2DieselButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car2DieselButton.FlatAppearance.BorderSize = 0;
+            this.Car2DieselButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car2DieselButton.Location = new System.Drawing.Point(0, 0);
+            this.Car2DieselButton.Name = "Car2DieselButton";
+            this.Car2DieselButton.Size = new System.Drawing.Size(105, 52);
+            this.Car2DieselButton.TabIndex = 5;
+            this.Car2DieselButton.Text = "Diesel";
+            this.Car2DieselButton.UseVisualStyleBackColor = false;
+            this.Car2DieselButton.Click += new System.EventHandler(this.Car2DieselButton_Click);
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.Car2PetrolButton);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel28.Location = new System.Drawing.Point(0, 52);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(105, 52);
+            this.panel28.TabIndex = 1;
+            // 
+            // Car2PetrolButton
+            // 
+            this.Car2PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Car2PetrolButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Car2PetrolButton.FlatAppearance.BorderSize = 0;
+            this.Car2PetrolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Car2PetrolButton.Location = new System.Drawing.Point(0, 0);
+            this.Car2PetrolButton.Name = "Car2PetrolButton";
+            this.Car2PetrolButton.Size = new System.Drawing.Size(105, 52);
+            this.Car2PetrolButton.TabIndex = 4;
+            this.Car2PetrolButton.Text = "Petrol";
+            this.Car2PetrolButton.UseVisualStyleBackColor = false;
+            this.Car2PetrolButton.Click += new System.EventHandler(this.Car2PetrolButton_Click);
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.label1);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel22.Location = new System.Drawing.Point(0, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(105, 52);
+            this.panel22.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 10F);
+            this.label1.Location = new System.Drawing.Point(5, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Restrictions:";
             // 
             // Car2ModelList
             // 
@@ -582,367 +930,23 @@
             this.Car2Badge.TabIndex = 10;
             this.Car2Badge.TabStop = false;
             // 
-            // CompButton
-            // 
-            this.CompButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(139)))));
-            this.CompButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CompButton.FlatAppearance.BorderSize = 0;
-            this.CompButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompButton.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompButton.Location = new System.Drawing.Point(0, 305);
-            this.CompButton.Name = "CompButton";
-            this.CompButton.Size = new System.Drawing.Size(143, 100);
-            this.CompButton.TabIndex = 6;
-            this.CompButton.Text = "Compare";
-            this.CompButton.UseVisualStyleBackColor = false;
-            // 
-            // hasComparedText
-            // 
-            this.hasComparedText.AutoSize = true;
-            this.hasComparedText.Font = new System.Drawing.Font("Bookman Old Style", 10.25F);
-            this.hasComparedText.Location = new System.Drawing.Point(115, 30);
-            this.hasComparedText.Name = "hasComparedText";
-            this.hasComparedText.Size = new System.Drawing.Size(0, 19);
-            this.hasComparedText.TabIndex = 1;
-            // 
-            // SettingsButton
-            // 
-            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SettingsButton.FlatAppearance.BorderSize = 0;
-            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsButton.Image")));
-            this.SettingsButton.Location = new System.Drawing.Point(0, 405);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(143, 100);
-            this.SettingsButton.TabIndex = 9;
-            this.SettingsButton.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.SelectCar2Year);
-            this.panel1.Controls.Add(this.ConfirmYearCar2);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 227);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 42);
-            this.panel1.TabIndex = 7;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.SelectCar1Year);
-            this.panel19.Controls.Add(this.ConfirmYearCar1);
-            this.panel19.Controls.Add(this.label3);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(0, 227);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(432, 42);
-            this.panel19.TabIndex = 6;
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.panel27);
-            this.panel20.Controls.Add(this.panel26);
-            this.panel20.Controls.Add(this.panel25);
-            this.panel20.Controls.Add(this.panel24);
-            this.panel20.Controls.Add(this.panel23);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel20.Location = new System.Drawing.Point(327, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(105, 283);
-            this.panel20.TabIndex = 7;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.panel31);
-            this.panel21.Controls.Add(this.panel30);
-            this.panel21.Controls.Add(this.panel29);
-            this.panel21.Controls.Add(this.panel28);
-            this.panel21.Controls.Add(this.panel22);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel21.Location = new System.Drawing.Point(327, 0);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(105, 283);
-            this.panel21.TabIndex = 8;
-            // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.label1);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(0, 0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(105, 52);
-            this.panel22.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 10F);
-            this.label1.Location = new System.Drawing.Point(5, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Restrictions:";
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.label2);
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(0, 0);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(105, 52);
-            this.panel23.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 10F);
-            this.label2.Location = new System.Drawing.Point(3, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Restrictions:";
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.Car1PetrolButton);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 52);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(105, 52);
-            this.panel24.TabIndex = 1;
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.Car1DieselButton);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel25.Location = new System.Drawing.Point(0, 104);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(105, 52);
-            this.panel25.TabIndex = 2;
-            // 
-            // panel26
-            // 
-            this.panel26.Controls.Add(this.Car1HybridButton);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel26.Location = new System.Drawing.Point(0, 156);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(105, 52);
-            this.panel26.TabIndex = 3;
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.Car1ElectricButton);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel27.Location = new System.Drawing.Point(0, 208);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(105, 52);
-            this.panel27.TabIndex = 4;
-            // 
-            // panel28
-            // 
-            this.panel28.Controls.Add(this.Car2PetrolButton);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel28.Location = new System.Drawing.Point(0, 52);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(105, 52);
-            this.panel28.TabIndex = 1;
-            // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.Car2DieselButton);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel29.Location = new System.Drawing.Point(0, 104);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(105, 52);
-            this.panel29.TabIndex = 2;
-            // 
-            // panel30
-            // 
-            this.panel30.Controls.Add(this.Car2HyrbidButton);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel30.Location = new System.Drawing.Point(0, 156);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(105, 52);
-            this.panel30.TabIndex = 3;
-            // 
-            // panel31
-            // 
-            this.panel31.Controls.Add(this.Car2ElectricButton);
-            this.panel31.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel31.Location = new System.Drawing.Point(0, 208);
-            this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(105, 52);
-            this.panel31.TabIndex = 4;
-            // 
-            // Car1PetrolButton
-            // 
-            this.Car1PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car1PetrolButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car1PetrolButton.FlatAppearance.BorderSize = 0;
-            this.Car1PetrolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car1PetrolButton.Location = new System.Drawing.Point(0, 0);
-            this.Car1PetrolButton.Name = "Car1PetrolButton";
-            this.Car1PetrolButton.Size = new System.Drawing.Size(105, 52);
-            this.Car1PetrolButton.TabIndex = 0;
-            this.Car1PetrolButton.Text = "Petrol";
-            this.Car1PetrolButton.UseVisualStyleBackColor = false;
-            this.Car1PetrolButton.Click += new System.EventHandler(this.Car1PetrolButton_Click);
-            // 
-            // Car1DieselButton
-            // 
-            this.Car1DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car1DieselButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car1DieselButton.FlatAppearance.BorderSize = 0;
-            this.Car1DieselButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car1DieselButton.Location = new System.Drawing.Point(0, 0);
-            this.Car1DieselButton.Name = "Car1DieselButton";
-            this.Car1DieselButton.Size = new System.Drawing.Size(105, 52);
-            this.Car1DieselButton.TabIndex = 1;
-            this.Car1DieselButton.Text = "Diesel";
-            this.Car1DieselButton.UseVisualStyleBackColor = false;
-            this.Car1DieselButton.Click += new System.EventHandler(this.Car1DieselButton_Click);
-            // 
-            // Car1HybridButton
-            // 
-            this.Car1HybridButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car1HybridButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car1HybridButton.FlatAppearance.BorderSize = 0;
-            this.Car1HybridButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car1HybridButton.Location = new System.Drawing.Point(0, 0);
-            this.Car1HybridButton.Name = "Car1HybridButton";
-            this.Car1HybridButton.Size = new System.Drawing.Size(105, 52);
-            this.Car1HybridButton.TabIndex = 2;
-            this.Car1HybridButton.Text = "Hybrid";
-            this.Car1HybridButton.UseVisualStyleBackColor = false;
-            this.Car1HybridButton.Click += new System.EventHandler(this.Car1HybridButton_Click);
-            // 
-            // Car1ElectricButton
-            // 
-            this.Car1ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car1ElectricButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car1ElectricButton.FlatAppearance.BorderSize = 0;
-            this.Car1ElectricButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car1ElectricButton.Location = new System.Drawing.Point(0, 0);
-            this.Car1ElectricButton.Name = "Car1ElectricButton";
-            this.Car1ElectricButton.Size = new System.Drawing.Size(105, 52);
-            this.Car1ElectricButton.TabIndex = 3;
-            this.Car1ElectricButton.Text = "Electric";
-            this.Car1ElectricButton.UseVisualStyleBackColor = false;
-            this.Car1ElectricButton.Click += new System.EventHandler(this.Car1ElectricButton_Click);
-            // 
-            // Car2PetrolButton
-            // 
-            this.Car2PetrolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car2PetrolButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car2PetrolButton.FlatAppearance.BorderSize = 0;
-            this.Car2PetrolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car2PetrolButton.Location = new System.Drawing.Point(0, 0);
-            this.Car2PetrolButton.Name = "Car2PetrolButton";
-            this.Car2PetrolButton.Size = new System.Drawing.Size(105, 52);
-            this.Car2PetrolButton.TabIndex = 4;
-            this.Car2PetrolButton.Text = "Petrol";
-            this.Car2PetrolButton.UseVisualStyleBackColor = false;
-            this.Car2PetrolButton.Click += new System.EventHandler(this.Car2PetrolButton_Click);
-            // 
-            // Car2DieselButton
-            // 
-            this.Car2DieselButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car2DieselButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car2DieselButton.FlatAppearance.BorderSize = 0;
-            this.Car2DieselButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car2DieselButton.Location = new System.Drawing.Point(0, 0);
-            this.Car2DieselButton.Name = "Car2DieselButton";
-            this.Car2DieselButton.Size = new System.Drawing.Size(105, 52);
-            this.Car2DieselButton.TabIndex = 5;
-            this.Car2DieselButton.Text = "Diesel";
-            this.Car2DieselButton.UseVisualStyleBackColor = false;
-            this.Car2DieselButton.Click += new System.EventHandler(this.Car2DieselButton_Click);
-            // 
-            // Car2HyrbidButton
-            // 
-            this.Car2HyrbidButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car2HyrbidButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car2HyrbidButton.FlatAppearance.BorderSize = 0;
-            this.Car2HyrbidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car2HyrbidButton.Location = new System.Drawing.Point(0, 0);
-            this.Car2HyrbidButton.Name = "Car2HyrbidButton";
-            this.Car2HyrbidButton.Size = new System.Drawing.Size(105, 52);
-            this.Car2HyrbidButton.TabIndex = 6;
-            this.Car2HyrbidButton.Text = "Hyrbrid";
-            this.Car2HyrbidButton.UseVisualStyleBackColor = false;
-            this.Car2HyrbidButton.Click += new System.EventHandler(this.Car2HyrbidButton_Click);
-            // 
-            // Car2ElectricButton
-            // 
-            this.Car2ElectricButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Car2ElectricButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Car2ElectricButton.FlatAppearance.BorderSize = 0;
-            this.Car2ElectricButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Car2ElectricButton.Location = new System.Drawing.Point(0, 0);
-            this.Car2ElectricButton.Name = "Car2ElectricButton";
-            this.Car2ElectricButton.Size = new System.Drawing.Size(105, 52);
-            this.Car2ElectricButton.TabIndex = 7;
-            this.Car2ElectricButton.Text = "Electric";
-            this.Car2ElectricButton.UseVisualStyleBackColor = false;
-            this.Car2ElectricButton.Click += new System.EventHandler(this.Car2ElectricButton_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 21);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Car 1 Year: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 21);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Car 2 Year: ";
-            // 
-            // ConfirmYearCar1
-            // 
-            this.ConfirmYearCar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.ConfirmYearCar1.FlatAppearance.BorderSize = 0;
-            this.ConfirmYearCar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfirmYearCar1.Location = new System.Drawing.Point(327, 6);
-            this.ConfirmYearCar1.Name = "ConfirmYearCar1";
-            this.ConfirmYearCar1.Size = new System.Drawing.Size(99, 30);
-            this.ConfirmYearCar1.TabIndex = 2;
-            this.ConfirmYearCar1.Text = "Confirm";
-            this.ConfirmYearCar1.UseVisualStyleBackColor = false;
-            // 
-            // ConfirmYearCar2
-            // 
-            this.ConfirmYearCar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.ConfirmYearCar2.FlatAppearance.BorderSize = 0;
-            this.ConfirmYearCar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfirmYearCar2.Location = new System.Drawing.Point(327, 8);
-            this.ConfirmYearCar2.Name = "ConfirmYearCar2";
-            this.ConfirmYearCar2.Size = new System.Drawing.Size(99, 30);
-            this.ConfirmYearCar2.TabIndex = 4;
-            this.ConfirmYearCar2.Text = "Confirm";
-            this.ConfirmYearCar2.UseVisualStyleBackColor = false;
-            // 
             // SelectCar1Year
             // 
-            this.SelectCar1Year.Location = new System.Drawing.Point(119, 6);
+            this.SelectCar1Year.FormattingEnabled = true;
+            this.SelectCar1Year.ItemHeight = 21;
+            this.SelectCar1Year.Location = new System.Drawing.Point(119, 8);
             this.SelectCar1Year.Name = "SelectCar1Year";
-            this.SelectCar1Year.Size = new System.Drawing.Size(202, 30);
-            this.SelectCar1Year.TabIndex = 5;
+            this.SelectCar1Year.Size = new System.Drawing.Size(202, 25);
+            this.SelectCar1Year.TabIndex = 3;
             // 
             // SelectCar2Year
             // 
-            this.SelectCar2Year.Location = new System.Drawing.Point(119, 8);
+            this.SelectCar2Year.FormattingEnabled = true;
+            this.SelectCar2Year.ItemHeight = 21;
+            this.SelectCar2Year.Location = new System.Drawing.Point(119, 11);
             this.SelectCar2Year.Name = "SelectCar2Year";
-            this.SelectCar2Year.Size = new System.Drawing.Size(202, 30);
-            this.SelectCar2Year.TabIndex = 6;
+            this.SelectCar2Year.Size = new System.Drawing.Size(202, 25);
+            this.SelectCar2Year.TabIndex = 4;
             // 
             // Compare
             // 
@@ -968,7 +972,16 @@
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.panel17.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -978,7 +991,16 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel18.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel31.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
+            this.panel29.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.panel15.ResumeLayout(false);
@@ -994,26 +1016,6 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Car2Badge)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel28.ResumeLayout(false);
-            this.panel29.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
-            this.panel31.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SelectCar1Year)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectCar2Year)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1091,9 +1093,9 @@
         private System.Windows.Forms.Button Car2PetrolButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown SelectCar1Year;
         private System.Windows.Forms.Button ConfirmYearCar1;
-        private System.Windows.Forms.NumericUpDown SelectCar2Year;
         private System.Windows.Forms.Button ConfirmYearCar2;
+        private System.Windows.Forms.ListBox SelectCar1Year;
+        private System.Windows.Forms.ListBox SelectCar2Year;
     }
 }
