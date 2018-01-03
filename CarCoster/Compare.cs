@@ -236,9 +236,15 @@ namespace CarCoster
         /*Changing the selected PictureBox's picture using the given manufactuter.*/
         private void changeImage(PictureBox box, string man)
         {
-            string url = badge.getBadge(man);
-            box.Image = Image.FromFile(url);
-            box.SizeMode = PictureBoxSizeMode.StretchImage;
+            try
+            {
+                string url = badge.getBadge(man);
+                box.Image = Image.FromFile(url);
+                box.SizeMode = PictureBoxSizeMode.StretchImage;
+            } catch(Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
         }
 
         /*When the Car1ManufacturerList Index is changed a couple of things will happen
@@ -352,14 +358,22 @@ namespace CarCoster
          and the manufacturers selected index will be reset.*/
         private void Car1SelectedCarList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Car1SelectedCarList.SelectedIndex != -1)
+            try
             {
-                Car1ModelList.ClearSelected();
-                Car1ModelList.Items.Clear();
-                Car1Models.Clear();
-                Car1ManufacturorList.ClearSelected();
-                string manufacturer = selectedCars.ElementAt(Car1SelectedCarList.SelectedIndex).Manufacturer;
-                changeImage(Car1LogoPicture, manufacturer);
+                if (Car1SelectedCarList.SelectedIndex != -1)
+                {
+                    Car1ModelList.ClearSelected();
+                    Car1ModelList.Items.Clear();
+                    Car1Models.Clear();
+                    Car1ManufacturorList.ClearSelected();
+                    string manufacturer = selectedCars.ElementAt(Car1SelectedCarList.SelectedIndex).Manufacturer;
+                    changeImage(Car1LogoPicture, manufacturer);
+                    calcTax(selectedCars.ElementAt(Car1SelectedCarList.SelectedIndex));
+
+                }
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
             }
         }
 
@@ -367,14 +381,22 @@ namespace CarCoster
          and the manufacturers selected index will be reset.*/
         private void Car2SelectedCarList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Car2SelectedCarList.SelectedIndex != -1)
+            try
             {
-                Car2ModelList.ClearSelected();
-                Car2ModelList.Items.Clear();
-                Car2Models.Clear();
-                Car2ManufacturorList.ClearSelected();
-                string manufacturer = selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex).Manufacturer;
-                changeImage(Car2LogoPicture, manufacturer);
+                if (Car2SelectedCarList.SelectedIndex != -1)
+                {
+                    Car2ModelList.ClearSelected();
+                    Car2ModelList.Items.Clear();
+                    Car2Models.Clear();
+                    Car2ManufacturorList.ClearSelected();
+                    string manufacturer = selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex).Manufacturer;
+                    changeImage(Car2LogoPicture, manufacturer);
+                    calcTax(selectedCars.ElementAt(Car2SelectedCarList.SelectedIndex));
+
+                }
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
             }
         }
 
@@ -488,6 +510,52 @@ namespace CarCoster
         private void CloseButton_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void Car1ModelList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Car1SelectedCarList.ClearSelected();
+
+            try
+            {
+                calcTax(car1List.CurrentCars.ElementAt(Car1ModelList.SelectedIndex));
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
+        }
+
+        private void Car2ModelList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Car2SelectedCarList.ClearSelected();
+            try
+            {
+                calcTax(car2List.CurrentCars.ElementAt(Car2ModelList.SelectedIndex));
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
+        }
+
+        /*Function that takes in:
+         b. The Car to calculate the tax from.
+         then calls the tax function from the TaxCalculator class to calculate the tax for the car.*/
+        private void calcTax(Car taxCar)
+        {
+            try
+            {
+                /*If the car emits CO2 then we will calculate the tax cost when the item is clicked.*/
+                if (taxCar.CO2gramsPerKilometer != null &&
+                   taxCar.CO2gramsPerKilometer != 0)
+                {
+                    TaxCalculator tax = new TaxCalculator();
+                    float? taxCost = tax.CalculateTax(taxCar);
+                }
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
     }
 }

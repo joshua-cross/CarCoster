@@ -143,6 +143,9 @@ namespace CarCoster
                 /*As we've selected all, just set the manufacturers to each available car in the
                  Listed object.*/
                 carList.CarsFromManufacturer = carList.Cars;
+                carList.CurrentCars = carList.CarsFromManufacturer;
+                carList.CurrentCarsWithoutRestrictions = carList.CurrentCars;
+
                 PopulateListBoxWithCarsDetails(ModelBox, carList.CarsFromManufacturer);
             }
 

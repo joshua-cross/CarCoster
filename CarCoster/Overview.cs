@@ -25,6 +25,31 @@ namespace CarCoster
             cars = load.Load();
             car = load.LoadSelectedCar();
 
+            /*Calculating the tax for each of the cars in car.*/
+            try
+            {
+                foreach(Car theCar in cars)
+                {
+                    if(theCar.CO2gramsPerKilometer != null &&
+                       theCar.CO2gramsPerKilometer != 0)
+                    {
+                        TaxCalculator tax = new TaxCalculator();
+                        float? taxCost = tax.CalculateTax(theCar);
+                    }
+                }
+
+                if(car.CO2gramsPerKilometer != null && 
+                   car.CO2gramsPerKilometer != 0)
+                {
+                    TaxCalculator tax = new TaxCalculator();
+                    float? taxCost = tax.CalculateTax(car);
+                }
+
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
             string thisDirectory = Directory.GetCurrentDirectory().ToString();
             string fileLoc = thisDirectory + @"\Images\LeafIcon.png";
             pictureBox1.Image = Image.FromFile(fileLoc);
