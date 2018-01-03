@@ -208,10 +208,10 @@ namespace CarCoster
         }
 
         /*Function that takes in: 
-         a. the fueltype of the vehicle we want to display e.g. if the user wants to display
-            only petrol cars then the fuelType would be petrol.
-         b. the list box we want to update, most likely ModelBox.
-         c. the IEnumerable<Car> we wish to update.
+             a. the fueltype of the vehicle we want to display e.g. if the user wants to display
+                only petrol cars then the fuelType would be petrol.
+             b. the list box we want to update, most likely ModelBox.
+             c. the IEnumerable<Car> we wish to update.
          The function will then remove all but the selected from the array and return the new
          array.*/
          public Listed ShowOnlySelectedFuelType(string fuelType, ListBox list, Listed carList)

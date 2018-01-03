@@ -253,7 +253,7 @@ namespace CarCoster
         private void MPGSort_Click(object sender, EventArgs e)
         {
             ordering = true;
-            listBoxes.OrderedCars(carList.CurrentCars, ordering, ModelBox);
+            carList.CurrentCars = listBoxes.OrderedCars(carList.CurrentCars, ordering, ModelBox);
         }
 
         /*When the MPGSort button is clicked we will call the Order class which
@@ -261,7 +261,7 @@ namespace CarCoster
         private void button1_Click_1(object sender, EventArgs e)
         {
             ordering = false;
-            listBoxes.OrderedCars(carList.CurrentCars, ordering, ModelBox);
+            carList.CurrentCars = listBoxes.OrderedCars(carList.CurrentCars, ordering, ModelBox);
         }
 
         /*When the petrol button is clicked a call to the removeallbutpetrol
