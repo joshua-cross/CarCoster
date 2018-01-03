@@ -97,10 +97,14 @@ namespace CarCoster
 
         public void selectedCar(int id)
         {
-            Properties.Settings.Default.Manufacturer = Properties.Settings.Default.Manufacturers[id];
-            Properties.Settings.Default.Model = Properties.Settings.Default.Models[id];
-            Properties.Settings.Default.Description = Properties.Settings.Default.Descriptions[id];
-            Properties.Settings.Default.Year = Properties.Settings.Default.Years[id];
+            string man = Properties.Settings.Default.Manufacturers[id];
+            string mod = Properties.Settings.Default.Models[id];
+            string desc = Properties.Settings.Default.Descriptions[id];
+            string year = Properties.Settings.Default.Years[id];
+            Properties.Settings.Default.Manufacturer = man;
+            Properties.Settings.Default.Model = mod;
+            Properties.Settings.Default.Description = desc;
+            Properties.Settings.Default.Year = year;
             Properties.Settings.Default.Save();
         }
 

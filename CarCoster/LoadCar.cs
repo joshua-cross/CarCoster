@@ -90,10 +90,11 @@ namespace CarCoster
             //if a saved car already exists.
             if ((Properties.Settings.Default.Manufacturer != null && Properties.Settings.Default.Manufacturer != "") &&
                 (Properties.Settings.Default.Model != null && Properties.Settings.Default.Model != "") &&
-                (Properties.Settings.Default.Description != null && Properties.Settings.Default.Description != ""))
+                (Properties.Settings.Default.Description != null && Properties.Settings.Default.Description != "") &&
+                (Properties.Settings.Default.Year != null && Properties.Settings.Default.Year != ""))
             {
                 //getting the list of cars from the Json file.
-                JsonReader json = new JsonReader();
+                JsonReader json = new JsonReader(Properties.Settings.Default.Year);
                 List<Car> cars = new List<Car>();
                 cars = json.getCars();
 
