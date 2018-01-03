@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CarCoster
 {
@@ -82,6 +83,11 @@ namespace CarCoster
             selectedCars = load.Load();
 
             userCar = load.LoadSelectedCar();
+
+            string thisDirectory = Directory.GetCurrentDirectory().ToString();
+            string fileLoc = thisDirectory + @"\Images\LeafIcon.png";
+            pictureBox1.Image = Image.FromFile(fileLoc);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
             /*If the user has a car we will send the loadDefaultComparison the userCar,
              else we will send over the first car in the array, and if this is not possible, then
@@ -455,5 +461,28 @@ namespace CarCoster
             SwitchingYear(SelectCar2Year, car2List, Car2ManufacturorList);
         }
 
+        private void OverviewButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Overview overview = new Overview();
+            overview.Closed += (s, args) => this.Close();
+            overview.Show();
+        }
+
+        private void AddCarButton_Click(object sender, EventArgs e)
+        {
+            Listed list = new Listed();
+            list = list.DefaultForm1ToLoad();
+            this.Hide();
+            Form1 addCar = new Form1(list);
+            addCar.Closed += (s, args) => this.Close();
+            addCar.Show();
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            Init init = new Init();
+            init.Show();
+        }
     }
 }

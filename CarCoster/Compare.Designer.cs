@@ -41,6 +41,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.SelectCar1Year = new System.Windows.Forms.ListBox();
             this.ConfirmYearCar1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -69,6 +70,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SelectCar2Year = new System.Windows.Forms.ListBox();
             this.ConfirmYearCar2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -102,8 +104,6 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.Car2OverviewText = new System.Windows.Forms.Label();
             this.Car2Badge = new System.Windows.Forms.PictureBox();
-            this.SelectCar1Year = new System.Windows.Forms.ListBox();
-            this.SelectCar2Year = new System.Windows.Forms.ListBox();
             this.SideBarPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -146,8 +146,8 @@
             // SideBarPanel
             // 
             this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.SideBarPanel.Controls.Add(this.SettingsButton);
             this.SideBarPanel.Controls.Add(this.SelectedButton);
+            this.SideBarPanel.Controls.Add(this.SettingsButton);
             this.SideBarPanel.Controls.Add(this.CompButton);
             this.SideBarPanel.Controls.Add(this.AddCarButton);
             this.SideBarPanel.Controls.Add(this.CloseButton);
@@ -174,6 +174,8 @@
             this.SettingsButton.Size = new System.Drawing.Size(143, 100);
             this.SettingsButton.TabIndex = 9;
             this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            this.SettingsButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // SelectedButton
             // 
@@ -196,6 +198,7 @@
             this.CompButton.TabIndex = 6;
             this.CompButton.Text = "Compare";
             this.CompButton.UseVisualStyleBackColor = false;
+            this.CompButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // AddCarButton
             // 
@@ -209,6 +212,7 @@
             this.AddCarButton.TabIndex = 5;
             this.AddCarButton.Text = "Add Car";
             this.AddCarButton.UseVisualStyleBackColor = true;
+            this.AddCarButton.Click += new System.EventHandler(this.AddCarButton_Click);
             this.AddCarButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // CloseButton
@@ -235,6 +239,7 @@
             this.OverviewButton.TabIndex = 3;
             this.OverviewButton.Text = "Overview";
             this.OverviewButton.UseVisualStyleBackColor = true;
+            this.OverviewButton.Click += new System.EventHandler(this.OverviewButton_Click);
             this.OverviewButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // SaveLabel
@@ -291,6 +296,15 @@
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(432, 42);
             this.panel19.TabIndex = 6;
+            // 
+            // SelectCar1Year
+            // 
+            this.SelectCar1Year.FormattingEnabled = true;
+            this.SelectCar1Year.ItemHeight = 21;
+            this.SelectCar1Year.Location = new System.Drawing.Point(119, 8);
+            this.SelectCar1Year.Name = "SelectCar1Year";
+            this.SelectCar1Year.Size = new System.Drawing.Size(202, 25);
+            this.SelectCar1Year.TabIndex = 3;
             // 
             // ConfirmYearCar1
             // 
@@ -588,6 +602,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(432, 42);
             this.panel1.TabIndex = 7;
+            // 
+            // SelectCar2Year
+            // 
+            this.SelectCar2Year.FormattingEnabled = true;
+            this.SelectCar2Year.ItemHeight = 21;
+            this.SelectCar2Year.Location = new System.Drawing.Point(119, 11);
+            this.SelectCar2Year.Name = "SelectCar2Year";
+            this.SelectCar2Year.Size = new System.Drawing.Size(202, 25);
+            this.SelectCar2Year.TabIndex = 4;
             // 
             // ConfirmYearCar2
             // 
@@ -928,24 +951,6 @@
             this.Car2Badge.Size = new System.Drawing.Size(379, 213);
             this.Car2Badge.TabIndex = 10;
             this.Car2Badge.TabStop = false;
-            // 
-            // SelectCar1Year
-            // 
-            this.SelectCar1Year.FormattingEnabled = true;
-            this.SelectCar1Year.ItemHeight = 21;
-            this.SelectCar1Year.Location = new System.Drawing.Point(119, 8);
-            this.SelectCar1Year.Name = "SelectCar1Year";
-            this.SelectCar1Year.Size = new System.Drawing.Size(202, 25);
-            this.SelectCar1Year.TabIndex = 3;
-            // 
-            // SelectCar2Year
-            // 
-            this.SelectCar2Year.FormattingEnabled = true;
-            this.SelectCar2Year.ItemHeight = 21;
-            this.SelectCar2Year.Location = new System.Drawing.Point(119, 11);
-            this.SelectCar2Year.Name = "SelectCar2Year";
-            this.SelectCar2Year.Size = new System.Drawing.Size(202, 25);
-            this.SelectCar2Year.TabIndex = 4;
             // 
             // Compare
             // 

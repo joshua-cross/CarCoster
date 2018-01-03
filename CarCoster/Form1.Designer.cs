@@ -33,22 +33,23 @@
             this.CarBox = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.LogoBox = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.ManufactorerLabel = new System.Windows.Forms.Label();
+            this.ManufactorerSearch = new System.Windows.Forms.Label();
+            this.MakeBox = new System.Windows.Forms.TextBox();
             this.ElectricButton = new System.Windows.Forms.Button();
             this.HybridButton = new System.Windows.Forms.Button();
             this.DieselButton = new System.Windows.Forms.Button();
             this.PetrolButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.MPGSort = new System.Windows.Forms.Button();
-            this.LogoBox = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.ConfirmYearButton = new System.Windows.Forms.Button();
             this.YearBox = new System.Windows.Forms.ListBox();
-            this.ManufactorerLabel = new System.Windows.Forms.Label();
-            this.ManufactorerSearch = new System.Windows.Forms.Label();
-            this.MakeBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.SaveText = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ModelLabel = new System.Windows.Forms.Label();
@@ -70,27 +71,26 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SaveText = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
@@ -104,17 +104,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SideBarPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel15.SuspendLayout();
             this.panel20.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel25.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // CarBox
@@ -150,6 +150,60 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(515, 90);
             this.panel10.TabIndex = 6;
+            // 
+            // LogoBox
+            // 
+            this.LogoBox.Location = new System.Drawing.Point(6, 3);
+            this.LogoBox.Name = "LogoBox";
+            this.LogoBox.Size = new System.Drawing.Size(100, 84);
+            this.LogoBox.TabIndex = 0;
+            this.LogoBox.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Controls.Add(this.ManufactorerSearch);
+            this.panel4.Controls.Add(this.MakeBox);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(515, 86);
+            this.panel4.TabIndex = 5;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.ManufactorerLabel);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(515, 37);
+            this.panel6.TabIndex = 0;
+            // 
+            // ManufactorerLabel
+            // 
+            this.ManufactorerLabel.AutoSize = true;
+            this.ManufactorerLabel.Location = new System.Drawing.Point(6, 7);
+            this.ManufactorerLabel.Name = "ManufactorerLabel";
+            this.ManufactorerLabel.Size = new System.Drawing.Size(135, 21);
+            this.ManufactorerLabel.TabIndex = 0;
+            this.ManufactorerLabel.Text = "Manufactorer";
+            // 
+            // ManufactorerSearch
+            // 
+            this.ManufactorerSearch.AutoSize = true;
+            this.ManufactorerSearch.Location = new System.Drawing.Point(14, 52);
+            this.ManufactorerSearch.Name = "ManufactorerSearch";
+            this.ManufactorerSearch.Size = new System.Drawing.Size(81, 21);
+            this.ManufactorerSearch.TabIndex = 0;
+            this.ManufactorerSearch.Text = "Search:";
+            // 
+            // MakeBox
+            // 
+            this.MakeBox.Location = new System.Drawing.Point(101, 46);
+            this.MakeBox.Name = "MakeBox";
+            this.MakeBox.Size = new System.Drawing.Size(399, 30);
+            this.MakeBox.TabIndex = 1;
+            this.MakeBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // ElectricButton
             // 
@@ -241,34 +295,6 @@
             this.MPGSort.UseVisualStyleBackColor = false;
             this.MPGSort.Click += new System.EventHandler(this.MPGSort_Click);
             // 
-            // LogoBox
-            // 
-            this.LogoBox.Location = new System.Drawing.Point(6, 3);
-            this.LogoBox.Name = "LogoBox";
-            this.LogoBox.Size = new System.Drawing.Size(100, 84);
-            this.LogoBox.TabIndex = 0;
-            this.LogoBox.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.ManufactorerSearch);
-            this.panel4.Controls.Add(this.MakeBox);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(515, 86);
-            this.panel4.TabIndex = 5;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.ManufactorerLabel);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(515, 37);
-            this.panel6.TabIndex = 0;
-            // 
             // ConfirmYearButton
             // 
             this.ConfirmYearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
@@ -293,32 +319,6 @@
             this.YearBox.Size = new System.Drawing.Size(160, 25);
             this.YearBox.TabIndex = 1;
             // 
-            // ManufactorerLabel
-            // 
-            this.ManufactorerLabel.AutoSize = true;
-            this.ManufactorerLabel.Location = new System.Drawing.Point(6, 7);
-            this.ManufactorerLabel.Name = "ManufactorerLabel";
-            this.ManufactorerLabel.Size = new System.Drawing.Size(135, 21);
-            this.ManufactorerLabel.TabIndex = 0;
-            this.ManufactorerLabel.Text = "Manufactorer";
-            // 
-            // ManufactorerSearch
-            // 
-            this.ManufactorerSearch.AutoSize = true;
-            this.ManufactorerSearch.Location = new System.Drawing.Point(14, 52);
-            this.ManufactorerSearch.Name = "ManufactorerSearch";
-            this.ManufactorerSearch.Size = new System.Drawing.Size(81, 21);
-            this.ManufactorerSearch.TabIndex = 0;
-            this.ManufactorerSearch.Text = "Search:";
-            // 
-            // MakeBox
-            // 
-            this.MakeBox.Location = new System.Drawing.Point(101, 46);
-            this.MakeBox.Name = "MakeBox";
-            this.MakeBox.Size = new System.Drawing.Size(399, 30);
-            this.MakeBox.TabIndex = 1;
-            this.MakeBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel11);
@@ -338,6 +338,16 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(510, 90);
             this.panel11.TabIndex = 6;
+            // 
+            // SaveText
+            // 
+            this.SaveText.AutoSize = true;
+            this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
+            this.SaveText.Location = new System.Drawing.Point(6, 12);
+            this.SaveText.Name = "SaveText";
+            this.SaveText.Size = new System.Drawing.Size(40, 15);
+            this.SaveText.TabIndex = 5;
+            this.SaveText.Text = "label1";
             // 
             // panel5
             // 
@@ -507,6 +517,7 @@
             this.SettingsButton.TabIndex = 8;
             this.SettingsButton.UseVisualStyleBackColor = true;
             this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            this.SettingsButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // SelectedButton
             // 
@@ -584,6 +595,86 @@
             this.panel1.Size = new System.Drawing.Size(240, 815);
             this.panel1.TabIndex = 5;
             // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.SaveButton);
+            this.panel20.Controls.Add(this.LoadCar);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel20.Location = new System.Drawing.Point(0, 725);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(240, 90);
+            this.panel20.TabIndex = 8;
+            // 
+            // panel17
+            // 
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 491);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(240, 52);
+            this.panel17.TabIndex = 7;
+            // 
+            // panel16
+            // 
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 481);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(240, 10);
+            this.panel16.TabIndex = 6;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.HybridButton);
+            this.panel15.Controls.Add(this.ElectricButton);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 429);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(240, 52);
+            this.panel15.TabIndex = 5;
+            // 
+            // panel14
+            // 
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 419);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(240, 10);
+            this.panel14.TabIndex = 4;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.PetrolButton);
+            this.panel13.Controls.Add(this.DieselButton);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 367);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(240, 52);
+            this.panel13.TabIndex = 3;
+            // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 357);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(240, 10);
+            this.panel12.TabIndex = 2;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 305);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(240, 52);
+            this.panel9.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Restrictions:";
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.panel25);
@@ -596,85 +687,41 @@
             this.panel8.Size = new System.Drawing.Size(240, 305);
             this.panel8.TabIndex = 0;
             // 
-            // panel9
+            // panel25
             // 
-            this.panel9.Controls.Add(this.label1);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 305);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(240, 52);
-            this.panel9.TabIndex = 1;
+            this.panel25.Controls.Add(this.button1);
+            this.panel25.Controls.Add(this.MPGSort);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(0, 167);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(240, 71);
+            this.panel25.TabIndex = 5;
             // 
-            // panel12
+            // panel24
             // 
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 357);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(240, 10);
-            this.panel12.TabIndex = 2;
+            this.panel24.Controls.Add(this.label4);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 115);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(240, 52);
+            this.panel24.TabIndex = 4;
             // 
-            // panel13
+            // label4
             // 
-            this.panel13.Controls.Add(this.PetrolButton);
-            this.panel13.Controls.Add(this.DieselButton);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 367);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(240, 52);
-            this.panel13.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Sorting:";
             // 
-            // panel14
+            // panel23
             // 
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 419);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(240, 10);
-            this.panel14.TabIndex = 4;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.HybridButton);
-            this.panel15.Controls.Add(this.ElectricButton);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 429);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(240, 52);
-            this.panel15.TabIndex = 5;
-            // 
-            // panel16
-            // 
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 481);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(240, 10);
-            this.panel16.TabIndex = 6;
-            // 
-            // panel17
-            // 
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 491);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(240, 52);
-            this.panel17.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Restrictions:";
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.SaveButton);
-            this.panel20.Controls.Add(this.LoadCar);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 725);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(240, 90);
-            this.panel20.TabIndex = 8;
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel23.Location = new System.Drawing.Point(0, 105);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(240, 10);
+            this.panel23.TabIndex = 3;
             // 
             // panel18
             // 
@@ -687,24 +734,6 @@
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(240, 105);
             this.panel18.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Year:";
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.label3);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(0, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(240, 37);
-            this.panel19.TabIndex = 0;
             // 
             // panel21
             // 
@@ -724,6 +753,15 @@
             this.panel22.Size = new System.Drawing.Size(99, 34);
             this.panel22.TabIndex = 0;
             // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.label3);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(240, 37);
+            this.panel19.TabIndex = 0;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -733,51 +771,14 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Select Year:";
             // 
-            // panel23
+            // label2
             // 
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(0, 105);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(240, 10);
-            this.panel23.TabIndex = 3;
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.label4);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 115);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(240, 52);
-            this.panel24.TabIndex = 4;
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.button1);
-            this.panel25.Controls.Add(this.MPGSort);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel25.Location = new System.Drawing.Point(0, 167);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(240, 71);
-            this.panel25.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 21);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Sorting:";
-            // 
-            // SaveText
-            // 
-            this.SaveText.AutoSize = true;
-            this.SaveText.Font = new System.Drawing.Font("Bookman Old Style", 8F);
-            this.SaveText.Location = new System.Drawing.Point(6, 12);
-            this.SaveText.Name = "SaveText";
-            this.SaveText.Size = new System.Drawing.Size(40, 15);
-            this.SaveText.TabIndex = 5;
-            this.SaveText.Text = "label1";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Year:";
             // 
             // Form1
             // 
@@ -815,21 +816,21 @@
             this.SideBarPanel.ResumeLayout(false);
             this.SideBarPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
-            this.panel25.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }

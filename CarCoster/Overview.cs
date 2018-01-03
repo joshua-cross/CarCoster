@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace CarCoster
 {
     public partial class Overview : Form
@@ -24,6 +24,11 @@ namespace CarCoster
             LoadCar load = new LoadCar();
             cars = load.Load();
             car = load.LoadSelectedCar();
+
+            string thisDirectory = Directory.GetCurrentDirectory().ToString();
+            string fileLoc = thisDirectory + @"\Images\LeafIcon.png";
+            pictureBox1.Image = Image.FromFile(fileLoc);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
             /*If the car is null that means that the user has not
              * yet selected a car to be there main car, in which case we will set the
