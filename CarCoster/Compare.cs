@@ -372,12 +372,6 @@ namespace CarCoster
             }
         }
 
-        private void Car1ModelList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            car1List.SelectedCar = car1List.CurrentCars.ElementAt(Car1ModelList.SelectedIndex);
-            Console.WriteLine(car1List.SelectedCar);
-        }
-
         /*When the petrol button is pressed only display petrol cars.*/
         private void Car1PetrolButton_Click(object sender, EventArgs e)
         {
@@ -460,5 +454,6 @@ namespace CarCoster
         {
             SwitchingYear(SelectCar2Year, car2List, Car2ManufacturorList);
         }
+
     }
 }
