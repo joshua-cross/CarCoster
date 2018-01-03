@@ -23,16 +23,23 @@ namespace CarCoster
 
             //float where the tax value will be stored.
             float fuelCost = -1.0f;
+            int carYear = 2017;
 
             /*If the car has a CO2 value then the car is valid.*/
-            if(car.CO2gramsPerKilometer != null)
+            if (car.CO2gramsPerKilometer != null)
             {
 
                 //the CO2 emissions of the vehicle
                 float CO2 = (float) car.CO2gramsPerKilometer;
 
-                //parsing the year of the car added to the database to an integer.
-                int carYear = int.Parse(car.carJSONYear);
+                try
+                {
+                    //parsing the year of the car added to the database to an integer.
+                    carYear = int.Parse(car.carJSONYear);
+                } catch(Exception error)
+                {
+                    Console.WriteLine(error.ToString());
+                }
 
                 List<TaxBrackets> taxBrackets = new List<TaxBrackets>();
                 /*If the car is newer than 2017 then we will get the new taxes, else we will

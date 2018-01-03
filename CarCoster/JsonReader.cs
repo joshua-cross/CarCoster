@@ -76,7 +76,12 @@ namespace CarCoster
                     //calculating the cost for each of the cars if it does not have one already.
 
                     float? costOf12000 = costPer12000.CostPer12000Miles(car);
-
+                    /*Calculating the tax for each of the cars, if the car actually emits CO2*/
+                    if (car.CO2gramsPerKilometer != 0 || car.CO2gramsPerKilometer != null)
+                    {
+                        TaxCalculator tax = new TaxCalculator();
+                        float? taxCost = tax.CalculateTax(car);
+                    }
                     car.carJSONYear = fileLoc;
                 }
 
@@ -108,7 +113,12 @@ namespace CarCoster
 
 
                         float? costOf12000 = costPer12000.CostPer12000Miles(car);
-
+                        /*Calculating the tax for each of the cars, if the car actually emits CO2*/
+                        if (car.CO2gramsPerKilometer != 0 || car.CO2gramsPerKilometer != null)
+                        {
+                            TaxCalculator tax = new TaxCalculator();
+                            float? taxCost = tax.CalculateTax(car);
+                        }
                         car.carJSONYear = year;
                     }
 
@@ -134,7 +144,12 @@ namespace CarCoster
                         {
                             car.carJSONYear = fileName;
                             cars.Add(car);
-
+                            /*Calculating the tax for each of the cars, if the car actually emits CO2*/
+                            if (car.CO2gramsPerKilometer != 0 || car.CO2gramsPerKilometer != null)
+                            {
+                                TaxCalculator tax = new TaxCalculator();
+                                float? taxCost = tax.CalculateTax(car);
+                            }
                             try
                             {
                                 float? costOf12000 = costPer12000.CostPer12000Miles(car);
