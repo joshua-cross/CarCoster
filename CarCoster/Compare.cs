@@ -381,42 +381,42 @@ namespace CarCoster
         /*When the petrol button is pressed only display petrol cars.*/
         private void Car1PetrolButton_Click(object sender, EventArgs e)
         {
-            car1List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Petrol", Car1ModelList, car1List.CurrentCars);
+            car1List = listBoxes.ShowOnlySelectedFuelType("Petrol", Car1ModelList, car1List);
         }
 
         private void Car1DieselButton_Click(object sender, EventArgs e)
         {
-            car1List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Diesel", Car1ModelList, car1List.CurrentCars);
+            car1List = listBoxes.ShowOnlySelectedFuelType("Diesel", Car1ModelList, car1List);
         }
 
         private void Car1HybridButton_Click(object sender, EventArgs e)
         {
-            car1List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Hybrid", Car1ModelList, car1List.CurrentCars);
+            car1List = listBoxes.ShowOnlySelectedFuelType("Hybrid", Car1ModelList, car1List);
         }
 
         private void Car1ElectricButton_Click(object sender, EventArgs e)
         {
-            car1List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Electric", Car1ModelList, car1List.CurrentCars);
+            car1List = listBoxes.ShowOnlySelectedFuelType("Electric", Car1ModelList, car1List);
         }
 
         private void Car2PetrolButton_Click(object sender, EventArgs e)
         {
-            car2List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Petrol", Car2ModelList, car2List.CurrentCars);
+            car2List = listBoxes.ShowOnlySelectedFuelType("Petrol", Car2ModelList, car2List);
         }
 
         private void Car2DieselButton_Click(object sender, EventArgs e)
         {
-            car2List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Diesel", Car2ModelList, car2List.CurrentCars);
+            car2List = listBoxes.ShowOnlySelectedFuelType("Diesel", Car2ModelList, car2List);
         }
 
         private void Car2HyrbidButton_Click(object sender, EventArgs e)
         {
-            car2List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Hybrid", Car2ModelList, car2List.CurrentCars);
+            car2List = listBoxes.ShowOnlySelectedFuelType("Hybrid", Car2ModelList, car2List);
         }
 
         private void Car2ElectricButton_Click(object sender, EventArgs e)
         {
-            car2List.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Electric", Car2ModelList, car2List.CurrentCars);
+            car2List = listBoxes.ShowOnlySelectedFuelType("Electric", Car2ModelList, car2List);
         }
 
         /*Function that takes in:

@@ -269,22 +269,22 @@ namespace CarCoster
          only display the petrol cars to the user.*/
         private void PetrolButton_Click(object sender, EventArgs e)
         {
-            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Petrol", ModelBox, carList.CurrentCars);
+            carList = listBoxes.ShowOnlySelectedFuelType("Petrol", ModelBox, carList);
         }
 
         private void HybridButton_Click(object sender, EventArgs e)
         {
-            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Hybrid", ModelBox, carList.CurrentCars);
+            carList = listBoxes.ShowOnlySelectedFuelType("Hybrid", ModelBox, carList);
         }
 
         private void DieselButton_Click(object sender, EventArgs e)
         {
-            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Diesel", ModelBox, carList.CurrentCars);
+            carList = listBoxes.ShowOnlySelectedFuelType("Diesel", ModelBox, carList);
         }
 
         private void ElectricButton_Click(object sender, EventArgs e)
         {
-            carList.CurrentCars = listBoxes.ShowOnlySelectedFuelType("Electricity", ModelBox, carList.CurrentCars);
+            carList = listBoxes.ShowOnlySelectedFuelType("Electricity", ModelBox, carList);
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
@@ -325,6 +325,8 @@ namespace CarCoster
         public IEnumerable<string> searchedManufacturers { get; set; }
         /*The car that the user has selected.*/
         public Car SelectedCar { get; set; }
+        /*List of cars without the restrictions applied, so just search and manufacturers.*/
+        public IEnumerable<Car> CurrentCarsWithoutRestrictions { get; set; }
 
         public Listed DefaultForm1ToLoad()
         {

@@ -15,6 +15,7 @@ namespace CarCoster
          public void PopulateListBoxWithManufacturers(ListBox list, IEnumerable<string> manufacturers)
         {
             list.Items.Clear();
+            list.Items.Add("All");
             foreach(string manufacturer in manufacturers)
             {
                 list.Items.Add(manufacturer);
@@ -82,6 +83,11 @@ namespace CarCoster
             //creating a list that contains both searchModels and searchedDescription
             carList.CurrentCars = searchedModels.Concat(searchedDescription);
 
+            /*Setting the Current cars without restrictions to be the same as
+             the only difference between this and CurrentCars is this does not contain
+             the restrictions applied by the user.*/
+            carList.CurrentCarsWithoutRestrictions = carList.CurrentCars;
+
             //for each car that contains what we searched we will print the Car and the Description.
             PopulateListBoxWithCarsDetails(ModelBox, carList.CurrentCars);
 
@@ -116,6 +122,8 @@ namespace CarCoster
                 /*As we've only just drew the list of models we should assume that
                  the CurrentCars is the CarsFromManufacturer*/
                 carList.CurrentCars = carList.CarsFromManufacturer;
+
+                carList.CurrentCarsWithoutRestrictions = carList.CurrentCars;
 
                 /*Loading the manufacturers logo in the form.*/
                 CarBadge badge = new CarBadge();
@@ -206,27 +214,32 @@ namespace CarCoster
          c. the IEnumerable<Car> we wish to update.
          The function will then remove all but the selected from the array and return the new
          array.*/
-         public IEnumerable<Car> ShowOnlySelectedFuelType(string fuelType, ListBox list, IEnumerable<Car> carsToBeSorted)
+         public Listed ShowOnlySelectedFuelType(string fuelType, ListBox list, Listed carList)
         {
             try
             {
                 /*Only remove fuelTypes if the list we was given is not empty or null.*/
-                if (carsToBeSorted.Count() != 0 &&
-                    carsToBeSorted != null)
+                if (carList.CurrentCarsWithoutRestrictions.Count() != 0 &&
+                    carList.CurrentCarsWithoutRestrictions != null)
                 {
                     Order order = new Order();
 
+                    /*Setting the carLists CurrentCars to be the carlist without restrictions incase we have
+                     * a restriction already applied which will cause the carList to become empty
+                     as a car cannot have 2 fuel types.*/
+                    carList.CurrentCars = carList.CurrentCarsWithoutRestrictions;
+
                     /*removing all but the cars with the selected fuelType.*/
-                    carsToBeSorted = order.RemoveAllButSpecified(carsToBeSorted, fuelType);
+                    carList.CurrentCars = order.RemoveAllButSpecified(carList.CurrentCars, fuelType);
                     /*redrawing the ListBox with only cars of this fuelType.*/
-                    PopulateListBoxWithCarsDetails(list, carsToBeSorted);
+                    PopulateListBoxWithCarsDetails(list, carList.CurrentCars);
                     /*Returning the cars to be sorted when we remove all but the necessary fueltypes.*/
                 }
             } catch (Exception error)
             {
                 Console.WriteLine(error.ToString());
             }
-            return carsToBeSorted;
+            return carList;
         }
     }
 }
