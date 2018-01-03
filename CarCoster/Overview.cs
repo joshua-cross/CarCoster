@@ -85,7 +85,6 @@ namespace CarCoster
         {
 
             Button button = (Button)sender;
-            OverviewText.Text = button.Text;
 
             while (SelectedButton.Location.Y != button.Location.Y)
             {
@@ -100,13 +99,6 @@ namespace CarCoster
 
         private void Overview_Load(object sender, EventArgs e)
         {
-            if(cars.Count() == 0)
-            {
-                OverviewText.Text = "There are currently no saved cars :(";
-            } else
-            {
-                OverviewText.Text = cars.ElementAt(0).Model;
-            }
 
             //for each car in cars we're going to add the car to the list box.
             foreach(Car car in cars)
@@ -187,25 +179,10 @@ namespace CarCoster
             compareCar.Show();
         }
 
-        private void ImperialOrMetric_Scroll(object sender, EventArgs e)
+        private void SettingsButton_Click(object sender, EventArgs e)
         {
-            /*The value the user has selected
-             0 = Imperial
-             1 = Metric
-             */
-            int value = ImperialOrMetric.Value;
-            /*If the value is imperial then we will set the mesurement system
-             to be true*/
-            if (value == 0)
-            {
-                measurementSystem = true;
-            }
-            /*Else the value is metric so we will set the measurement system
-             to be false.*/
-            else
-            {
-                measurementSystem = false;
-            }
+            Init init = new Init();
+            init.Show();
         }
     }
 }

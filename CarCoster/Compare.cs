@@ -484,5 +484,10 @@ namespace CarCoster
             Init init = new Init();
             init.Show();
         }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

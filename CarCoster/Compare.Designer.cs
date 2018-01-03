@@ -226,6 +226,7 @@
             this.CloseButton.TabIndex = 4;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             this.CloseButton.MouseHover += new System.EventHandler(this.SaveButton_MouseHover);
             // 
             // OverviewButton

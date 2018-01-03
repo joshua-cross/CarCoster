@@ -302,6 +302,11 @@ namespace CarCoster
             CarOverview overview = new CarOverview();
             overview.OpenCarDetails(carList.SelectedCar);
         }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 
     /*Class that contains all the properties that need to be printed.*/
