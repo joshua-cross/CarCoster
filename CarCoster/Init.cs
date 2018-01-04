@@ -12,7 +12,14 @@ namespace CarCoster
 {
     public partial class Init : Form
     {
+        /*The form the created this form.*/
+        Form parentForm;
        
+        /*Constructor that sends through the form that created it as an object*/
+        public Init(Form form)
+        {
+            parentForm = form;
+        }
 
         public Init()
         {
@@ -39,19 +46,25 @@ namespace CarCoster
             cars.Cars = RecalculateCarList(cars.CurrentCars);
 
             list.ToPrint = "";
+            try
+            {
+                /*Only do the following if the user has selected a car.*/
+                if (selectedCar != null)
+                {
 
-            /*Only do the following if the user has selected a car.*/
-            if (selectedCar != null) {
-
-                /*Recalculating the cost of a single car.*/
-                selectedCar = RecalculateCar(selectedCar);
+                    /*Recalculating the cost of a single car.*/
+                    selectedCar = RecalculateCar(selectedCar);
 
 
-                /*Getting all the cars details into a string*/
-                list.ToPrint = printer.carHeader(selectedCar) + printer.printcar(selectedCar,
-                               Properties.Settings.Default.ImperialOrMetric);
+                    /*Getting all the cars details into a string*/
+                    list.ToPrint = printer.carHeader(selectedCar) + printer.printcar(selectedCar,
+                                   Properties.Settings.Default.ImperialOrMetric);
 
-            }
+                }
+            } catch(Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            } 
 
             return list;
         }
@@ -61,7 +74,30 @@ namespace CarCoster
          and returns a CarsToPrint object which is a car list plus a string to print.*/
         public CarsToPrint RecalculateMPGSelected(IEnumerable<Car> selectedCars, Car selectedCar)
         {
+            /*class that convers a cars details to a string.*/
+            CarPrinter printer = new CarPrinter();
+
+            /*Creating new CarsToPrint object.*/
             CarsToPrint cars = new CarsToPrint();
+
+            selectedCars = RecalculateCarList(selectedCars);
+
+            cars.ToPrint = "";
+            try
+            {
+                /*If the user has a car selected.*/
+                if (selectedCar != null)
+                {
+                    selectedCar = RecalculateCar(selectedCar);
+
+                    /*Getting all the cars details into a string*/
+                    cars.ToPrint = printer.carHeader(selectedCar) + printer.printcar(selectedCar,
+                                   Properties.Settings.Default.ImperialOrMetric);
+                }
+            } catch(Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
             return cars;
         }
 
