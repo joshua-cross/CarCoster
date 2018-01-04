@@ -178,6 +178,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Init";
             this.Text = " ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Init_FormClosing);
             this.Load += new System.EventHandler(this.Init_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DieselUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FuelUpDown)).EndInit();

@@ -19,6 +19,7 @@ namespace CarCoster
         public Init(Form form)
         {
             parentForm = form;
+            InitializeComponent();
         }
 
         public Init()
@@ -45,7 +46,9 @@ namespace CarCoster
             cars.CurrentCars = RecalculateCarList(cars.CurrentCars);
             cars.Cars = RecalculateCarList(cars.CurrentCars);
 
+            list.CarList = cars;
             list.ToPrint = "";
+
             try
             {
                 /*Only do the following if the user has selected a car.*/
@@ -81,6 +84,7 @@ namespace CarCoster
             CarsToPrint cars = new CarsToPrint();
 
             selectedCars = RecalculateCarList(selectedCars);
+            cars.cars = selectedCars;
 
             cars.ToPrint = "";
             try
@@ -224,6 +228,20 @@ namespace CarCoster
         private void ImperialOrMetric_Scroll(object sender, EventArgs e)
         {
             label1.Text = ImperialOrMetric.Value.ToString();
+        }
+
+        /*When we close the form call a function from one of the forms and then close.*/
+        private void Init_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            /*Seeing what the form is.*/
+            try
+            {
+                Form1 form1 = (Form1) parentForm;
+                form1.SettingsClosed();
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
         }
     }
 

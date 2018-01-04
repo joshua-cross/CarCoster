@@ -289,7 +289,7 @@ namespace CarCoster
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Init init = new Init();
+            Init init = new Init(this);
             init.Show();
         }
 
@@ -306,6 +306,12 @@ namespace CarCoster
         private void CloseButton_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        /*function to be called when the settings form that we opened is being closed.*/
+        public void SettingsClosed()
+        {
+            ManufactorerLabel.Text = "Form closed!";
         }
     }
 
