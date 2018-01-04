@@ -308,8 +308,8 @@ namespace CarCoster
          d. selected car - selected car*/
         private void CompareButton_Click(object sender, EventArgs e)
         {
-            Car car1;
-            Car car2;
+            Car car1 = null;
+            Car car2 = null;
 
             /*choose car - choose car*/
             if (Car1ModelList.SelectedIndex != -1 &&
@@ -352,6 +352,11 @@ namespace CarCoster
             {
                 hasComparedText.Text = "Please Select 2 Cars.";
             }
+
+
+            car1List.SelectedCar = car1;
+            car2List.SelectedCar = car2;
+
         }
 
         /*when the selected cars for car 1 is changed the models will be wiped for car 1
@@ -503,9 +508,31 @@ namespace CarCoster
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Init init = new Init();
+            Init init = new Init(this);
             init.Show();
         }
+
+        public void SettingsClosed(Init init)
+        {
+            ListedToPrint newCars1 = new ListedToPrint();
+
+            newCars1 = init.RecalculateMPG(car1List, car1List.SelectedCar);
+            car1List = newCars1.CarList;
+
+            ListedToPrint newCars2 = new ListedToPrint();
+
+            newCars2 = init.RecalculateMPG(car2List, car2List.SelectedCar);
+            car2List = newCars2.CarList;
+
+            try
+            {
+                setComparison(car1List.SelectedCar, car2List.SelectedCar);
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
+        }
+
 
         private void CloseButton_Click(object sender, EventArgs e)
         {

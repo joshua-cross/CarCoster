@@ -308,10 +308,14 @@ namespace CarCoster
             System.Windows.Forms.Application.Exit();
         }
 
-        /*function to be called when the settings form that we opened is being closed.*/
-        public void SettingsClosed()
+        /*function to be called when the settings form that we opened is being closed.
+         This function takes in an init form which we will use to calculate the new total costs.*/
+        public void SettingsClosed(Init init)
         {
-            ManufactorerLabel.Text = "Form closed!";
+            ListedToPrint newCars = new ListedToPrint();
+
+            newCars = init.RecalculateMPG(carList, carList.SelectedCar);
+            carList = newCars.CarList;
         }
     }
 

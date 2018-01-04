@@ -204,9 +204,30 @@ namespace CarCoster
             compareCar.Show();
         }
 
+        /*function to be called when the settings form that we opened is being closed.
+        This function takes in an init form which we will use to calculate the new total costs.*/
+        public void SettingsClosed(Init init)
+        {
+            CarsToPrint newCars = new CarsToPrint();
+            LoadCar load = new LoadCar();
+
+            car = load.LoadSelectedCar();
+
+            newCars = init.RecalculateMPGSelected(cars, load.LoadSelectedCar());
+
+            try
+            {
+                CarInfo.Text = newCars.Header;
+                CarDetails.Text = newCars.Body;
+            } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
+        }
+
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Init init = new Init();
+            Init init = new Init(this);
             init.Show();
         }
     }

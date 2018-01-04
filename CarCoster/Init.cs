@@ -86,7 +86,8 @@ namespace CarCoster
             selectedCars = RecalculateCarList(selectedCars);
             cars.cars = selectedCars;
 
-            cars.ToPrint = "";
+            cars.Header = "";
+            cars.Body = "";
             try
             {
                 /*If the user has a car selected.*/
@@ -95,8 +96,10 @@ namespace CarCoster
                     selectedCar = RecalculateCar(selectedCar);
 
                     /*Getting all the cars details into a string*/
-                    cars.ToPrint = printer.carHeader(selectedCar) + printer.printcar(selectedCar,
-                                   Properties.Settings.Default.ImperialOrMetric);
+                    cars.Header = printer.carHeader(selectedCar);
+                        
+                    cars.Body = printer.printcar(selectedCar,
+                                Properties.Settings.Default.ImperialOrMetric);
                 }
             } catch(Exception error)
             {
@@ -237,8 +240,30 @@ namespace CarCoster
             try
             {
                 Form1 form1 = (Form1) parentForm;
-                form1.SettingsClosed();
+                form1.SettingsClosed(this);
             } catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
+
+            /*Seeing what the form is.*/
+            try
+            {
+                Compare compare = (Compare)parentForm;
+                compare.SettingsClosed(this);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
+
+            /*Seeing what the form is.*/
+            try
+            {
+                Overview overview = (Overview)parentForm;
+                overview.SettingsClosed(this);
+            }
+            catch (Exception error)
             {
                 Console.WriteLine(error.ToString());
             }
@@ -258,6 +283,7 @@ namespace CarCoster
     public class CarsToPrint
     {
         public IEnumerable<Car> cars { get; set; }
-        public string ToPrint { get; set; }
+        public string Body { get; set; }
+        public string Header { get; set; }
     }
 }
