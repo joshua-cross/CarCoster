@@ -297,10 +297,14 @@ namespace CarCoster
          to the CarDetails form which will display all the cars information.*/
         private void LoadCar_Click(object sender, EventArgs e)
         {
-            /*Getting CarOverview, which is a class that specialises in displaying
-             all necessary items to be displayed.*/
-            CarOverview overview = new CarOverview();
-            overview.OpenCarDetails(carList.SelectedCar);
+            /*If the user has selected a car.*/
+            if (carList.SelectedCar != null)
+            {
+                /*Getting CarOverview, which is a class that specialises in displaying
+                 all necessary items to be displayed.*/
+                CarOverview overview = new CarOverview();
+                overview.OpenCarDetails(carList.SelectedCar);
+            }
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

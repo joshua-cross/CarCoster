@@ -43,10 +43,15 @@ namespace CarCoster
             /*Setting the header and details to be the printers equivelent.*/
             displayed.carDetails = printer.printcar(car, Properties.Settings.Default.ImperialOrMetric);
             displayed.carHeader = printer.carHeader(car);
-
-            //Getting the carbadge class so we send the image url to the class.
-            CarBadge badge = new CarBadge();
-            displayed.imageURL = badge.getBadge(car.Manufacturer);
+            try
+            {
+                //Getting the carbadge class so we send the image url to the class.
+                CarBadge badge = new CarBadge();
+                displayed.imageURL = badge.getBadge(car.Manufacturer);
+            } catch(Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
 
             return displayed;
         }
