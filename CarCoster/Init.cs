@@ -12,10 +12,97 @@ namespace CarCoster
 {
     public partial class Init : Form
     {
+       
+
         public Init()
         {
             InitializeComponent();
         }
+
+        /*function that takes in the listed object and alters 2 arrays:
+         1. the cars from the specific manufacturer e.g. Ford as these are the currently
+            selected cars that we wish to update
+         2. All the cars so when the user swithces manufacturers these also show the corrected
+            fuel costs.
+         the program also requires the selected car, this is so we can update the current selected car. 
+         then calculates the new MPGs using the Recalculate function and returns a ListedToPrint, which is
+         a listed object with a printable string*/
+        public ListedToPrint RecalculateMPG(Listed cars, Car selectedCar)
+        {
+            CarPrinter printer = new CarPrinter();
+
+            /*Creating a new ListedToPrint object.*/
+            ListedToPrint list = new ListedToPrint();
+
+            /*The current cars we want to recalculate*/
+            cars.CurrentCars = RecalculateCarList(cars.CurrentCars);
+            cars.Cars = RecalculateCarList(cars.CurrentCars);
+
+            list.ToPrint = "";
+
+            /*Only do the following if the user has selected a car.*/
+            if (selectedCar != null) {
+
+                /*Recalculating the cost of a single car.*/
+                selectedCar = RecalculateCar(selectedCar);
+
+
+                /*Getting all the cars details into a string*/
+                list.ToPrint = printer.carHeader(selectedCar) + printer.printcar(selectedCar,
+                               Properties.Settings.Default.ImperialOrMetric);
+
+            }
+
+            return list;
+        }
+
+        /*Function that will be called when the Overview form opens this page
+         it will take in the list of the users cars, and then recalculate the mpg for the selected cars
+         and returns a CarsToPrint object which is a car list plus a string to print.*/
+        public CarsToPrint RecalculateMPGSelected(IEnumerable<Car> selectedCars, Car selectedCar)
+        {
+            CarsToPrint cars = new CarsToPrint();
+            return cars;
+        }
+
+        /*Function that recalculates an entire list full of cars.*/
+        public IEnumerable<Car> RecalculateCarList(IEnumerable<Car> cars)
+        {
+            /*The class that calculates the cost of the car.*/
+            _12000MilesCostCalculator cost = new _12000MilesCostCalculator();
+
+            foreach(Car car in cars)
+            {
+                try
+                {
+                    car.ActualCostPer12000Miles = cost.CostPer12000Miles(car);
+                } catch (Exception error)
+                {
+                    Console.WriteLine(error.ToString());
+                }
+            }
+
+            return cars;
+        }
+
+        /*Function that recaluclates cost for a single car.*/
+        public Car RecalculateCar(Car car)
+        {
+            /*The class that calculates the cost of the car.*/
+            _12000MilesCostCalculator cost = new _12000MilesCostCalculator();
+
+            try
+            {
+                car.ActualCostPer12000Miles = cost.CostPer12000Miles(car);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.ToString());
+            }
+
+            return car;
+        }
+
         /*Function that sets the setting FuelPrice when the confirm button is clicked
          the function checks if what the user has typed is valid ie. Not negative
          and rounds the number up to the second decimal point if the user has typed something such as
@@ -102,5 +189,21 @@ namespace CarCoster
         {
             label1.Text = ImperialOrMetric.Value.ToString();
         }
+    }
+
+    /*class that will be used by the compare and the addcar form
+     that contains the listed object and the string we want to print*/
+    public class ListedToPrint
+    {
+        public Listed CarList { get; set; }
+        public string ToPrint { get; set; }
+    }
+
+    /*class that will be used by the overview class that contains
+     the list of cars and the new string that we wish to print.*/
+    public class CarsToPrint
+    {
+        public IEnumerable<Car> cars { get; set; }
+        public string ToPrint { get; set; }
     }
 }
