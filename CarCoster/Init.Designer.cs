@@ -138,6 +138,7 @@
             this.ImperialOrMetric.Name = "ImperialOrMetric";
             this.ImperialOrMetric.Size = new System.Drawing.Size(104, 45);
             this.ImperialOrMetric.TabIndex = 12;
+            this.ImperialOrMetric.Scroll += new System.EventHandler(this.ImperialOrMetric_Scroll);
             // 
             // ImperialOrMetricSystem
             // 
@@ -174,7 +175,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Init";
             this.Text = " ";
             this.Load += new System.EventHandler(this.Init_Load);

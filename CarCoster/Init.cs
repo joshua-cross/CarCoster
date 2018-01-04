@@ -31,9 +31,9 @@ namespace CarCoster
                 ConfirmError.SetError(FuelUpDown, "Invalid Fuel Price");
             }
 
-            decimal fuelCost = Math.Round(FuelUpDown.Value, 2);
+            //decimal fuelCost = Math.Round(FuelUpDown.Value, 2);
 
-            Properties.Settings.Default.PetrolPrice = fuelCost;
+            Properties.Settings.Default.PetrolPrice = (double) FuelUpDown.Value;
 
             /*If what the user has typed is less than or equal to 0
              then this is not a valid fuel price so we will display
@@ -43,9 +43,9 @@ namespace CarCoster
                 ConfirmError.SetError(DieselUpDown, "Invalid Fuel Price");
             }
 
-            decimal dieselCost = Math.Round(DieselUpDown.Value, 2);
+            //decimal dieselCost = Math.Round(DieselUpDown.Value, 2);
 
-            Properties.Settings.Default.DieselPrice = dieselCost;
+            Properties.Settings.Default.DieselPrice = (double) DieselUpDown.Value;
 
             /*The value the user has selected
              0 = Imperial
@@ -65,6 +65,8 @@ namespace CarCoster
                 Properties.Settings.Default.ImperialOrMetric = false;
             }
 
+            Properties.Settings.Default.Save();
+
             this.Close();
 
         }
@@ -76,10 +78,29 @@ namespace CarCoster
 
         private void Init_Load(object sender, EventArgs e)
         {
+            double petrolPrice = Properties.Settings.Default.PetrolPrice;
+            double dieselPrice = Properties.Settings.Default.DieselPrice;
+            bool measurementSystem = Properties.Settings.Default.ImperialOrMetric;
+
             /*when the page is loaded ensure that we're displayed the saved
             fuel price.*/
-            FuelUpDown.Value = Properties.Settings.Default.PetrolPrice;
-            DieselUpDown.Value = Properties.Settings.Default.DieselPrice;
+            FuelUpDown.Value = (decimal) Properties.Settings.Default.PetrolPrice;
+            DieselUpDown.Value = (decimal) Properties.Settings.Default.DieselPrice;
+
+            /*If the measurement system is true (imperial) then the value of the up down is 0
+             else the measurement system is false (metric) then the value of the up down is 1.*/
+             if(measurementSystem)
+            {
+                ImperialOrMetric.Value = 0;
+            } else
+            {
+                ImperialOrMetric.Value = 1;
+            }
+        }
+
+        private void ImperialOrMetric_Scroll(object sender, EventArgs e)
+        {
+            label1.Text = ImperialOrMetric.Value.ToString();
         }
     }
 }

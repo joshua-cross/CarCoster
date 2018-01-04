@@ -30,13 +30,13 @@
     <Setting Name="Year" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="PetrolPrice" Type="System.Decimal" Scope="User">
+    <Setting Name="PetrolPrice" GenerateDefaultValueInCode="false" Type="System.Double" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
-    <Setting Name="DieselPrice" Type="System.Decimal" Scope="User">
+    <Setting Name="DieselPrice" GenerateDefaultValueInCode="false" Type="System.Double" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
-    <Setting Name="ImperialOrMetric" Type="System.Boolean" Scope="User">
+    <Setting Name="ImperialOrMetric" GenerateDefaultValueInCode="false" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

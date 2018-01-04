@@ -90,7 +90,7 @@ namespace CarCoster
         /*Returns the cost of fuel per gallon.*/
         private double costPerGallon(double litresInAGallon, string fuelType)
         {
-            decimal costOfFuelPerLitre = 0;
+            double costOfFuelPerLitre = 0;
             /*If the car is petrol then we will get the price of petrol*/
             if (fuelType.Equals("Petrol"))
             {

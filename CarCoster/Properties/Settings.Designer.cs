@@ -125,10 +125,9 @@ namespace CarCoster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public decimal PetrolPrice {
+        public double PetrolPrice {
             get {
-                return ((decimal)(this["PetrolPrice"]));
+                return ((double)(this["PetrolPrice"]));
             }
             set {
                 this["PetrolPrice"] = value;
@@ -137,10 +136,9 @@ namespace CarCoster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public decimal DieselPrice {
+        public double DieselPrice {
             get {
-                return ((decimal)(this["DieselPrice"]));
+                return ((double)(this["DieselPrice"]));
             }
             set {
                 this["DieselPrice"] = value;
@@ -149,7 +147,6 @@ namespace CarCoster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool ImperialOrMetric {
             get {
                 return ((bool)(this["ImperialOrMetric"]));
